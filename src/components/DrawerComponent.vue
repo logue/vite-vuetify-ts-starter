@@ -1,15 +1,8 @@
-<script lang="ts">
-import { defineComponent, Ref, ref } from 'vue';
+<script setup lang="ts">
+import { Ref, ref } from 'vue';
 
-export default defineComponent({
-  setup() {
-    // display drawer menu
-    const items: Ref<Array<Record<string, any>>> = ref([]);
-    return {
-      items,
-    };
-  },
-});
+/** Drawer menu items */
+const items: Ref<Array<Record<string, any>>> = ref([]);
 </script>
 
 <template>
@@ -24,7 +17,7 @@ export default defineComponent({
     </v-list-item>
     <v-divider />
     <div v-for="item in items" :key="item.title">
-      <!-- メニュー項目 -->
+      <!-- Menu Item -->
       <v-list-item v-if="!item.items" :to="item.to" :disabled="!item.to">
         <v-list-item-icon>
           <v-icon v-text="item.icon" />
@@ -33,7 +26,7 @@ export default defineComponent({
           <v-list-item-title v-text="item.title" />
         </v-list-item-content>
       </v-list-item>
-      <!-- サブメニュー -->
+      <!-- Sub menu -->
       <v-list-group
         v-else
         v-model="item.active"
@@ -45,7 +38,7 @@ export default defineComponent({
             <v-list-item-title v-text="item.title" />
           </v-list-item-content>
         </template>
-        <!-- サブメニュー項目 -->
+        <!-- Sub menu item -->
         <v-list-item
           v-for="subItem in item.items"
           :key="subItem.title"

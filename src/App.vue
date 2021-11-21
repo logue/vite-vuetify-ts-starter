@@ -1,3 +1,20 @@
+
+<script setup lang="ts">
+import { Ref, ref } from 'vue';
+import DrawerComponent from './components/DrawerComponent.vue';
+
+/** drawer visibility */
+const drawer: Ref<boolean> = ref(false);
+/** loading overlay visibility */
+const loading: Ref<boolean> = ref(false);
+/** appbar progressbar value */
+const progress: Ref<number | null> = ref(null);
+/**  snackbar visibility */
+const snackbar: Ref<boolean> = ref(false);
+/** snackbar text */
+const snackbarText: Ref<string | null> = ref(null);
+</script>
+
 <template>
   <v-app>
     <v-navigation-drawer v-model="drawer" app>
@@ -49,32 +66,3 @@
     </v-snackbar>
   </v-app>
 </template>
-
-<script lang="ts">
-import { defineComponent, Ref, ref } from 'vue';
-import DrawerComponent from './components/DrawerComponent.vue';
-
-export default defineComponent({
-  components: { DrawerComponent },
-  setup() {
-    // display drawer menu
-    const drawer: Ref<boolean> = ref(false);
-    // display loading overlay
-    const loading: Ref<boolean> = ref(false);
-    // appbar progressbar value
-    const progress: Ref<number | null> = ref(null);
-    // snackbar visibility
-    const snackbar: Ref<boolean> = ref(false);
-    // snackbar text
-    const snackbarText: Ref<string | null> = ref(null);
-
-    return {
-      drawer,
-      loading,
-      progress,
-      snackbar,
-      snackbarText,
-    };
-  },
-});
-</script>
