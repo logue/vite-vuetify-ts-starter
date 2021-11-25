@@ -1,4 +1,6 @@
-// Vuex Store
+/**
+ * Vuex store
+ */
 import {
   ActionContext,
   ActionTree,
@@ -7,54 +9,75 @@ import {
   MutationTree,
   StoreOptions,
 } from 'vuex';
+import ConfigModule from './ConfigModule';
 
-// TODO: State Interface
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
-export interface RootState {
-  /*
-  exampleData: any | null;
-  */
+/** Global state */
+export interface GlobalState {
+  /**  Loading overlay */
+  loading: boolean;
+  /** ProgressBar Percentage */
+  progress: number;
+  /** SnackBar Text */
+  message: string | null;
 }
 
-// State
-const state: RootState = {
-  /*
-  exampleData: null,
-  */
+/** State default value */
+const state: GlobalState = {
+  loading: false,
+  progress: 0,
+  message: null,
 };
 
-// Getters
-const getters: GetterTree<RootState, RootState> = {
-  /*
-  exampleGetter: s => s.exampleData,
-  */
+/** Getters */
+const getters: GetterTree<GlobalState, GlobalState> = {
+  loading: (s): boolean => s.loading,
+  progress: (s): number => s.progress,
+  message: (s): string | null => s.message,
 };
 
-// Mutation
-const mutations: MutationTree<RootState> = {
-  /*
-  exampleMutation(s, payload) {
-    s.exampleData = payload;
+/** Mutations */
+const mutations: MutationTree<GlobalState> = {
+  setLoading(s, display: boolean) {
+    s.loading = display;
   },
-  */
-};
-
-// Action
-const actions: ActionTree<RootState, RootState> = {
-  exampleAction(context: ActionContext<RootState, RootState>, data: any) {
-    // ...
-    context.commit('exampleMutation', data);
+  setProgress(s, progress: number) {
+    // update progress value
+    s.progress = progress;
+    // display loading overlay
+    s.loading = true;
+  },
+  setMessage(s, message: string) {
+    // put snackbar text
+    s.message = message;
   },
 };
 
-// VuexStore
-const store: StoreOptions<RootState> = {
+/** Actions */
+const actions: ActionTree<GlobalState, GlobalState> = {
+  setLoading(
+    context: ActionContext<GlobalState, GlobalState>,
+    display = false
+  ) {
+    context.commit('setLoading', display);
+  },
+  setProgress(context: ActionContext<GlobalState, GlobalState>, progress = 0) {
+    context.commit('setProgress', progress);
+  },
+  setMessage(context: ActionContext<GlobalState, GlobalState>, message = null) {
+    context.commit('setMessage', message);
+  },
+};
+
+/** VuexStore Option */
+const store: StoreOptions<GlobalState> = {
   strict: true,
   state,
   getters,
   mutations,
   actions,
-  modules: {},
+  modules: {
+    ConfigModule,
+  },
   plugins: [
     /*
     new VuexPersistence({

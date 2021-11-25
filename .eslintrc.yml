@@ -9,7 +9,7 @@ extends:
   - plugin:vue/vue3-recommended
   - plugin:prettier-vue/recommended
 parserOptions:
-  ecmaVersion: 13
+  ecmaVersion: latest
   parser: '@typescript-eslint/parser'
   sourceType: module
 plugins:
@@ -17,6 +17,7 @@ plugins:
   - '@typescript-eslint'
   - prettier
 rules: {
+  valid-jsdoc: off,
   vue/html-self-closing: [error,
     html: {
       void: always

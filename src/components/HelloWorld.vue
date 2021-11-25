@@ -4,8 +4,8 @@ import logo from '../assets/logo.svg';
 
 const ecosystem: Ref<Record<string, string>[]> = ref([
   {
-    text: 'vuetify-loader',
-    href: 'https://github.com/vuetifyjs/vuetify-loader',
+    text: '@vuetify/vite-plugin',
+    href: 'https://www.npmjs.com/package/@vuetify/vite-plugin',
   },
   {
     text: 'github',
@@ -39,15 +39,15 @@ const importantLinks: Ref<Record<string, string>[]> = ref([
 const whatsNext: Ref<Record<string, string>[]> = ref([
   {
     text: 'Explore components',
-    href: 'https://vuetifyjs.com',
+    href: 'https://next.vuetifyjs.com/',
   },
   {
     text: 'Roadmap',
-    href: 'https://vuetifyjs.com/introduction/roadmap/',
+    href: 'https://next.vuetifyjs.com/introduction/roadmap/',
   },
   {
     text: 'Frequently Asked Questions',
-    href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions',
+    href: 'https://next.vuetifyjs.com/getting-started/frequently-asked-questions',
   },
 ]);
 </script>

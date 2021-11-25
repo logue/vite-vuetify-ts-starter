@@ -1,22 +1,32 @@
-
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
+import { computed, Ref, ref } from 'vue';
+import { useStore } from 'vuex';
+import AppBarMenuComponent from './components/AppBarMenuComponent.vue';
 import DrawerComponent from './components/DrawerComponent.vue';
+
+/** Vuex */
+const store = useStore();
 
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);
 /** loading overlay visibility */
-const loading: Ref<boolean> = ref(false);
+const loading: Ref<boolean> = computed(() => store.getters.loading);
 /** appbar progressbar value */
-const progress: Ref<number | null> = ref(null);
+const progress: Ref<number | null> = computed(() => store.getters.progress);
 /**  snackbar visibility */
-const snackbar: Ref<boolean> = ref(false);
+const snackbar: Ref<boolean> = computed(() => store.getters.snackbar);
 /** snackbar text */
-const snackbarText: Ref<string | null> = ref(null);
+const snackbarText: Ref<string | null> = computed(
+  () => store.getters.snackbarText
+);
+
+const theme: Ref<string> = computed(() =>
+  store.getters['ConfigModule/themeDark'] ? 'dark' : 'light'
+);
 </script>
 
 <template>
-  <v-app>
+  <v-app :theme="theme">
     <v-navigation-drawer v-model="drawer" app>
       <drawer-component />
     </v-navigation-drawer>
@@ -24,6 +34,8 @@ const snackbarText: Ref<string | null> = ref(null);
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer" />
       <v-app-bar-title>Application</v-app-bar-title>
+      <v-spacer />
+      <app-bar-menu-component class="configbutton" />
       <v-progress-linear
         :active="loading"
         :indeterminate="progress === null"
