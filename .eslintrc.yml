@@ -1,21 +1,22 @@
+root: true
 env:
   browser: true
   es2021: true
 extends:
   - eslint:recommended
-  - google
-  - prettier
   - plugin:@typescript-eslint/eslint-recommended
+  - google
   - plugin:vue/vue3-recommended
   - plugin:prettier-vue/recommended
+  - prettier
+  - eslint-config-prettier
+parser: vue-eslint-parser
 parserOptions:
   ecmaVersion: latest
   parser: '@typescript-eslint/parser'
   sourceType: module
 plugins:
-  - vue
   - '@typescript-eslint'
-  - prettier
 rules: {
   valid-jsdoc: off,
   vue/html-self-closing: [error,

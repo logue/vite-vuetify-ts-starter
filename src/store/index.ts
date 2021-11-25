@@ -9,6 +9,7 @@ import {
   MutationTree,
   StoreOptions,
 } from 'vuex';
+import VuexPersistence from 'vuex-persist';
 import ConfigModule from './ConfigModule';
 
 /** Global state */
@@ -79,13 +80,12 @@ const store: StoreOptions<GlobalState> = {
     ConfigModule,
   },
   plugins: [
-    /*
+    // Save to session storage
     new VuexPersistence({
-      key: 'someNamespace',
+      key: 'app',
       storage: window.sessionStorage,
-      modules: [Target module],
+      modules: ['ConfigModule'],
     }).plugin,
-    */
   ],
 };
 
