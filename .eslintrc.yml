@@ -17,6 +17,7 @@ parserOptions:
   sourceType: module
 plugins:
   - '@typescript-eslint'
+  - vuejs-accessibility
 rules: {
   valid-jsdoc: off,
   vue/html-self-closing: [error,

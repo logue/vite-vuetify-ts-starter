@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vuetify from '@vuetify/vite-plugin';
 import eslintPlugin from 'vite-plugin-eslint';
+import viteStylelint from '@amatlash/vite-plugin-stylelint';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,6 +13,7 @@ export default defineConfig({
       autoImport: true,
     }),
     eslintPlugin(),
+    viteStylelint(),
   ],
   define: { 'process.env': {} },
   /*
