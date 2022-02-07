@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed, Ref, ref } from 'vue';
 import { useStore } from 'vuex';
-import AppBarMenuComponent from './components/AppBarMenuComponent.vue';
-import DrawerComponent from './components/DrawerComponent.vue';
+import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
+import DrawerComponent from '@/components/DrawerComponent.vue';
 
 /** Vuex */
 const store = useStore();
@@ -13,13 +13,13 @@ const drawer: Ref<boolean> = ref(false);
 const loading: Ref<boolean> = computed(() => store.getters.loading);
 /** appbar progressbar value */
 const progress: Ref<number | null> = computed(() => store.getters.progress);
-/**  snackbar visibility */
+/**  snackbar visibility * /
 const snackbar: Ref<boolean> = computed(() => store.getters.snackbar);
-/** snackbar text */
+/** snackbar text * /
 const snackbarText: Ref<string | null> = computed(
   () => store.getters.snackbarText
 );
-
+*/
 const theme: Ref<string> = computed(() =>
   store.getters['ConfigModule/themeDark'] ? 'dark' : 'light'
 );
@@ -48,14 +48,12 @@ const theme: Ref<string> = computed(() =>
 
     <v-main>
       <router-view v-slot="{ Component }">
-        <v-fade-transition mode="out-in">
-          <component :is="Component" />
-        </v-fade-transition>
+        <component :is="Component" />
       </router-view>
     </v-main>
 
-    <v-footer app>
-      <span class="mr-5">2021 &copy;</span>
+    <v-footer app elevation="1">
+      <span class="mr-5">2022 &copy;</span>
       <v-spacer />
     </v-footer>
 
@@ -63,7 +61,7 @@ const theme: Ref<string> = computed(() =>
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 
-    <v-snackbar
+    <!--v-snackbar
       v-model="snackbar"
       app
       timeout="5000"
@@ -75,6 +73,6 @@ const theme: Ref<string> = computed(() =>
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </template>
-    </v-snackbar>
+    </v-snackbar-->
   </v-app>
 </template>

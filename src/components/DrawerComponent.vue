@@ -2,30 +2,27 @@
 import { Ref, ref } from 'vue';
 
 /** Drawer menu items */
-const items: Ref<Array<Record<string, any>>> = ref([]);
+const items: Ref<Array<Record<string, any>>> = ref([
+  {
+    title: 'Test',
+    icon: 'mdi-flower',
+  },
+]);
 </script>
 
 <template>
   <v-list>
-    <v-list-item link to="/">
-      <v-list-item-icon>
-        <v-icon>mdi-home</v-icon>
-      </v-list-item-icon>
-      <v-list-item-content>
-        <v-list-item-title>Home</v-list-item-title>
-      </v-list-item-content>
-    </v-list-item>
+    <v-list-item link to="/" prepend-icon="mdi-home">Home</v-list-item>
     <v-divider />
     <div v-for="item in items" :key="item.title">
       <!-- Menu Item -->
-      <v-list-item v-if="!item.items" :to="item.to" :disabled="!item.to">
-        <v-list-item-icon>
-          <v-icon v-text="item.icon" />
-        </v-list-item-icon>
-        <v-list-item-content>
-          <v-list-item-title v-text="item.title" />
-        </v-list-item-content>
-      </v-list-item>
+      <v-list-item
+        v-if="!item.items"
+        :to="item.to"
+        :disabled="!item.to"
+        :prepend-icon="item.icon"
+        v-text="item.title"
+      />
       <!-- Sub menu -->
       <v-list-group
         v-else
@@ -34,9 +31,7 @@ const items: Ref<Array<Record<string, any>>> = ref([]);
         no-action
       >
         <template #activator>
-          <v-list-item-content>
-            <v-list-item-title v-text="item.title" />
-          </v-list-item-content>
+          <v-list-item :prepend-icon="item.icon" v-text="item.title" />
         </template>
         <!-- Sub menu item -->
         <v-list-item
@@ -44,15 +39,10 @@ const items: Ref<Array<Record<string, any>>> = ref([]);
           :key="subItem.title"
           :to="subItem.to"
           :disabled="!subItem.to"
+          :prepend-icon="subItem.icon"
+          v-text="subItem.title"
           link
-        >
-          <v-list-item-icon v-if="subItem.icon">
-            <v-icon v-text="subItem.icon" />
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title v-text="subItem.title" />
-          </v-list-item-content>
-        </v-list-item>
+        />
       </v-list-group>
     </div>
   </v-list>

@@ -53,7 +53,7 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
 </script>
 
 <template>
-  <v-container>
+  <v-layout>
     <v-row class="text-center">
       <v-col cols="12">
         <v-img :src="logo" class="my-3" contain height="200" />
@@ -124,5 +124,5 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
         </v-row>
       </v-col>
     </v-row>
-  </v-container>
+  </v-layout>
 </template>
