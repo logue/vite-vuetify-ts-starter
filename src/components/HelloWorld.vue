@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import { Ref, ref } from 'vue';
-import logo from '../assets/logo.svg';
+
+import MetaInterface from '@/interfaces/MetaInterface';
+import Meta from '@/Meta';
+import logo from '@/assets/logo.svg';
+
+/** Meta information */
+const meta: MetaInterface = Meta;
 
 const ecosystem: Ref<Record<string, string>[]> = ref([
   {
@@ -53,7 +59,7 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
 </script>
 
 <template>
-  <v-layout>
+  <v-container>
     <v-row class="text-center">
       <v-col cols="12">
         <v-img :src="logo" class="my-3" contain height="200" />
@@ -63,6 +69,13 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
         <h1 class="display-2 font-weight-bold mb-3">
           <div>Welcome to the Vuetify 3 Alpha</div>
         </h1>
+        <p>
+          Build:
+          <time
+            :datetime="meta.date"
+            v-text="new Date(meta.date).toLocaleString()"
+          />
+        </p>
 
         <small>Vite Preview</small>
 
@@ -124,5 +137,5 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
         </v-row>
       </v-col>
     </v-row>
-  </v-layout>
+  </v-container>
 </template>

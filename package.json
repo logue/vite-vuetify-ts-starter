@@ -2,14 +2,14 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "vite-vuetify-ts-starter",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "clean": "rimraf ./node_modules/.vite",
     "build": "vite build",
     "build:clean": "rimraf dist",
-    "lint": "eslint . --fix --cache && prettier . --write",
-    "lint:style": "stylelint **/*.{css,sass,scss,htm,html,vue} --fix --cache",
+    "lint": "eslint . --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint && prettier . --write",
+    "lint:style": "stylelint \"./**/*.{css,sass,scss,htm,html,vue}\" --fix --cache-location ./node_modules/.vite/vite-plugin-stylelint",
     "lint:markup": "vue-tsc --noEmit",
     "preview": "vite preview",
     "prepare": "husky install"
@@ -26,13 +26,11 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@amatlash/vite-plugin-stylelint": "^1.2.0",
-    "@types/node": "^17.0.15",
+    "@types/node": "^17.0.17",
     "@types/webfontloader": "^1.6.34",
-    "@typescript-eslint/eslint-plugin": "^5.10.2",
-    "@typescript-eslint/parser": "^5.10.2",
-    "@vitejs/plugin-vue": "^2.1.0",
-    "@vue/compiler-sfc": "^3.2.30",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "@vitejs/plugin-vue": "^2.2.0",
     "@vue/eslint-config-typescript": "^10.0.0",
     "@vuetify/vite-plugin": "^1.0.0-alpha.10",
     "eslint": "^8.8.0",
@@ -43,6 +41,7 @@
     "eslint-plugin-tsdoc": "^0.2.14",
     "eslint-plugin-vue": "^8.4.1",
     "eslint-plugin-vuejs-accessibility": "^1.1.1",
+    "eslint-plugin-vuetify": "^1.1.0",
     "eslint-plugin-yaml": "^0.5.0",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.3",
@@ -50,17 +49,17 @@
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
     "sass": "^1.49.7",
-    "stylelint": "^14.3.0",
+    "stylelint": "^14.5.0",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-recommended-scss": "^5.0.2",
-    "stylelint-config-recommended-vue": "^1.1.0",
-    "stylelint-config-standard": "^24.0.0",
+    "stylelint-config-recommended-vue": "^1.3.0",
     "stylelint-config-standard-scss": "^3.0.0",
     "stylelint-order": "^5.0.0",
     "stylelint-prettier": "^2.0.0",
     "typescript": "^4.5.5",
-    "vite": "^2.7.13",
+    "vite": "^2.8.1",
     "vite-plugin-eslint": "^1.3.0",
+    "vite-plugin-stylelint": "^1.1.2",
     "vue-eslint-parser": "^8.2.0",
     "vue-tsc": "^0.31.2"
   },
@@ -71,11 +70,11 @@
   },
   "lint-staged": {
     "*.{vue,htm,html}": [
-      "eslint --fix --cache",
-      "stylelint --fix --cache"
+      "eslint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint",
+      "stylelint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-stylelint"
     ],
-    "*.{js,jsx,ts,tsx,json,yml,yaml,htm,html}": "eslint --fix --cache",
-    "*.{css,sass,scss,htm,html}": "stylelint --fix --cache",
+    "*.{js,ts,json,yml,yaml,htm,html}": "eslint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint",
+    "*.{css,sass,scss,htm,html}": "stylelint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-stylelint",
     "*": "prettier -w -u"
   }
 }

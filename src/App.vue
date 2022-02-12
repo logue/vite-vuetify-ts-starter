@@ -36,14 +36,14 @@ const theme: Ref<string> = computed(() =>
       <v-app-bar-title>Application</v-app-bar-title>
       <v-spacer />
       <app-bar-menu-component class="configbutton" />
-      <v-progress-linear
+      <!--v-progress-linear
         :active="loading"
         :indeterminate="progress === null"
         :value="progress"
         absolute
         bottom
         color="blue accent-3"
-      />
+      /-->
     </v-app-bar>
 
     <v-main>

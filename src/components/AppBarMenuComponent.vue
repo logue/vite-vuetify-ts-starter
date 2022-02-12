@@ -5,10 +5,8 @@ const store = useStore();
 </script>
 
 <template>
-  <div class="v-flex">
-    <!-- Toggle Dark mode -->
-    <v-btn icon @click="store.dispatch('ConfigModule/toggleTheme')">
-      <v-icon>>mdi-invert-colors</v-icon>
-    </v-btn>
-  </div>
+  <!-- Toggle Dark mode -->
+  <v-btn icon @click="store.dispatch('ConfigModule/toggleTheme')">
+    <v-icon>mdi-invert-colors</v-icon>
+  </v-btn>
 </template>

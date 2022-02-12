@@ -4,15 +4,18 @@ import { Ref, ref } from 'vue';
 /** Drawer menu items */
 const items: Ref<Array<Record<string, any>>> = ref([
   {
-    title: 'Test',
+    title: 'About',
     icon: 'mdi-flower',
+    to: { name: 'About' },
   },
 ]);
 </script>
 
 <template>
   <v-list>
-    <v-list-item link to="/" prepend-icon="mdi-home">Home</v-list-item>
+    <v-list-item link :to="{ name: 'Home' }" prepend-icon="mdi-home">
+      Home
+    </v-list-item>
     <v-divider />
     <div v-for="item in items" :key="item.title">
       <!-- Menu Item -->
@@ -21,6 +24,7 @@ const items: Ref<Array<Record<string, any>>> = ref([
         :to="item.to"
         :disabled="!item.to"
         :prepend-icon="item.icon"
+        link
         v-text="item.title"
       />
       <!-- Sub menu -->
@@ -40,8 +44,8 @@ const items: Ref<Array<Record<string, any>>> = ref([
           :to="subItem.to"
           :disabled="!subItem.to"
           :prepend-icon="subItem.icon"
-          v-text="subItem.title"
           link
+          v-text="subItem.title"
         />
       </v-list-group>
     </div>

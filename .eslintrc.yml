@@ -10,10 +10,12 @@ extends:
   - plugin:prettier-vue/recommended
   - prettier
   - plugin:yaml/recommended
+  # - plugin:vuetify/base
   - eslint-config-prettier
 plugins:
   - vue
   - prettier
+  # - vuetify
   - yaml
   - eslint-plugin-tsdoc
   - '@typescript-eslint'

@@ -71,7 +71,7 @@ const actions: ActionTree<GlobalState, GlobalState> = {
 
 /** VuexStore Option */
 const store: StoreOptions<GlobalState> = {
-  strict: true,
+  strict: import.meta.env.DEV,
   state,
   getters,
   mutations,
@@ -82,7 +82,7 @@ const store: StoreOptions<GlobalState> = {
   plugins: [
     // Save to session storage
     new VuexPersistence({
-      key: 'app',
+      key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE || 'vuex',
       storage: window.sessionStorage,
       modules: ['ConfigModule'],
     }).plugin,
