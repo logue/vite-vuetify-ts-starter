@@ -1,7 +1,10 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
-import Home from '@/views/Home.vue';
-import About from '@/views/About.vue';
+import { createRouter, createWebHashHistory } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
 
+import About from '@/views/About.vue';
+import Home from '@/views/Home.vue';
+
+/** Router Rules */
 const routes: RouteRecordRaw[] = [
   {
     path: '/',

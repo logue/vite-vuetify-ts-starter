@@ -1,6 +1,6 @@
 extends:
   - stylelint-config-html/vue
-  - stylelint-config-standard-scss
+  - stylelint-config-recommended-scss
   - stylelint-config-recommended-vue/scss
   - stylelint-config-prettier
 plugins:
@@ -12,5 +12,6 @@ ignoreFiles:
 rules:
   prettier/prettier: true
   color-function-notation: legacy
-  scss/no-global-function-names: null
   function-no-unknown: null
+  scss/no-global-function-names: null
+  no-descending-specificity: null

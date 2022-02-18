@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
+import type { Ref } from 'vue';
+import { ref } from 'vue';
 
-import MetaInterface from '@/interfaces/MetaInterface';
-import Meta from '@/Meta';
+import type MetaInterface from '@/interfaces/MetaInterface';
 import logo from '@/assets/logo.svg';
+import Meta from '@/Meta';
 
 /** Meta information */
 const meta: MetaInterface = Meta;

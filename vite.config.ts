@@ -1,8 +1,9 @@
-import { defineConfig, UserConfig } from 'vite';
-import vue from '@vitejs/plugin-vue';
-import vuetify from '@vuetify/vite-plugin';
-import eslintPlugin from 'vite-plugin-eslint';
 import stylelintPlugin from 'vite-plugin-stylelint';
+import eslintPlugin from 'vite-plugin-eslint';
+import vuetify from '@vuetify/vite-plugin';
+import type { UserConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import { defineConfig } from 'vite';
 import path from 'path';
 import fs from 'fs';
 

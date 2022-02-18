@@ -6,10 +6,12 @@
 import { createApp } from 'vue';
 import router from './router';
 import store from './store';
+
 // Load Vuetify
-import vuetify from './plugins/vuetify';
 import { loadFonts } from './plugins/webfontloader';
+import vuetify from './plugins/vuetify';
 loadFonts();
+
 // Load Layout vue.
 import App from './App.vue';
 

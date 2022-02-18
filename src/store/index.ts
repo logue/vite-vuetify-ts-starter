@@ -1,15 +1,16 @@
 /**
  * Vuex store
  */
-import {
+import type {
   ActionContext,
   ActionTree,
-  createStore,
   GetterTree,
   MutationTree,
   StoreOptions,
 } from 'vuex';
 import VuexPersistence from 'vuex-persist';
+import { createStore } from 'vuex';
+
 import ConfigModule from './ConfigModule';
 
 /** Global state */

@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { computed, Ref, ref } from 'vue';
+import { computed, ref } from 'vue';
 import { useStore } from 'vuex';
+import type { Ref } from 'vue';
+
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
 

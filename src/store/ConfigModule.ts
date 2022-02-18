@@ -1,4 +1,4 @@
-import {
+import type {
   Module,
   MutationTree,
   ActionTree,
@@ -6,7 +6,7 @@ import {
   GetterTree,
 } from 'vuex';
 
-import { GlobalState } from '.';
+import type { GlobalState } from '.';
 
 /** Config State */
 export interface ConfigState {

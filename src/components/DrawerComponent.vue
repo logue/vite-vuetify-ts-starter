@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { Ref, ref } from 'vue';
+import type { Ref } from 'vue';
+import { ref } from 'vue';
 
 /** Drawer menu items */
 const items: Ref<Array<Record<string, any>>> = ref([
