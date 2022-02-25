@@ -14,7 +14,7 @@ const drawer: Ref<boolean> = ref(false);
 /** loading overlay visibility */
 const loading: Ref<boolean> = computed(() => store.getters.loading);
 /** appbar progressbar value */
-const progress: Ref<number | null> = computed(() => store.getters.progress);
+// const progress: Ref<number | null> = computed(() => store.getters.progress);
 /**  snackbar visibility * /
 const snackbar: Ref<boolean> = computed(() => store.getters.snackbar);
 /** snackbar text * /
@@ -29,7 +29,7 @@ const theme: Ref<string> = computed(() =>
 
 <template>
   <v-app :theme="theme">
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" absolute temporary app>
       <drawer-component />
     </v-navigation-drawer>
 
@@ -54,11 +54,6 @@ const theme: Ref<string> = computed(() =>
       </router-view>
     </v-main>
 
-    <v-footer app elevation="1">
-      <span class="mr-5">2022 &copy;</span>
-      <v-spacer />
-    </v-footer>
-
     <v-overlay v-model="loading" app>
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
@@ -76,5 +71,8 @@ const theme: Ref<string> = computed(() =>
         </v-btn>
       </template>
     </v-snackbar-->
+    <v-footer app elevation="1">
+      <span class="mr-5">2022 &copy;</span>
+    </v-footer>
   </v-app>
 </template>

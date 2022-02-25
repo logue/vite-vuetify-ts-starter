@@ -6,37 +6,38 @@ import { ref } from 'vue';
 const items: Ref<Array<Record<string, any>>> = ref([
   {
     title: 'About',
-    icon: 'mdi-flower',
+    icon: 'mdi-information',
     to: { name: 'About' },
   },
 ]);
 </script>
 
 <template>
-  <v-list>
-    <v-list-item link :to="{ name: 'Home' }" prepend-icon="mdi-home">
-      Home
+  <v-list nav dense density="compact">
+    <v-list-item link :to="{ name: 'Home' }">
+      <v-list-item-avatar left>
+        <v-icon>mdi-home</v-icon>
+      </v-list-item-avatar>
+      <v-list-item-title>Home</v-list-item-title>
     </v-list-item>
     <v-divider />
     <div v-for="item in items" :key="item.title">
       <!-- Menu Item -->
-      <v-list-item
-        v-if="!item.items"
-        :to="item.to"
-        :disabled="!item.to"
-        :prepend-icon="item.icon"
-        link
-        v-text="item.title"
-      />
+      <v-list-item v-if="!item.items" :to="item.to" :disabled="!item.to" link>
+        <v-list-item-avatar v-if="item.icon" left>
+          <v-icon>{{ item.icon }}</v-icon>
+        </v-list-item-avatar>
+        <v-list-item-title v-text="item.title" />
+      </v-list-item>
       <!-- Sub menu -->
-      <v-list-group
-        v-else
-        v-model="item.active"
-        :prepend-icon="item.icon"
-        no-action
-      >
+      <v-list-group v-else v-model="item.active" no-action>
         <template #activator>
-          <v-list-item :prepend-icon="item.icon" v-text="item.title" />
+          <v-list-item link>
+            <v-list-item-avatar v-if="item.icon" left>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-avatar>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item>
         </template>
         <!-- Sub menu item -->
         <v-list-item
@@ -44,10 +45,13 @@ const items: Ref<Array<Record<string, any>>> = ref([
           :key="subItem.title"
           :to="subItem.to"
           :disabled="!subItem.to"
-          :prepend-icon="subItem.icon"
           link
-          v-text="subItem.title"
-        />
+        >
+          <v-list-item-avatar v-if="item.icon" left>
+            <v-icon v-text="subItem.icon" />
+          </v-list-item-avatar>
+          <v-list-item-title v-text="subItem.title" />
+        </v-list-item>
       </v-list-group>
     </div>
   </v-list>
