@@ -1,4 +1,4 @@
-import { defineConfig, type UserConfig } from 'vite';
+import { type ConfigEnv, defineConfig, type UserConfig } from 'vite';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import eslintPlugin from 'vite-plugin-eslint';
 import vuetify from '@vuetify/vite-plugin';
@@ -88,9 +88,9 @@ const config: UserConfig = {
 };
 
 // Export vite config
-export default defineConfig(async ({ command }): Promise<UserConfig> => {
+export default defineConfig(async (_args: ConfigEnv): Promise<UserConfig> => {
   // Hook production build.
-  // if (command === 'build') {
+  // if (_args.command === 'build') {
   // Write meta data.
   fs.writeFileSync(
     path.resolve(path.join(__dirname, 'src/Meta.ts')),

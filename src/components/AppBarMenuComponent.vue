@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { useStore } from 'vuex';
-/** Vuex */
-const store = useStore();
+import ConfigStore from '@/store/ConfigStore';
+
+/** Config Store */
+const configStore = ConfigStore();
 </script>
 
 <template>
   <!-- Toggle Dark mode -->
-  <v-btn icon @click="store.dispatch('ConfigModule/toggleTheme')">
+  <v-btn icon @click="configStore.toggleTheme">
     <v-icon>mdi-invert-colors</v-icon>
   </v-btn>
 </template>

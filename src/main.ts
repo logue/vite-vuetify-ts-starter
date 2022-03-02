@@ -8,12 +8,18 @@ import router from './router';
 import store from './store';
 
 // Load Vuetify
-import { loadFonts } from './plugins/webfontloader';
 import vuetify from './plugins/vuetify';
-loadFonts();
 
 // Load Layout vue.
 import App from './App.vue';
 
+/** Register Vue */
+const vue = createApp(App);
+vue.use(router);
+vue.use(store);
+vue.use(vuetify);
+
 // Run!
-createApp(App).use(router).use(store).use(vuetify).mount('#app');
+router.isReady().then(() => {
+  vue.mount('#app');
+});

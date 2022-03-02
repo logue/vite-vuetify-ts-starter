@@ -1,29 +1,32 @@
 <script setup lang="ts">
+import GlobalStore from '@/store/GlobalStore';
 import { computed, ref } from 'vue';
-import { useStore } from 'vuex';
 import type { Ref } from 'vue';
 
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
+import ConfigStore from './store/ConfigStore';
 
-/** Vuex */
-const store = useStore();
+/** Global Store */
+const globalStore = GlobalStore();
+/** Config Store */
+const configStore = ConfigStore();
 
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);
 /** loading overlay visibility */
-const loading: Ref<boolean> = computed(() => store.getters.loading);
+const loading: Ref<boolean> = computed(() => globalStore.loading);
 /** appbar progressbar value */
-// const progress: Ref<number | null> = computed(() => store.getters.progress);
+// const progress: Ref<number | null> = computed(() => globalStore.progress);
 /**  snackbar visibility * /
-const snackbar: Ref<boolean> = computed(() => store.getters.snackbar);
+const snackbar: Ref<boolean> = computed(() => globalStore.snackbar);
 /** snackbar text * /
 const snackbarText: Ref<string | null> = computed(
-  () => store.getters.snackbarText
+  () => globalStore.snackbarText
 );
 */
 const theme: Ref<string> = computed(() =>
-  store.getters['ConfigModule/themeDark'] ? 'dark' : 'light'
+  configStore.themeDark ? 'dark' : 'light'
 );
 </script>
 
