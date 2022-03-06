@@ -8,7 +8,7 @@
     "clean": "rimraf ./node_modules/.vite",
     "build": "vite build",
     "build:clean": "rimraf dist",
-    "lint": "eslint . --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint && prettier . --write",
+    "lint": "eslint . --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint && prettier . -w -u",
     "lint:style": "stylelint \"./**/*.{css,sass,scss,htm,html,vue}\" --fix --cache-location ./node_modules/.vite/vite-plugin-stylelint",
     "lint:markup": "vue-tsc --noEmit",
     "preview": "vite preview",
@@ -17,12 +17,12 @@
   "dependencies": {
     "@mdi/font": "6.5.95",
     "pinia": "^2.0.11",
-    "pinia-plugin-persistedstate": "^1.2.3",
+    "pinia-plugin-persistedstate": "^1.4.0",
     "vue": "^3.2.31",
     "vue-class-component": "^8.0.0-rc.1",
     "vue-property-decorator": "^10.0.0-rc.3",
     "vue-router": "^4.0.13",
-    "vuetify": "^3.0.0-alpha.13",
+    "vuetify": "npm:@vuetify/nightly@next",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "@vuetify/vite-plugin": "^1.0.0-alpha.10",
     "eslint": "^8.10.0",
     "eslint-config-google": "^0.14.0",
-    "eslint-config-prettier": "^8.4.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-import-resolver-alias": "^1.1.2",
     "eslint-import-resolver-typescript": "^2.5.0",
     "eslint-plugin-import": "^2.25.4",
@@ -44,10 +44,9 @@
     "eslint-plugin-tsdoc": "^0.2.14",
     "eslint-plugin-vue": "^8.5.0",
     "eslint-plugin-vuejs-accessibility": "^1.1.1",
-    "eslint-plugin-vuetify": "^1.1.0",
     "eslint-plugin-yaml": "^0.5.0",
     "husky": "^7.0.4",
-    "lint-staged": "^12.3.4",
+    "lint-staged": "^12.3.5",
     "postcss-html": "^1.3.0",
     "prettier": "^2.5.1",
     "prettier-plugin-jsdoc": "^0.3.30",
@@ -74,8 +73,9 @@
     }
   },
   "lint-staged": {
-    "*.{vue,htm,html,js,ts,json,yml,yaml}": "eslint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint",
-    "*.{vue,htm,html,css,sass,scss}": "stylelint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-stylelint",
+    "*.vue": "vue-tsc --noEmit",
+    "*.{js,ts,json,yml,yaml,vue,htm,html}": "eslint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint",
+    "*.{css,sass,scss,vue,htm,html}": "stylelint --fix --cache --cache-location ./node_modules/.vite/vite-plugin-stylelint",
     "*": "prettier -w -u"
   }
 }

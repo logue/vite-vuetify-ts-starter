@@ -53,6 +53,18 @@ const config: UserConfig = {
     // https://github.com/vbenjs/vite-plugin-compression
     // viteCompression(),
   ],
+  css: {
+    // https://vitejs.dev/config/#css-preprocessoroptions
+    preprocessorOptions: {
+      sass: {
+        additionalData: [
+          // vuetify variable overrides
+          '@import "@/styles/variables.scss"',
+          '',
+        ].join('\n'),
+      },
+    },
+  },
   // Build Options
   // https://vitejs.dev/config/#build-options
   build: {

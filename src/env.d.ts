@@ -15,6 +15,7 @@ interface ImportMetaEnv {
   readonly VITE_APP_WEBSTORAGE_NAMESPACE: string;
 }
 
+// eslint-disable-next-line no-unused-vars
 interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
