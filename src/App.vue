@@ -49,14 +49,17 @@ watch(
       <v-app-bar-title tag="h1">Application</v-app-bar-title>
       <v-spacer />
       <app-bar-menu-component />
-      <!--v-progress-linear
+      <!--
+      <v-progress-linear
+        v-show="loading"
         :active="loading"
         :indeterminate="progress === null"
         :value="progress"
         absolute
         bottom
         color="blue accent-3"
-      /-->
+      />
+      -->
     </v-app-bar>
 
     <v-main>

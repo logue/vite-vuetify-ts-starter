@@ -50,11 +50,11 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
   },
   {
     text: 'Roadmap',
-    href: 'https://next.vuetifyjs.com/introduction/roadmap/',
+    href: 'https://next.vuetifyjs.com/en/introduction/roadmap/',
   },
   {
     text: 'Frequently Asked Questions',
-    href: 'https://next.vuetifyjs.com/getting-started/frequently-asked-questions',
+    href: 'https://next.vuetifyjs.com/en/getting-started/installation/#frequently-asked-questions',
   },
 ]);
 </script>
@@ -68,7 +68,7 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          <div>Welcome to the Vuetify 3 Alpha</div>
+          <div>Welcome to the Vuetify 3 Beta</div>
         </h1>
         <p>
           Build:

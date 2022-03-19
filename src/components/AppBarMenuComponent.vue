@@ -8,6 +8,6 @@ const configStore = ConfigStore();
 <template>
   <!-- Toggle Dark mode -->
   <v-btn icon @click="configStore.toggleTheme">
-    <v-icon>mdi-invert-colors</v-icon>
+    <v-icon>mdi-theme-light-dark</v-icon>
   </v-btn>
 </template>

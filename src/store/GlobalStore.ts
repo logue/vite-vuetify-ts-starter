@@ -5,7 +5,7 @@ type GlobalState = {
   /**  Loading overlay */
   _loading: boolean;
   /** ProgressBar Percentage */
-  _progress: number;
+  _progress: number | null;
   /** SnackBar Text */
   _message: string | null;
 };
@@ -15,7 +15,7 @@ export default defineStore('global', {
   // Default Global State
   state: (): GlobalState => ({
     _loading: false,
-    _progress: 0,
+    _progress: null,
     _message: null,
   }),
   // Getters
@@ -25,7 +25,7 @@ export default defineStore('global', {
       return s._loading;
     },
     /** Loadig progress value */
-    progress(s): number {
+    progress(s): number | null {
       s._loading = true;
       return s._progress;
     },
@@ -41,7 +41,7 @@ export default defineStore('global', {
       this._loading = display;
     },
     /** Update progress value */
-    setProgress(progress: number) {
+    setProgress(progress: number | null) {
       // update progress value
       this._progress = progress;
       // display loading overlay
