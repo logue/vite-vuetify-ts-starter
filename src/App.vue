@@ -1,11 +1,13 @@
 <script setup lang="ts">
-import GlobalStore from '@/store/GlobalStore';
-import { computed, ref, watch } from 'vue';
-import type { Ref } from 'vue';
+import { computed, ref, watch, type Ref } from 'vue';
 
+// Components
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
 import ConfigStore from './store/ConfigStore';
+
+// Stores
+import GlobalStore from '@/store/GlobalStore';
 
 /** Global Store */
 const globalStore = GlobalStore();
@@ -40,7 +42,7 @@ watch(
 
 <template>
   <v-app :theme="theme">
-    <v-navigation-drawer v-model="drawer" absolute temporary app>
+    <v-navigation-drawer v-model="drawer" temporary app>
       <drawer-component />
     </v-navigation-drawer>
 
@@ -85,6 +87,7 @@ watch(
         </v-btn>
       </template>
     </v-snackbar>
+
     <v-footer app elevation="1">
       <span class="mr-5">2022 &copy;</span>
     </v-footer>
@@ -116,6 +119,12 @@ html {
   border-radius: 0.5rem;
   background-color: map-get($grey, 'base');
   box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+// Fixed a bug that the theme color is interrupted when scrolling
+.v-application {
+  height: 100vh;
+  overflow-y: auto;
 }
 
 /*

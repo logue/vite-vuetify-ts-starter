@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { Ref } from 'vue';
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 
 import type MetaInterface from '@/interfaces/MetaInterface';
 import logo from '@/assets/logo.svg';
@@ -50,11 +49,11 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
   },
   {
     text: 'Roadmap',
-    href: 'https://next.vuetifyjs.com/en/introduction/roadmap/',
+    href: 'https://next.vuetifyjs.com/introduction/roadmap/',
   },
   {
     text: 'Frequently Asked Questions',
-    href: 'https://next.vuetifyjs.com/en/getting-started/installation/#frequently-asked-questions',
+    href: 'https://next.vuetifyjs.com/getting-started/installation/#frequently-asked-questions',
   },
 ]);
 </script>
