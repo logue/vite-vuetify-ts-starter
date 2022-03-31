@@ -1,6 +1,6 @@
 import { type ConfigEnv, defineConfig, type UserConfig } from 'vite';
+import eslintPlugin from '@modyqyw/vite-plugin-eslint';
 import stylelintPlugin from 'vite-plugin-stylelint';
-import eslintPlugin from 'vite-plugin-eslint';
 import vuetify from '@vuetify/vite-plugin';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
@@ -40,7 +40,7 @@ const config: UserConfig = {
       autoImport: true,
     }),
     // eslint
-    // https://github.com/gxmari007/vite-plugin-eslint
+    // https://github.com/ModyQyW/vite-plugin-eslint
     eslintPlugin({
       fix: true,
     }),
