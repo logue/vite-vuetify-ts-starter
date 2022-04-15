@@ -1,5 +1,5 @@
-import { type ConfigEnv, defineConfig, type UserConfig } from 'vite';
 import eslintPlugin from '@modyqyw/vite-plugin-eslint';
+import { defineConfig, type UserConfig } from 'vite';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import vuetify from '@vuetify/vite-plugin';
 import vue from '@vitejs/plugin-vue';
@@ -10,6 +10,7 @@ import fs from 'fs';
 const config: UserConfig = {
   // https://vitejs.dev/config/#base
   base: '/',
+  // Resolver
   resolve: {
     // https://vitejs.dev/config/#resolve-alias
     alias: [
@@ -41,14 +42,10 @@ const config: UserConfig = {
     }),
     // eslint
     // https://github.com/ModyQyW/vite-plugin-eslint
-    eslintPlugin({
-      fix: true,
-    }),
+    eslintPlugin(),
     // Stylelint
     // https://github.com/ModyQyW/vite-plugin-stylelint
-    stylelintPlugin({
-      fix: true,
-    }),
+    stylelintPlugin(),
     // compress assets
     // https://github.com/vbenjs/vite-plugin-compression
     // viteCompression(),
@@ -73,6 +70,7 @@ const config: UserConfig = {
         plugins: [
           /*
           // if you use Code encryption by rollup-plugin-obfuscator
+          // https://github.com/getkey/rollup-plugin-obfuscator
           obfuscator({
             globalOptions: {
               debugProtection: true,
@@ -100,9 +98,9 @@ const config: UserConfig = {
 };
 
 // Export vite config
-export default defineConfig(async (_args: ConfigEnv): Promise<UserConfig> => {
+export default defineConfig(async ({ command }): Promise<UserConfig> => {
   // Hook production build.
-  // if (_args.command === 'build') {
+  // if (command === 'build') {
   // Write meta data.
   fs.writeFileSync(
     path.resolve(path.join(__dirname, 'src/Meta.ts')),

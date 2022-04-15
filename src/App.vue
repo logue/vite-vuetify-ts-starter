@@ -1,30 +1,33 @@
 <script setup lang="ts">
-import { computed, ref, watch, type Ref } from 'vue';
+import { computed, onMounted, ref, watch, type Ref } from 'vue';
 
 // Components
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
-import ConfigStore from './store/ConfigStore';
 
 // Stores
 import GlobalStore from '@/store/GlobalStore';
+import ConfigStore from '@/store/ConfigStore';
 
 /** Global Store */
 const globalStore = GlobalStore();
 /** Config Store */
 const configStore = ConfigStore();
 
+/** Title */
+const title = import.meta.env.VITE_APP_TITLE || 'Vuetify Application';
+
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);
 /** loading overlay visibility */
 const loading: Ref<boolean> = computed(() => globalStore.loading);
-/** appbar progressbar value */
+/** Appbar progressbar value */
 // const progress: Ref<number | null> = computed(() => globalStore.progress);
-/**  snackbar visibility */
+/** Snackbar visibility */
 const snackbar: Ref<boolean> = ref(false);
-/** snackbar text */
+/** Snackbar text */
 const snackbarText: Ref<string | null> = computed(() => globalStore.message);
-
+/** Toggle Dark mode */
 const theme: Ref<string> = computed(() =>
   configStore.themeDark ? 'dark' : 'light'
 );
@@ -38,6 +41,8 @@ watch(
     }
   }
 );
+
+onMounted(() => (document.title = title));
 </script>
 
 <template>
@@ -48,7 +53,7 @@ watch(
 
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer" />
-      <v-app-bar-title tag="h1">Application</v-app-bar-title>
+      <v-app-bar-title tag="h1" v-text="title" />
       <v-spacer />
       <app-bar-menu-component />
       <!--

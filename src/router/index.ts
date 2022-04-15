@@ -11,8 +11,8 @@ import GlobalStore from '@/store/GlobalStore';
 import store from '@/store';
 
 // Components
-import About from '@/views/About.vue';
-import Home from '@/views/Home.vue';
+import About from '@/views/AboutPage.vue';
+import Home from '@/views/HomePage.vue';
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
