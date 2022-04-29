@@ -1,5 +1,12 @@
 <script setup lang="ts">
-import { computed, onMounted, ref, watch, type Ref } from 'vue';
+import {
+  computed,
+  type ComputedRef,
+  onMounted,
+  ref,
+  watch,
+  type Ref,
+} from 'vue';
 
 // Components
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
@@ -20,15 +27,17 @@ const title = import.meta.env.VITE_APP_TITLE || 'Vuetify Application';
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);
 /** loading overlay visibility */
-const loading: Ref<boolean> = computed(() => globalStore.loading);
+const loading: ComputedRef<boolean> = computed(() => globalStore.loading);
 /** Appbar progressbar value */
-// const progress: Ref<number | null> = computed(() => globalStore.progress);
+// const progress: ComputedRef<number | null> = computed(() => globalStore.progress);
 /** Snackbar visibility */
 const snackbar: Ref<boolean> = ref(false);
 /** Snackbar text */
-const snackbarText: Ref<string | null> = computed(() => globalStore.message);
+const snackbarText: ComputedRef<string | null> = computed(
+  () => globalStore.message
+);
 /** Toggle Dark mode */
-const theme: Ref<string> = computed(() =>
+const theme: ComputedRef<string> = computed(() =>
   configStore.themeDark ? 'dark' : 'light'
 );
 

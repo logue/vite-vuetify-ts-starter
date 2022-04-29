@@ -1,35 +1,37 @@
 import {
   createRouter,
   createWebHistory,
+  type Router,
   type NavigationGuardNext,
   type RouteLocationNormalized,
   type RouteRecordRaw,
 } from 'vue-router';
+import { nextTick } from 'vue';
 
 // Pinia Store
 import GlobalStore from '@/store/GlobalStore';
 import store from '@/store';
 
 // Components
-import About from '@/views/AboutPage.vue';
-import Home from '@/views/HomePage.vue';
+import AboutPage from '@/views/AboutPage.vue';
+import HomePage from '@/views/HomePage.vue';
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
-    component: Home,
+    component: HomePage,
   },
   {
     path: '/about',
     name: 'About',
-    component: About,
+    component: AboutPage,
   },
 ];
 
 /** Vue Router */
-const router = createRouter({
+const router: Router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL), // createWebHashHistory(import.meta.env.BASE_URL)
   routes,
 });
@@ -45,9 +47,7 @@ router.beforeEach(
   ) => {
     // Show Loading
     globalStore.setLoading(true);
-
-    // @see https://github.com/championswimmer/vuex-persist#how-to-know-when-async-store-has-been-replaced
-    // await store.restored;
+    await nextTick();
 
     next();
   }

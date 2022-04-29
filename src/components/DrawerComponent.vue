@@ -20,7 +20,7 @@ const items: Ref<Record<string, any>[]> = ref([
 </script>
 
 <template>
-  <v-list v-for="item in items" :key="item.title" nav>
+  <v-list v-for="item in items" :key="item.title">
     <v-divider v-if="item.title === '-'" />
     <template v-else>
       <!-- Menu Item -->
