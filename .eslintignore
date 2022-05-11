@@ -2,4 +2,5 @@ index.html
 .husky/
 .vscode/
 dist/
+docs/
 public/

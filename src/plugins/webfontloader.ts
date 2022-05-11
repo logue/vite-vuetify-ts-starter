@@ -1,3 +1,5 @@
+import webFontLoader from 'webfontloader';
+
 /**
  * Plugins/webfontloader.js
  *
@@ -15,11 +17,6 @@ export async function loadFonts(): Promise<void> {
   preconnect.rel = 'preconnect';
   preconnect.href = 'https://fonts.gstatic.com';
   document.head.appendChild(preconnect);
-
-  /** Loading Webfont */
-  const webFontLoader = await import(
-    /* webpackChunkName: "webfontloader" */ 'webfontloader'
-  );
 
   /** Webfont Config */
   const WebFontConfig = {

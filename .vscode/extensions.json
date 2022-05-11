@@ -1,9 +1,10 @@
 {
   "recommendations": [
-    "johnsoncodehk.volar",
+    "Vue.volar",
     "stylelint.vscode-stylelint",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "antsteyer.vue-property-decorator-snippets"
   ],
   "unwantedRecommendations": [
     "octref.vetur"

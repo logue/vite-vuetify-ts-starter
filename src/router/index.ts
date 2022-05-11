@@ -36,7 +36,7 @@ const router: Router = createRouter({
   routes,
 });
 
-// passing Pinia instance directly
+/** passing Pinia instance directly */
 const globalStore = GlobalStore(store);
 
 router.beforeEach(
@@ -57,4 +57,5 @@ router.afterEach(() => {
   // Hide Loading
   globalStore.setLoading(false);
 });
+
 export default router;

@@ -1,104 +1,106 @@
 import eslintPlugin from '@modyqyw/vite-plugin-eslint';
+import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, type UserConfig } from 'vite';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import vuetify from '@vuetify/vite-plugin';
-import vue from '@vitejs/plugin-vue';
+import Vue from '@vitejs/plugin-vue';
 import path from 'path';
 import fs from 'fs';
 
 // https://vitejs.dev/config/
-const config: UserConfig = {
-  // https://vitejs.dev/config/#base
-  base: '/',
-  // Resolver
-  resolve: {
-    // https://vitejs.dev/config/#resolve-alias
-    alias: [
-      {
-        // vue @ shortcut fix
-        find: '@/',
-        replacement: `${path.resolve(__dirname, './src')}/`,
+export default defineConfig(async ({ mode }): Promise<UserConfig> => {
+  const config: UserConfig = {
+    // https://vitejs.dev/config/#base
+    base: './',
+    // Resolver
+    resolve: {
+      // https://vitejs.dev/config/#resolve-alias
+      alias: [
+        {
+          // vue @ shortcut fix
+          find: '@/',
+          replacement: `${path.resolve(__dirname, './src')}/`,
+        },
+        {
+          find: 'src/',
+          replacement: `${path.resolve(__dirname, './src')}/`,
+        },
+      ],
+    },
+    // https://vitejs.dev/config/#server-options
+    server: {
+      fs: {
+        // Allow serving files from one level up to the project root
+        allow: ['..'],
       },
-      {
-        find: 'src/',
-        replacement: `${path.resolve(__dirname, './src')}/`,
-      },
+    },
+    plugins: [
+      // Vue3
+      Vue(),
+      // Vuetify Loader
+      // https://github.com/vuetifyjs/vuetify-loader
+      vuetify({
+        autoImport: true,
+      }),
+      // eslint
+      // https://github.com/ModyQyW/vite-plugin-eslint
+      eslintPlugin(),
+      // Stylelint
+      // https://github.com/ModyQyW/vite-plugin-stylelint
+      stylelintPlugin(),
+      // compress assets
+      // https://github.com/vbenjs/vite-plugin-compression
+      // viteCompression(),
     ],
-  },
-  // https://vitejs.dev/config/#server-options
-  server: {
-    fs: {
-      // Allow serving files from one level up to the project root
-      allow: ['..'],
-    },
-  },
-  plugins: [
-    // Vue3
-    vue(),
-    // Vuetify Loader
-    // https://github.com/vuetifyjs/vuetify-loader
-    vuetify({
-      autoImport: true,
-    }),
-    // eslint
-    // https://github.com/ModyQyW/vite-plugin-eslint
-    eslintPlugin(),
-    // Stylelint
-    // https://github.com/ModyQyW/vite-plugin-stylelint
-    stylelintPlugin(),
-    // compress assets
-    // https://github.com/vbenjs/vite-plugin-compression
-    // viteCompression(),
-  ],
-  css: {
-    // https://vitejs.dev/config/#css-preprocessoroptions
-    preprocessorOptions: {
-      sass: {
-        additionalData: [
-          // vuetify variable overrides
-          '@import "@/styles/variables.scss"',
-          '',
-        ].join('\n'),
+    // Build Options
+    // https://vitejs.dev/config/#build-options
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // Split external library from transpiled code.
+            vue: ['vue', 'vue-router', 'pinia', 'pinia-plugin-persistedstate'],
+            vuetify: ['vuetify', 'webfontloader'],
+          },
+          plugins: [
+            mode === 'analyze'
+              ? // rollup-plugin-visualizer
+                // https://github.com/btd/rollup-plugin-visualizer
+                visualizer({
+                  open: true,
+                  filename: 'dist/stats.html',
+                  gzipSize: true,
+                  brotliSize: true,
+                })
+              : undefined,
+            /*
+            // if you use Code encryption by rollup-plugin-obfuscator
+            // https://github.com/getkey/rollup-plugin-obfuscator
+            obfuscator({
+              globalOptions: {
+                debugProtection: true,
+              },
+            }),
+            */
+          ],
+        },
       },
-    },
-  },
-  // Build Options
-  // https://vitejs.dev/config/#build-options
-  build: {
-    rollupOptions: {
-      output: {
-        plugins: [
-          /*
-          // if you use Code encryption by rollup-plugin-obfuscator
-          // https://github.com/getkey/rollup-plugin-obfuscator
-          obfuscator({
-            globalOptions: {
-              debugProtection: true,
-            },
-          }),
-          */
-        ],
+      target: 'es2021',
+      /*
+      // Minify option
+      // https://vitejs.dev/config/#build-minify
+      minify: 'terser',
+      terserOptions: {
+        ecma: 2020,
+        parse: {},
+        compress: { drop_console: true },
+        mangle: true, // Note `mangle.properties` is `false` by default.
+        module: true,
+        output: { comments: true, beautify: false },
       },
+      */
     },
-    target: 'es2021',
-    /*
-    // Minify option
-    // https://vitejs.dev/config/#build-minify
-    minify: 'terser',
-    terserOptions: {
-      ecma: 2020,
-      parse: {},
-      compress: { drop_console: true },
-      mangle: true, // Note `mangle.properties` is `false` by default.
-      module: true,
-      output: { comments: true, beautify: false },
-    },
-    */
-  },
-};
-
-// Export vite config
-export default defineConfig(async ({ command }): Promise<UserConfig> => {
+  };
   // Hook production build.
   // if (command === 'build') {
   // Write meta data.

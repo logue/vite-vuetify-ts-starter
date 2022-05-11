@@ -3,6 +3,4 @@ node_modules
 dist
 dist-ssr
 *.local
-.eslintcache
-.stylelintcache
 /src/Meta.ts
