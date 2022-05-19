@@ -28,7 +28,7 @@ const items: Ref<Record<string, any>[]> = ref([
         <v-list-item-avatar v-if="item.icon" left>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-avatar>
-        <v-list-item-title v-text="item.title" />
+        <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
       <!-- Sub menu -->
       <v-list-group v-else v-model="item.active" no-action>
@@ -37,7 +37,7 @@ const items: Ref<Record<string, any>[]> = ref([
             <v-list-item-avatar v-if="item.icon" left>
               <v-icon>{{ item.icon }}</v-icon>
             </v-list-item-avatar>
-            <v-list-item-title v-text="item.title" />
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </template>
         <!-- Sub menu item -->
@@ -50,9 +50,9 @@ const items: Ref<Record<string, any>[]> = ref([
           link
         >
           <v-list-item-avatar v-if="item.icon" left>
-            <v-icon v-text="subItem.icon" />
+            <v-icon>{{ subItem.icon }}</v-icon>
           </v-list-item-avatar>
-          <v-list-item-title v-text="subItem.title" />
+          <v-list-item-title>{{ subItem.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
     </template>

@@ -3,6 +3,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, type UserConfig } from 'vite';
 import stylelintPlugin from 'vite-plugin-stylelint';
 import vuetify from '@vuetify/vite-plugin';
+import checker from 'vite-plugin-checker';
 import Vue from '@vitejs/plugin-vue';
 import path from 'path';
 import fs from 'fs';
@@ -48,6 +49,9 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
       // Stylelint
       // https://github.com/ModyQyW/vite-plugin-stylelint
       stylelintPlugin(),
+      // vite-plugin-checker
+      // https://github.com/fi3ework/vite-plugin-checker
+      checker({ typescript: true, vueTsc: true }),
       // compress assets
       // https://github.com/vbenjs/vite-plugin-compression
       // viteCompression(),

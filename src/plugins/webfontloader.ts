@@ -1,5 +1,4 @@
-import webFontLoader from 'webfontloader';
-
+import { load } from 'webfontloader';
 /**
  * Plugins/webfontloader.js
  *
@@ -37,7 +36,5 @@ export async function loadFonts(): Promise<void> {
       sessionStorage.fonts = true;
     },
   };
-  if (typeof webFontLoader === 'object') {
-    webFontLoader.load(WebFontConfig);
-  }
+  load(WebFontConfig);
 }

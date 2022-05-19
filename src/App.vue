@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import {
   computed,
-  type ComputedRef,
   onMounted,
   ref,
   watch,
+  type ComputedRef,
   type Ref,
 } from 'vue';
 
@@ -27,9 +27,14 @@ const title = import.meta.env.VITE_APP_TITLE || 'Vuetify Application';
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);
 /** loading overlay visibility */
-const loading: ComputedRef<boolean> = computed(() => globalStore.loading);
+const loading: Ref<boolean> = computed({
+  get: () => globalStore.loading,
+  set: v => globalStore.setLoading(v),
+});
 /** Appbar progressbar value */
-// const progress: ComputedRef<number | null> = computed(() => globalStore.progress);
+const progress: ComputedRef<number | null> = computed(
+  () => globalStore.progress
+);
 /** Snackbar visibility */
 const snackbar: Ref<boolean> = ref(false);
 /** Snackbar text */
@@ -43,15 +48,19 @@ const theme: ComputedRef<string> = computed(() =>
 
 // When snackbar text has been set, show snackbar.
 watch(
-  () => snackbarText,
+  () => globalStore.message,
   value => {
+    console.log('snackbar text', value);
     if (value) {
       snackbar.value = true;
     }
   }
 );
 
-onMounted(() => (document.title = title));
+onMounted(() => {
+  document.title = title;
+  loading.value = false;
+});
 </script>
 
 <template>
@@ -62,10 +71,9 @@ onMounted(() => (document.title = title));
 
     <v-app-bar app>
       <v-app-bar-nav-icon @click="drawer = !drawer" />
-      <v-app-bar-title tag="h1" v-text="title" />
+      <v-app-bar-title tag="h1">{{ title }}</v-app-bar-title>
       <v-spacer />
       <app-bar-menu-component />
-      <!--
       <v-progress-linear
         v-show="loading"
         :active="loading"
@@ -75,7 +83,6 @@ onMounted(() => (document.title = title));
         bottom
         color="blue accent-3"
       />
-      -->
     </v-app-bar>
 
     <v-main>
