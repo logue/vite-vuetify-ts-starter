@@ -1,8 +1,12 @@
-*.local
+/.yarn/*
+# !/.yarn/patches
+# !/.yarn/plugins
+!/.yarn/releases
+# !/.yarn/sdks
+# !/.yarn/cache
+node_modules
 .DS_Store
 dist
 dist-ssr
-node_modules
-.yarn/
-!.yarn/releases/*
-src/Meta.ts
+*.local
+/src/Meta.ts

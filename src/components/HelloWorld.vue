@@ -10,8 +10,8 @@ const meta: MetaInterface = Meta;
 
 const ecosystem: Ref<Record<string, string>[]> = ref([
   {
-    text: '@vuetify/vite-plugin',
-    href: 'https://www.npmjs.com/package/@vuetify/vite-plugin',
+    text: 'vite-plugin-vuetify',
+    href: 'https://www.npmjs.com/package/vite-plugin-vuetify',
   },
   {
     text: 'github',

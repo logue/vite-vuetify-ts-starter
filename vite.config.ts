@@ -1,8 +1,6 @@
-import eslintPlugin from '@modyqyw/vite-plugin-eslint';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, type UserConfig } from 'vite';
-import stylelintPlugin from 'vite-plugin-stylelint';
-import vuetify from '@vuetify/vite-plugin';
+import vuetify from 'vite-plugin-vuetify';
 import checker from 'vite-plugin-checker';
 import Vue from '@vitejs/plugin-vue';
 import path from 'path';
@@ -43,12 +41,6 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
       vuetify({
         autoImport: true,
       }),
-      // eslint
-      // https://github.com/ModyQyW/vite-plugin-eslint
-      eslintPlugin(),
-      // Stylelint
-      // https://github.com/ModyQyW/vite-plugin-stylelint
-      stylelintPlugin(),
       // vite-plugin-checker
       // https://github.com/fi3ework/vite-plugin-checker
       checker({ typescript: true, vueTsc: true }),
@@ -64,7 +56,12 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
           manualChunks: {
             // Split external library from transpiled code.
             vue: ['vue', 'vue-router', 'pinia', 'pinia-plugin-persistedstate'],
-            vuetify: ['vuetify', 'webfontloader'],
+            vuetify: [
+              'vuetify',
+              'vuetify/components',
+              'vuetify/directives',
+              'webfontloader',
+            ],
           },
           plugins: [
             mode === 'analyze'
