@@ -8,4 +8,17 @@ import HelloWorld from '@/components/HelloWorld.vue';
   <v-container fluid>
     <hello-world msg="Hello Vue 3 + TypeScript + Vite" />
   </v-container>
+  <teleport to="head">
+    <meta
+      name="keyword"
+      content="template,typescript,vue2,vue-property-decorator,vue-class-component,vuetify,vite,vite-template,volar"
+    />
+    <meta name="description" content="Vite Vue2 Vuetify TypeScript Demo" />
+    <component :is="'script'" type="application/ld+json">
+      { '@context': 'http://schema.org', '@type': 'WebSite', name: 'Vite Vue2
+      Vuetify3 Beta TypeScript Startar', url:
+      'https://github.com/logue/vite-vuetify-ts-starter', description: 'Vite
+      Vue3 Vuetify3 Beta TypeScript Demo Page' }
+    </component>
+  </teleport>
 </template>

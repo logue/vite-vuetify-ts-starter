@@ -10,14 +10,15 @@ extends:
   - plugin:import/typescript
   - plugin:jsdoc/recommended
   - plugin:yaml/recommended
-  - plugin:vue/vue3-recommended
+  - plugin:vue/vue-3recommended
+  - plugin:vuejs-accessibility/recommended
+  - plugin:vuetify/base
   - '@vue/eslint-config-prettier'
 plugins:
-  - vue
+  - tsdoc
   - html
-  - eslint-plugin-tsdoc
-  - '@typescript-eslint'
-  - vuejs-accessibility
+  - yaml
+  - vue
 parser: vue-eslint-parser
 parserOptions:
   ecmaVersion: latest
@@ -30,14 +31,14 @@ rules:
   no-invalid-this: off
   no-unused-vars: warn
   require-jsdoc: warn
-  tsdoc/syntax: warn
-  jsdoc/require-param: ['off', { enableRootFixer: false }]
-  jsdoc/require-param-type: off
-  jsdoc/require-returns: off
-  jsdoc/require-returns-type: off
-  jsdoc/require-returns-description: off
   valid-jsdoc: off
   import/no-named-as-default: off
+  jsdoc/require-param-type: off
+  jsdoc/require-param: ['off', { enableRootFixer: false }]
+  jsdoc/require-returns-description: off
+  jsdoc/require-returns-type: off
+  jsdoc/require-returns: off
+  tsdoc/syntax: warn
   vue/html-self-closing: [error, html: { void: always }]
   vue/multi-word-component-names: warn
 settings:

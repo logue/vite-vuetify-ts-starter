@@ -60,8 +60,10 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
               'vuetify',
               'vuetify/components',
               'vuetify/directives',
+              'vuetify/lib/styles/main.css',
               'webfontloader',
             ],
+            materialdesignicons: ['@mdi/font/css/materialdesignicons.css'],
           },
           plugins: [
             mode === 'analyze'
