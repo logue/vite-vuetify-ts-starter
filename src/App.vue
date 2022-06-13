@@ -144,7 +144,6 @@ html {
 
 // Fixed a bug that the theme color is interrupted when scrolling
 .v-application {
-  height: 100vh;
   overflow-y: auto;
 }
 

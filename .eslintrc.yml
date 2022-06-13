@@ -10,9 +10,9 @@ extends:
   - plugin:import/typescript
   - plugin:jsdoc/recommended
   - plugin:yaml/recommended
-  - plugin:vue/vue-3recommended
+  - plugin:vue/vue3-recommended
   - plugin:vuejs-accessibility/recommended
-  - plugin:vuetify/base
+  # - plugin:vuetify/base
   - '@vue/eslint-config-prettier'
 plugins:
   - tsdoc
