@@ -50,7 +50,6 @@ const theme: ComputedRef<string> = computed(() =>
 watch(
   () => globalStore.message,
   value => {
-    console.log('snackbar text', value);
     if (value) {
       snackbar.value = true;
     }
