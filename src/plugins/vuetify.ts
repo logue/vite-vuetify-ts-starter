@@ -11,7 +11,6 @@ import 'vuetify/styles';
 
 // Misc
 import { loadFonts } from './webfontloader';
-
 loadFonts();
 
 export default createVuetify({
@@ -20,13 +19,16 @@ export default createVuetify({
   directives,
 });
 
-/** Get vuetify instance (For Composition api) */
+/** Get vuetify instance */
 export function useVuetify() {
-  /** Get Instance */
+  /** Vue instance */
   const instance = getCurrentInstance();
-  if (!instance) {
-    throw new Error(`Should be used in setup().`);
+  if (instance) {
+    return instance.proxy?.$vuetify;
+  } else {
+    console.warn(
+      `[vuetify] getCurrentInstance() returned null. Method must be called at the top of a setup function`
+    );
   }
-  // @ts-ignore
-  return instance.proxy.$vuetify;
+  return undefined as any;
 }

@@ -20,10 +20,6 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
           find: '@/',
           replacement: `${path.resolve(__dirname, './src')}/`,
         },
-        {
-          find: 'src/',
-          replacement: `${path.resolve(__dirname, './src')}/`,
-        },
       ],
     },
     // https://vitejs.dev/config/#server-options
@@ -40,6 +36,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
       // https://github.com/vuetifyjs/vuetify-loader
       vuetify({
         autoImport: true,
+        // styles: 'sass',
       }),
       // vite-plugin-checker
       // https://github.com/fi3ework/vite-plugin-checker
