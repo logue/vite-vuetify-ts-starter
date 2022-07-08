@@ -14,7 +14,6 @@ extends:
   - plugin:vue/vue3-recommended
   - plugin:vuejs-accessibility/recommended
   - plugin:yaml/recommended
-  # - plugin:vuetify/base
   - '@vue/eslint-config-prettier'
 plugins:
   - '@typescript-eslint'
@@ -51,7 +50,7 @@ settings:
     typescript: {}
     alias:
       map:
-        - ['@', './src']
+        - ['@/', './src/']
       extensions:
         - .js
         - .ts

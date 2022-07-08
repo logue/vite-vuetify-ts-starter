@@ -2,7 +2,7 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, type UserConfig } from 'vite';
 import vuetify from 'vite-plugin-vuetify';
 import checker from 'vite-plugin-checker';
-import Vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import fs from 'fs';
 
@@ -31,16 +31,22 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
     },
     plugins: [
       // Vue3
-      Vue(),
+      vue(),
       // Vuetify Loader
       // https://github.com/vuetifyjs/vuetify-loader
       vuetify({
         autoImport: true,
-        // styles: 'sass',
+        styles: 'expose',
       }),
       // vite-plugin-checker
       // https://github.com/fi3ework/vite-plugin-checker
-      checker({ typescript: true, vueTsc: true }),
+      checker({
+        typescript: true,
+        vueTsc: true,
+        eslint: {
+          lintCommand: 'eslint', // for example, lint .ts & .tsx
+        },
+      }),
       // compress assets
       // https://github.com/vbenjs/vite-plugin-compression
       // viteCompression(),
@@ -101,8 +107,7 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
       */
     },
   };
-  // Hook production build.
-  // if (command === 'build') {
+
   // Write meta data.
   fs.writeFileSync(
     path.resolve(path.join(__dirname, 'src/Meta.ts')),
@@ -116,7 +121,6 @@ const meta: MetaInterface = {
 export default meta;
 `
   );
-  // }
 
   return config;
 });

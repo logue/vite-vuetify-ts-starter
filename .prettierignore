@@ -1,7 +1,5 @@
 .husky/
 .vscode/
 .yarn/
-components.d.ts
 dist/
-index.html
 public/assets/
