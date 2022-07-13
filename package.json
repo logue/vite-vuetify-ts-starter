@@ -34,7 +34,9 @@
     "build:deploy": "vite build",
     "build:clean": "rimraf dist",
     "preview": "vite preview",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "vitest",
+    "coverage": "vitest run --coverage"
   },
   "dependencies": {
     "@mdi/font": "6.9.96",
@@ -53,6 +55,7 @@
     "@typescript-eslint/parser": "^5.30.5",
     "@vitejs/plugin-vue": "^2.3.3",
     "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/test-utils": "next",
     "eslint": "^8.19.0",
     "eslint-config-google": "^0.14.0",
     "eslint-import-resolver-alias": "^1.1.2",
@@ -67,6 +70,7 @@
     "eslint-plugin-vuejs-accessibility": "^1.2.0",
     "eslint-plugin-yaml": "^0.5.0",
     "husky": "^8.0.1",
+    "jsdom": "^20.0.0",
     "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
     "postcss-html": "^1.5.0",
@@ -81,8 +85,9 @@
     "stylelint-order": "^5.0.0",
     "typescript": "^4.7.4",
     "vite": "^2.9.13",
-    "vite-plugin-checker": "^0.4.8",
+    "vite-plugin-checker": "0.4.5",
     "vite-plugin-vuetify": "^1.0.0-alpha.12",
+    "vitest": "^0.18.0",
     "vue-eslint-parser": "^9.0.3",
     "vue-tsc": "^0.38.3"
   },
