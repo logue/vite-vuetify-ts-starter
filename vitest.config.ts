@@ -1,4 +1,4 @@
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vitest/config';
 import vuetify from 'vite-plugin-vuetify';
 import checker from 'vite-plugin-checker';
 import vue from '@vitejs/plugin-vue';
@@ -46,6 +46,7 @@ export default defineConfig({
     // viteCompression(),
   ],
   test: {
+    // https://vitest.dev/guide/#configuring-vitest
     globals: true,
     globalSetup: ['./vitest/setup.ts'],
     environment: 'jsdom',

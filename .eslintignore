@@ -1,6 +1,7 @@
 .husky/
 .vscode/
 .yarn/
+coverage/
 dist/
 public/assets/
 tsconfig.node.json

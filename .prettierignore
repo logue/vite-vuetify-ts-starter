@@ -2,4 +2,5 @@
 .vscode/
 .yarn/
 dist/
+coverage/
 public/assets/

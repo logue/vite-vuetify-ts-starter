@@ -1,5 +1,5 @@
 /**
- *
+ * Vitest setup function
  */
 export async function setup() {
   global.CSS = {
@@ -12,7 +12,7 @@ export async function setup() {
 }
 
 /**
- *
+ * Vitest Teardown function
  */
 export async function teardown() {
   console.log('vitest globalTeardown');

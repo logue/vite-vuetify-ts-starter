@@ -26,7 +26,7 @@
     "sourceMap": true,
     "strict": true,
     "target": "esnext",
-    "types": ["vite/client", "node", "vue", "vuetify"],
+    "types": ["vite/client", "vitest/globals", "node", "vue", "vuetify"],
     "useDefineForClassFields": true
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

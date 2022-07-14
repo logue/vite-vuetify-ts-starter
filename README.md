@@ -14,86 +14,6 @@ In addition, [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), 
 
 Also, when the development server is executed, it is checked in real time by [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker).
 
-### Composition API
-
-It also supports the [Composition API](https://composition-api.vuejs.org/). The installed VueRouter and Vuex are for Vue2, but you can use the functions (such as `useRouter()`, `useRoute()` and `useStore()`) for the composition API for Vue3.
-
-It is possible to mix code written in composition-api and code written in vue-property-decolator, but it is not recommended to use them together in the same component. [^1]
-
-As a limitation, Vue2's composition api cannot monitor the router with the watch function. In that case, monitor it by the following normal method:
-
-```js
-watch: {
-  $route: {
-    handler(to) {
-      //
-    },
-    immediate: true,
-  },
-},
-```
-
-If you are thinking of supporting Vue2 and Vue3 both, consider introducing [vue-demi](https://github.com/vueuse/vue-demi).
-
-### Vue i18n
-
-If you want to use [vue-i18n](https://kazupon.github.io/vue-i18n/), please install [vue-i18n-composable](https://github.com/intlify/vue-i18n-composable) and call the instance with `useI18n()`.
-
-In addition, the conventional method using `$t()` written in non composition-api can be used as it is.
-
-### Teleport
-
-Vue3 adds a mechanism called [`Teleport`](https://v3.vuejs.org/guide/teleport.html), which allows you to install vue components anywhere. This starter template is for vue2, but you can do the same with [vue2-teleport](https://www.npmjs.com/package/vue2-teleport).
-
-However, you will need to manually load the component with `import Teleport from 'vue2-teleport';` wherever you want to use it.
-
-#### Teleport JSON-LD Example
-
-If you want to include [JSON-LD](https://json-ld.org/), enter as follows.
-
-```vue
-<template>
-  <div class="container">
-    ... Some Content
-    <teleport to="head">
-      <component :is="'script'" type="application/ld+json" v-text="jsonLd" />
-    </teleport>
-  </div>
-</template>
-
-<script>
-import { defineComponent } from '@vue/composition-api';
-
-import Teleport from 'vue2-teleport';
-
-export default defineComponent({
-  components: {
-    Teleport,
-  },
-  setup() {
-    const jsonLd = ref(
-      JSON.stringfy({
-        '@schema': 'https://json.schemastore.org/jsonld.json',
-        '@context': 'http://schema.org',
-        '@type': 'WebSite',
-        name: 'Vite Vue2 TypeScript Startar',
-        url: 'https://github.com/logue/vite-vue2-ts-starter',
-        description: 'Vite Vue2 TypeScript Demo Page',
-      })
-    );
-
-    return {
-      jsonLd,
-    };
-  },
-});
-</script>
-```
-
-JSON-LD is literally a `script`, so it can't be embedded directly, so it's a roundabout thing like this, but simple things like `meta` tags are reflected by simply inserting a tag.
-
-Notice: For Vue3, `:as="'script'"` becomes `is="script"`.
-
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=vue.volar) (and disable Vetur).
@@ -107,6 +27,8 @@ Notice: For Vue3, `:as="'script'"` becomes `is="script"`.
 | lint          | Run ESLint and prettier.                           |
 | lint:style    | Run Stylelint.                                     |
 | lint:markup   | Check vue markup.                                  |
+| test          | Run vitest                                         |
+| coverage      | Output Coverage Report.                            |
 | build         | Build for production.                              |
 | build:analyze | Execute Bundle Analyzer                            |
 | build:deploy  | Build for production without checking.             |
@@ -129,6 +51,7 @@ Due to [yarn issues](https://github.com/yarnpkg/berry/issues/4448), it may not w
 
 ## See Also
 
+- [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter.
 - [vite-vue2-vuetify-ts-starter](https://github.com/logue/vite-vue2-vuetify-ts-starter) - UI library using Vuetify2
 - [laravel9-vite-vue2-starter](https://github.com/logue/laravel9-vite-vue2-starter) - for Laravel + Breeze.
 - [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-ssr-starter) - SSR (Server Side Rendering) Version.

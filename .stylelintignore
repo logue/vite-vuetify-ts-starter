@@ -1,5 +1,6 @@
 .husky/
 .vscode/
 .yarn/
+coverage/
 dist/
 public/assets/
