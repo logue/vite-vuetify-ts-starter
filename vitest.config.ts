@@ -1,6 +1,5 @@
 import { defineConfig } from 'vitest/config';
 import vuetify from 'vite-plugin-vuetify';
-import checker from 'vite-plugin-checker';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 
@@ -32,18 +31,6 @@ export default defineConfig({
       autoImport: true,
       styles: 'expose',
     }),
-    // vite-plugin-checker
-    // https://github.com/fi3ework/vite-plugin-checker
-    checker({
-      typescript: true,
-      vueTsc: true,
-      eslint: {
-        lintCommand: 'eslint', // for example, lint .ts & .tsx
-      },
-    }),
-    // compress assets
-    // https://github.com/vbenjs/vite-plugin-compression
-    // viteCompression(),
   ],
   test: {
     // https://vitest.dev/guide/#configuring-vitest

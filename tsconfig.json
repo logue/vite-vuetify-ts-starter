@@ -3,9 +3,7 @@
   "extends": "@vue/tsconfig/tsconfig.web.json",
   "compilerOptions": {
     "newLine": "lf",
-    "paths": {
-      "@/*": ["./src/*"]
-    },
+    "paths": { "@/*": ["./src/*"] },
     "types": ["vite/client", "vitest/globals", "node", "vue", "vuetify"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],

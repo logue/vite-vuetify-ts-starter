@@ -7,7 +7,7 @@ export async function setup() {
     escape: (str: string) => str,
   };
 
-  console.log('vitest globalSetup2.');
+  console.log('📝 vitest globalSetup2.');
   // console.log("CSS.support:" + CSS.supports("selector(:focus-visible)"));
 }
 
@@ -15,5 +15,5 @@ export async function setup() {
  * Vitest Teardown function
  */
 export async function teardown() {
-  console.log('vitest globalTeardown');
+  console.log('📝 vitest globalTeardown');
 }

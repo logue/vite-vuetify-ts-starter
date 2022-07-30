@@ -25,18 +25,18 @@ const items: Ref<Record<string, any>[]> = ref([
     <template v-else>
       <!-- Menu Item -->
       <v-list-item v-if="!item.items" :to="item.to" :disabled="!item.to" link>
-        <v-list-item-avatar v-if="item.icon" left>
+        <template v-slot:prepend>
           <v-icon>{{ item.icon }}</v-icon>
-        </v-list-item-avatar>
+        </template>
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
       <!-- Sub menu -->
       <v-list-group v-else v-model="item.active" no-action>
         <template #activator>
           <v-list-item link>
-            <v-list-item-avatar v-if="item.icon" left>
+            <template v-slot:prepend>
               <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-avatar>
+            </template>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </template>
@@ -49,9 +49,9 @@ const items: Ref<Record<string, any>[]> = ref([
           :disabled="!subItem.to"
           link
         >
-          <v-list-item-avatar v-if="item.icon" left>
-            <v-icon>{{ subItem.icon }}</v-icon>
-          </v-list-item-avatar>
+          <template v-slot:prepend>
+            <v-icon>{{ item.icon }}</v-icon>
+          </template>
           <v-list-item-title>{{ subItem.title }}</v-list-item-title>
         </v-list-item>
       </v-list-group>
