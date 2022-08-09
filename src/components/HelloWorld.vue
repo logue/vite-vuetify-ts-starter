@@ -76,9 +76,6 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
             v-text="new Date(meta.date).toLocaleString()"
           />
         </p>
-
-        <small>Vite Preview</small>
-
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
           <br />
