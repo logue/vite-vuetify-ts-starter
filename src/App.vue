@@ -101,8 +101,8 @@ onMounted(() => {
       transition="scroll-y-transition"
     >
       {{ snackbarText }}
-      <template #action="{ attrs }">
-        <v-btn icon v-bind="attrs" @click="snackbar = false">
+      <template #actions>
+        <v-btn icon @click="snackbar = false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </template>

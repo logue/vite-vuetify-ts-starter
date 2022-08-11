@@ -39,7 +39,7 @@ export default defineStore('config', {
   },
   // Data persistence destination
   persist: {
-    key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE || 'vuex',
+    key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE || 'pinia',
     storage: window.sessionStorage,
   },
 });
