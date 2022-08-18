@@ -69,7 +69,7 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
         <h1 class="display-2 font-weight-bold mb-3">
           <div>Welcome to the Vuetify 3 Beta</div>
         </h1>
-        <p>
+        <p class="text-medium-emphasis">
           Build:
           <time
             :datetime="meta.date"

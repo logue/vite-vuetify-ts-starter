@@ -51,9 +51,6 @@ export default defineConfig(async ({ mode }): Promise<UserConfig> => {
           lintCommand: 'eslint', // for example, lint .ts & .tsx
         },
       }),
-      // compress assets
-      // https://github.com/vbenjs/vite-plugin-compression
-      // viteCompression(),
     ],
     // Build Options
     // https://vitejs.dev/config/build-options.html
