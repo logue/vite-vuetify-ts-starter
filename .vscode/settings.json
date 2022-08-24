@@ -1,7 +1,11 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
-  "volar.tsPlugin": true,
   "volar.icon.preview": true,
-  "volar.icon.finder": true
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "vue" // necessary for stylelint diagnostics in .vue <style> tag
+  ]
 }
