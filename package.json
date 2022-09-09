@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "vite-vuetify-ts-starter",
   "description": "Vue3 Vuetify TypeScript Startar project for Vite.",
-  "version": "0.6.5",
+  "version": "0.6.6",
   "license": "MIT",
   "type": "module",
   "private": true,
@@ -42,8 +42,8 @@
   "dependencies": {
     "@mdi/font": "^7.0.96",
     "pinia": "^2.0.22",
-    "pinia-plugin-persistedstate": "^2.1.1",
-    "vue": "^3.2.38",
+    "pinia-plugin-persistedstate": "^2.2.0",
+    "vue": "^3.2.39",
     "vue-router": "^4.1.5",
     "vuetify": "^3.0.0-beta.10",
     "webfontloader": "^1.6.28"
@@ -83,13 +83,13 @@
     "stylelint-config-recommended-scss": "^7.0.0",
     "stylelint-config-recommended-vue": "^1.4.0",
     "stylelint-order": "^5.0.0",
-    "typescript": "^4.8.2",
+    "typescript": "^4.8.3",
     "vite": "^3.1.0",
     "vite-plugin-checker": "0.5.1",
     "vite-plugin-vuetify": "^1.0.0-alpha.16",
     "vitest": "^0.23.1",
-    "vue-eslint-parser": "^9.0.3",
-    "vue-tsc": "^0.40.12"
+    "vue-eslint-parser": "^9.1.0",
+    "vue-tsc": "^0.40.13"
   },
   "husky": {
     "hooks": {

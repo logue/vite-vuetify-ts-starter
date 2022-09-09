@@ -2,12 +2,12 @@ import { defineStore } from 'pinia';
 
 /** Global state */
 type GlobalState = {
-  /**  Loading overlay */
+  /** Loading overlay */
   _loading: boolean;
   /** ProgressBar Percentage */
   _progress: number | null;
   /** SnackBar Text */
-  _message: string | null;
+  _message: string;
 };
 
 /** Global Store */
@@ -16,7 +16,7 @@ export default defineStore('global', {
   state: (): GlobalState => ({
     _loading: false,
     _progress: null,
-    _message: null,
+    _message: '',
   }),
   // Getters
   getters: {
@@ -30,7 +30,7 @@ export default defineStore('global', {
       return s._progress;
     },
     /** Snackbar Text (Unused) */
-    message(s): string | null {
+    message(s): string {
       return s._message;
     },
   },
@@ -39,6 +39,10 @@ export default defineStore('global', {
     /** Show loading Overlay */
     setLoading(display: boolean) {
       this._loading = display;
+      if (!display) {
+        // Reset Progress value
+        this._progress = null;
+      }
     },
     /** Update progress value */
     setProgress(progress: number | null) {

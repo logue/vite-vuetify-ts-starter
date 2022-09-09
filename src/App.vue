@@ -7,7 +7,7 @@ import {
   type ComputedRef,
   type Ref,
 } from 'vue';
-
+import { useTheme } from 'vuetify/lib/framework.mjs';
 // Components
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
@@ -15,6 +15,11 @@ import DrawerComponent from '@/components/DrawerComponent.vue';
 // Stores
 import GlobalStore from '@/store/GlobalStore';
 import ConfigStore from '@/store/ConfigStore';
+
+import logo from '@/assets/logo.svg';
+
+/** Vuetify Theme */
+const theme = useTheme();
 
 /** Global Store */
 const globalStore = GlobalStore();
@@ -42,8 +47,12 @@ const snackbarText: ComputedRef<string | null> = computed(
   () => globalStore.message
 );
 /** Toggle Dark mode */
-const theme: ComputedRef<string> = computed(() =>
+const isDark: ComputedRef<string> = computed(() =>
   configStore.themeDark ? 'dark' : 'light'
+);
+/** Theme Color */
+const themeColor: ComputedRef<string> = computed(
+  () => theme.computedThemes.value[isDark.value].colors.primary
 );
 
 // When snackbar text has been set, show snackbar.
@@ -63,7 +72,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <v-app :theme="theme">
+  <v-app :theme="isDark">
     <v-navigation-drawer v-model="drawer" temporary app>
       <drawer-component />
     </v-navigation-drawer>
@@ -112,6 +121,10 @@ onMounted(() => {
       <span class="mr-5">2022 &copy;</span>
     </v-footer>
   </v-app>
+  <teleport to="head">
+    <meta name="theme-color" :content="themeColor" />
+    <link rel="icon" :href="logo" type="image/svg+xml" />
+  </teleport>
 </template>
 
 <style lang="scss">
