@@ -5,6 +5,7 @@ import checker from 'vite-plugin-checker';
 import vue from '@vitejs/plugin-vue';
 import path from 'path';
 import fs from 'fs';
+import { fileURLToPath } from 'url';
 
 /**
  * Vite Configure
@@ -18,13 +19,9 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
     // Resolver
     resolve: {
       // https://vitejs.dev/config/shared-options.html#resolve-alias
-      alias: [
-        {
-          // vue @ shortcut fix
-          find: '@/',
-          replacement: `${path.resolve(__dirname, './src')}/`,
-        },
-      ],
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+      },
     },
     // https://vitejs.dev/config/server-options.html
     server: {
@@ -57,7 +54,7 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
     build: {
       // Build Target
       // https://vitejs.dev/config/build-options.html#build-target
-      target: 'es2021',
+      target: 'es2022',
       // Rollup Options
       // https://vitejs.dev/config/build-options.html#build-rollupoptions
       rollupOptions: {

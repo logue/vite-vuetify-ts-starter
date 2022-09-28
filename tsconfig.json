@@ -4,7 +4,8 @@
   "compilerOptions": {
     "newLine": "lf",
     "paths": { "@/*": ["./src/*"] },
-    "types": ["vite/client", "vitest/globals", "vue", "vuetify"]
+    "types": ["vite/client", "vitest/globals", "vue", "vuetify"],
+    "lib": ["ESNext", "DOM", "DOM.Iterable"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
   "exclude": ["node_modules", "dist"],
