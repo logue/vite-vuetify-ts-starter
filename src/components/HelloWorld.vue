@@ -5,6 +5,12 @@ import type MetaInterface from '@/interfaces/MetaInterface';
 import logo from '@/assets/logo.svg';
 import Meta from '@/Meta';
 
+interface Props {
+  msg: string;
+}
+
+const props = defineProps<Props>();
+
 /** Meta information */
 const meta: MetaInterface = Meta;
 
@@ -61,13 +67,10 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
 <template>
   <v-container>
     <v-row class="text-center">
-      <v-col cols="12">
+      <v-col cols="12" class="mb-4">
         <v-img :src="logo" class="my-3" contain height="200" />
-      </v-col>
-
-      <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          <div>Welcome to the Vuetify 3 Beta</div>
+          Welcome to the Vuetify 3 Beta
         </h1>
         <p class="text-medium-emphasis">
           Build:
@@ -76,6 +79,9 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
             v-text="new Date(meta.date).toLocaleString()"
           />
         </p>
+      </v-col>
+      <v-col class="mb-4">
+        <p v-text="msg" />
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
           <br />

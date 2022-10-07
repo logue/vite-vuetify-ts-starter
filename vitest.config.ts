@@ -1,26 +1,26 @@
 import { defineConfig } from 'vitest/config';
-import vuetify from 'vite-plugin-vuetify';
+import { fileURLToPath } from 'url';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
+import vuetify from 'vite-plugin-vuetify';
 
 export default defineConfig({
   // Resolver
   resolve: {
     // https://vitejs.dev/config/#resolve-alias
-    alias: [
-      {
-        // vue @ shortcut fix
-        find: '@/',
-        replacement: `${path.resolve(__dirname, './src')}/`,
-      },
-    ],
+    alias: {
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   // plugins
   plugins: [
     {
       name: 'vitest-plugin-beforeall',
       config: () => ({
-        test: { setupFiles: ['./vitest/beforeAll.ts'] },
+        test: {
+          setupFiles: [
+            fileURLToPath(new URL('./vitest/beforeAll.ts', import.meta.url)),
+          ],
+        },
       }),
     } as any,
     // Vue3
@@ -35,7 +35,7 @@ export default defineConfig({
   test: {
     // https://vitest.dev/guide/#configuring-vitest
     globals: true,
-    globalSetup: ['./vitest/setup.ts'],
+    globalSetup: [fileURLToPath(new URL('./vitest/setup.ts', import.meta.url))],
     environment: 'jsdom',
     deps: {
       inline: ['vuetify'],

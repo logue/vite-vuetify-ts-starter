@@ -41,7 +41,7 @@ export default defineStore('global', {
       this._loading = display;
       if (!display) {
         // Reset Progress value
-        this._progress = null;
+        this._progress = 0;
       }
     },
     /** Update progress value */

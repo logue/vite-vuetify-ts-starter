@@ -3,8 +3,7 @@
     "Vue.volar",
     "stylelint.vscode-stylelint",
     "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode",
-    "antsteyer.vue-property-decorator-snippets"
+    "esbenp.prettier-vscode"
   ],
   "unwantedRecommendations": [
     "octref.vetur"

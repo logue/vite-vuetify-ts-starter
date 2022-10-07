@@ -1,4 +1,4 @@
-@use 'vuetify/styles' with (
+@use 'vuetify/settings' with (
   // Place SASS variable overrides here
-  $body-font-family: "'Roboto', 'Noto Colr Emoji Glyf', sans-serif"
+  $body-font-family: "Roboto, 'Noto Colr Emoji Glyf', sans-serif"
 );

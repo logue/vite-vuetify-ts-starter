@@ -1,8 +1,8 @@
-/** Pinia Store */
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
-import { createPinia } from 'pinia';
+import { createPinia, type Pinia } from 'pinia';
 
-const pinia = createPinia();
+/** Pinia Store */
+const pinia: Pinia = createPinia();
 pinia.use(piniaPluginPersistedstate);
 
 export default pinia;

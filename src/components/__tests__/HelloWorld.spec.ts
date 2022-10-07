@@ -21,6 +21,6 @@ describe('HelloWorld.ts', () => {
     const img = wrapper.findComponent(components.VImg);
     expect(img).toBeTruthy();
 
-    expect(wrapper.text()).toContain('Vite Preview');
+    expect(wrapper.text()).toContain('Welcome to the Vuetify');
   });
 });

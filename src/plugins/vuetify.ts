@@ -14,7 +14,6 @@ loadFonts();
 
 // Styles
 import 'vuetify/styles';
-import '@/styles/variables.scss';
 import '@mdi/font/css/materialdesignicons.css';
 
 export default createVuetify({

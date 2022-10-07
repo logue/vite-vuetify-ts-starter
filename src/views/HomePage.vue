@@ -19,7 +19,7 @@ const jsonLd = JSON.stringify(
 
 <template>
   <v-container fluid>
-    <hello-world msg="Hello Vue 3 + TypeScript + Vite" />
+    <hello-world msg="⚡Hello Vue 3 + Vuetify 3 + TypeScript + Vite⚡" />
   </v-container>
   <teleport to="head">
     <meta
