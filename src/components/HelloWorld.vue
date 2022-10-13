@@ -68,11 +68,24 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
   <v-container>
     <v-row class="text-center">
       <v-col cols="12" class="mb-4">
-        <v-img :src="logo" class="my-3" contain height="200" />
+        <v-img
+          :src="logo"
+          alt="Vuetify"
+          class="my-3 logo vuetify"
+          contain
+          height="200"
+        />
         <h1 class="display-2 font-weight-bold mb-3">
           Welcome to the Vuetify 3 Beta
         </h1>
         <p class="text-medium-emphasis">
+          <a
+            href="https://github.com/logue/vite-vuetify-ts-starter"
+            target="_blank"
+          >
+            vite-vuetify-ts-starter
+          </a>
+          <br />
           Build:
           <time
             :datetime="meta.date"
@@ -142,3 +155,14 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
     </v-row>
   </v-container>
 </template>
+
+<style scoped>
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+}
+.logo.vuetify:hover {
+  filter: drop-shadow(0 0 2em #2196f3aa);
+}
+</style>

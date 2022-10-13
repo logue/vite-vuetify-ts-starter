@@ -1,8 +1,8 @@
 import { load } from 'webfontloader';
 /**
- * Plugins/webfontloader.js
+ * Webfont loader
  *
- * Webfontloader documentation: https://github.com/typekit/webfontloader
+ * @see {@link https://github.com/typekit/webfontloader | Webfontloader documentation}
  */
 export async function loadFonts(): Promise<void> {
   /** dns-prefetch */
@@ -24,18 +24,24 @@ export async function loadFonts(): Promise<void> {
         'Roboto:100,300,400,500,700,900&display=swap',
         /*
         // if you use Noto Sans, replace bellow lines.
-        'Noto+Sans:100,300,400,500,700,900',
+        'Noto+Sans:100,300,400,500,700,900&display=swap',
         'Noto+Sans+JP:100,300,400,500,700,900',
         'Noto+Sans+KR:100,300,400,500,700,900',
         'Noto+Sans+Mono:100,300,400,500,700,900',
         */
-        // Emoji
+        // Emoji Fix
         'Noto+Colr+Emoji+Glyf:400',
       ],
     },
     active: () => {
-      sessionStorage.fonts = true;
+      localStorage.fonts = true;
+    },
+    inactive: () => {
+      localStorage.fonts = false;
     },
   };
-  load(WebFontConfig);
+
+  if (!localStorage.fonts) {
+    load(WebFontConfig);
+  }
 }

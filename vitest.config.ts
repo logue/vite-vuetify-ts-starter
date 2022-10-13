@@ -29,7 +29,7 @@ export default defineConfig({
     // https://github.com/vuetifyjs/vuetify-loader
     vuetify({
       autoImport: true,
-      styles: 'expose',
+      styles: { configFile: './src/styles/variables.scss' },
     }),
   ],
   test: {
