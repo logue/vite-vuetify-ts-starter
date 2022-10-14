@@ -1,4 +1,4 @@
-import { load } from 'webfontloader';
+import webFontLoader, { load } from 'webfontloader';
 /**
  * Webfont loader
  *
@@ -34,14 +34,14 @@ export async function loadFonts(): Promise<void> {
       ],
     },
     active: () => {
-      localStorage.fonts = true;
+      sessionStorage.fonts = true;
     },
     inactive: () => {
-      localStorage.fonts = false;
+      sessionStorage.fonts = false;
     },
   };
 
-  if (!localStorage.fonts) {
+  if (typeof webFontLoader === 'object' || !sessionStorage.fonts) {
     load(WebFontConfig);
   }
 }

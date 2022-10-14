@@ -699,16 +699,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vuetify/loader-shared@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "@vuetify/loader-shared@npm:1.6.0"
+"@vuetify/loader-shared@npm:^1.7.0":
+  version: 1.7.0
+  resolution: "@vuetify/loader-shared@npm:1.7.0"
   dependencies:
     find-cache-dir: ^3.3.2
     upath: ^2.0.1
   peerDependencies:
     vue: ^3.0.0
     vuetify: ^3.0.0-beta.4
-  checksum: 5ea0895b00734549ff3f990ab80c27e29ccfaf4ecadbc7b60c4240a54b0b60eb1bb1e50eec2d967cc2145832826d2ec0be797005bcecac06af0a63e4bf3c482b
+  checksum: 986dae84049c5ffebd6f00a70463a10785beaf9c6d13b8ad7c5a22a5fb243b64b06937bcd18f35fa681dfa0a0197c71cc32e9c7f52cc6a45094ca6a814135dc1
   languageName: node
   linkType: hard
 
@@ -5863,11 +5863,11 @@ __metadata:
 
 "typescript@patch:typescript@^4.8.4#~builtin<compat/typescript>":
   version: 4.8.4
-  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=a1c5e5"
+  resolution: "typescript@patch:typescript@npm%3A4.8.4#~builtin<compat/typescript>::version=4.8.4&hash=701156"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 563a0ef47abae6df27a9a3ab38f75fc681f633ccf1a3502b1108e252e187787893de689220f4544aaf95a371a4eb3141e4a337deb9895de5ac3c1ca76430e5f0
+  checksum: 301459fc3eb3b1a38fe91bf96d98eb55da88a9cb17b4ef80b4d105d620f4d547ba776cc27b44cc2ef58b66eda23fe0a74142feb5e79a6fb99f54fc018a696afa
   languageName: node
   linkType: hard
 
@@ -6007,17 +6007,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-vuetify@npm:^1.0.0-alpha.17":
-  version: 1.0.0-alpha.17
-  resolution: "vite-plugin-vuetify@npm:1.0.0-alpha.17"
+"vite-plugin-vuetify@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "vite-plugin-vuetify@npm:1.0.0"
   dependencies:
-    "@vuetify/loader-shared": ^1.6.0
+    "@vuetify/loader-shared": ^1.7.0
     debug: ^4.3.3
     upath: ^2.0.1
   peerDependencies:
     vite: ^2.7.0 || ^3.0.0
     vuetify: ^3.0.0-beta.4
-  checksum: d07ea1c2669a1cecd9abc1ca71f485b83345478bd156eaff54a06a1b766d8adda5e9a4c59dc4af48c248ec96d658708b603628933677fe4a8968257c46c0be95
+  checksum: 3b179aa1314ece8e798aa5760309f967bced3e30b653699be20bf25226bdcf5befc5159dc9ce343ccd46ea7c9dcda7bad62418cd6d5cf2cd14bf0c1912d84c7c
   languageName: node
   linkType: hard
 
@@ -6065,7 +6065,7 @@ __metadata:
     typescript: ^4.8.4
     vite: ^3.1.8
     vite-plugin-checker: 0.5.1
-    vite-plugin-vuetify: ^1.0.0-alpha.17
+    vite-plugin-vuetify: ^1.0.0
     vitest: ^0.24.1
     vue: ^3.2.40
     vue-eslint-parser: ^9.1.0
