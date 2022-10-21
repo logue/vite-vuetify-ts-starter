@@ -1,7 +1,7 @@
 /**
  * Vuetify3 Plugin
  */
-import { getCurrentInstance, type Vuetify } from 'vue';
+import { getCurrentInstance } from 'vue';
 
 // Vuetify
 import * as directives from 'vuetify/directives';
@@ -21,17 +21,3 @@ export default createVuetify({
   components,
   directives,
 });
-
-/** Get vuetify instance */
-export function useVuetify(): Vuetify {
-  /** Vue instance proxy */
-  const proxy = getCurrentInstance()?.proxy;
-  if (proxy) {
-    return proxy.$vuetify;
-  } else {
-    console.warn(
-      `[vuetify] getCurrentInstance() returned null. Method must be called at the top of a setup() function.`
-    );
-  }
-  return undefined as any;
-}

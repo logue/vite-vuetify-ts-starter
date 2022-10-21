@@ -2,12 +2,15 @@
 import {
   computed,
   onMounted,
+  nextTick,
   ref,
   watch,
   type ComputedRef,
   type Ref,
+  type WritableComputedRef,
 } from 'vue';
 import { useTheme } from 'vuetify/lib/framework.mjs';
+
 // Components
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
@@ -31,8 +34,9 @@ const title = import.meta.env.VITE_APP_TITLE || 'Vuetify Application';
 
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);
+
 /** loading overlay visibility */
-const loading: Ref<boolean> = computed({
+const loading: WritableComputedRef<boolean> = computed({
   get: () => globalStore.loading,
   set: v => globalStore.setLoading(v),
 });
@@ -42,6 +46,7 @@ const progress: ComputedRef<number | null> = computed(
 );
 /** Snackbar visibility */
 const snackbar: Ref<boolean> = ref(false);
+
 /** Snackbar text */
 const snackbarText: ComputedRef<string | null> = computed(
   () => globalStore.message
@@ -64,6 +69,9 @@ watch(
     }
   }
 );
+
+// When loading overlay value change, force redraw screen.
+watch(loading, async () => await nextTick());
 
 onMounted(() => {
   document.title = title;
@@ -94,12 +102,12 @@ onMounted(() => {
     </v-app-bar>
 
     <v-main>
-      <router-view v-slot="{ Component }">
-        <component :is="Component" />
+      <router-view v-slot="{ Component, route }">
+        <component :is="Component" :key="route.path" />
       </router-view>
     </v-main>
 
-    <v-overlay v-model="loading" app>
+    <v-overlay v-model="loading" app class="justify-center align-center">
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 
