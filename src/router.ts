@@ -9,8 +9,7 @@ import {
 import { nextTick } from 'vue';
 
 // Pinia Store
-import GlobalStore from '@/store/GlobalStore';
-import store from '@/store';
+import { useGlobal } from '@/store';
 
 // Components
 import AboutPage from '@/views/AboutPage.vue';
@@ -36,15 +35,13 @@ const router: Router = createRouter({
   routes,
 });
 
-/** passing Pinia instance directly */
-const globalStore = GlobalStore(store);
-
 router.beforeEach(
   async (
     _to: RouteLocationNormalized,
     _from: RouteLocationNormalized,
     next: NavigationGuardNext
   ) => {
+    const globalStore = useGlobal();
     // Show Loading
     globalStore.setLoading(true);
     await nextTick();
@@ -54,6 +51,7 @@ router.beforeEach(
 );
 
 router.afterEach(() => {
+  const globalStore = useGlobal();
   // Hide Loading
   globalStore.setLoading(false);
 });

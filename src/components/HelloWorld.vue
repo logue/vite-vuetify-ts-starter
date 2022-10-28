@@ -5,11 +5,11 @@ import type MetaInterface from '@/interfaces/MetaInterface';
 import logo from '@/assets/logo.svg';
 import Meta from '@/Meta';
 
-interface Props {
+type HelloWordProps = {
   msg: string;
-}
+};
 
-const props = defineProps<Props>();
+const props = defineProps<HelloWordProps>();
 
 /** Meta information */
 const meta: MetaInterface = Meta;

@@ -1,10 +1,11 @@
 import { defineConfig, type UserConfig } from 'vite';
-import { fileURLToPath } from 'node:url';
 import { visualizer } from 'rollup-plugin-visualizer';
 import checker from 'vite-plugin-checker';
-import fs from 'node:fs';
 import vue from '@vitejs/plugin-vue';
-import vuetify from 'vite-plugin-vuetify';
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
+
+import { fileURLToPath, URL } from 'node:url';
+import fs from 'node:fs';
 
 /**
  * Vite Configure
@@ -31,9 +32,14 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
     },
     plugins: [
       // Vue3
-      vue(),
+      vue({
+        template: {
+          // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin#image-loading
+          transformAssetUrls,
+        },
+      }),
       // Vuetify Loader
-      // https://github.com/vuetifyjs/vuetify-loader
+      // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin#vite-plugin-vuetify
       vuetify({
         autoImport: true,
         styles: { configFile: './src/styles/variables.scss' },
@@ -53,7 +59,7 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
     build: {
       // Build Target
       // https://vitejs.dev/config/build-options.html#build-target
-      target: 'es2022',
+      target: 'esnext',
       // Rollup Options
       // https://vitejs.dev/config/build-options.html#build-rollupoptions
       rollupOptions: {
@@ -91,7 +97,7 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
               },
             }),
             */
-          ].filter(item => item !== undefined),
+          ],
         },
       },
       // Minify option

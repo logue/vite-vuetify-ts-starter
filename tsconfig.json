@@ -1,13 +1,15 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "files": [],
   "compilerOptions": {
     "newLine": "lf",
-    "paths": { "@/*": ["./src/*"] },
-    "types": ["vite/client", "vitest/globals", "vue", "vuetify"],
-    "lib": ["ESNext", "DOM", "DOM.Iterable"]
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules", "dist"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "references": [
+    { "path": "./tsconfig.config.json" },
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.vitest.json" }
+  ]
 }

@@ -1,8 +1,6 @@
 /**
  * Vuetify3 Plugin
  */
-import { getCurrentInstance } from 'vue';
-
 // Vuetify
 import * as directives from 'vuetify/directives';
 import * as components from 'vuetify/components';

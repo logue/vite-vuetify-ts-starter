@@ -1,7 +1,7 @@
 root: true
 env:
   browser: true
-  es2021: true
+  es6: true
 extends:
   - eslint:recommended
   - google
@@ -45,11 +45,13 @@ rules:
   vue/html-self-closing: [error, html: { void: always }]
   vue/multi-word-component-names: warn
 settings:
+  import/parsers:
+    '@typescript-eslint/parser': [.ts, .tsx]
   import/resolver:
     typescript: {}
     alias:
       map:
-        - ['@/', './src/']
+        - ['@', './src']
       extensions:
         - .js
         - .ts
