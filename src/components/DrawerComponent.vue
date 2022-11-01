@@ -1,23 +1,8 @@
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
-import type { RouteLocationRaw } from 'vue-router';
-
-/** Drawer Menu Item Interface */
-interface Item {
-  /** Item Name */
-  title: string | '-';
-  /** Item Icon */
-  icon?: string;
-  /** Router Location */
-  to?: RouteLocationRaw;
-  /** is active */
-  active?: boolean;
-  /** Sub Items */
-  items?: Item[];
-}
+import type DrawerMenuItem from '@/interfaces/DrawerMenuItemInterface';
 
 /** Drawer menu items */
-const items: Ref<Item[]> = ref([
+const items: DrawerMenuItem[] = [
   {
     title: 'Home',
     icon: 'mdi-home',
@@ -31,7 +16,12 @@ const items: Ref<Item[]> = ref([
     icon: 'mdi-information',
     to: { name: 'About' },
   },
-]);
+  {
+    title: 'Disabled Item',
+    icon: 'mdi-cancel',
+    // empty `to` value becomes to disabled item
+  },
+];
 </script>
 
 <template>

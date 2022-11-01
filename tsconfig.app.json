@@ -6,9 +6,9 @@
   "compilerOptions": {
     "composite": true,
     "baseUrl": ".",
-    "libs": ["vuetify"],
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "types": ["vuetify"]
   }
 }

@@ -9,7 +9,8 @@ type HelloWordProps = {
   msg: string;
 };
 
-const props = defineProps<HelloWordProps>();
+/** Props */
+defineProps<HelloWordProps>();
 
 /** Meta information */
 const meta: MetaInterface = Meta;
@@ -76,7 +77,7 @@ const whatsNext: Ref<Record<string, string>[]> = ref([
           height="200"
         />
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to the Vuetify 3 Beta
+          Welcome to the Vuetify 3
         </h1>
         <p class="text-medium-emphasis">
           <a

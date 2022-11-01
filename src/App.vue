@@ -16,8 +16,7 @@ import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
 
 // Stores
-import GlobalStore from '@/store/GlobalStore';
-import ConfigStore from '@/store/ConfigStore';
+import { useGlobal, useConfig } from '@/store';
 
 import logo from '@/assets/logo.svg';
 
@@ -25,9 +24,9 @@ import logo from '@/assets/logo.svg';
 const theme = useTheme();
 
 /** Global Store */
-const globalStore = GlobalStore();
+const globalStore = useGlobal();
 /** Config Store */
-const configStore = ConfigStore();
+const configStore = useConfig();
 
 /** Title */
 const title = import.meta.env.VITE_APP_TITLE || 'Vuetify Application';
@@ -40,21 +39,25 @@ const loading: WritableComputedRef<boolean> = computed({
   get: () => globalStore.loading,
   set: v => globalStore.setLoading(v),
 });
+
 /** Appbar progressbar value */
 const progress: ComputedRef<number | null> = computed(
   () => globalStore.progress
 );
+
 /** Snackbar visibility */
 const snackbar: Ref<boolean> = ref(false);
 
 /** Snackbar text */
-const snackbarText: ComputedRef<string | null> = computed(
+const snackbarText: ComputedRef<string | undefined> = computed(
   () => globalStore.message
 );
+
 /** Toggle Dark mode */
 const isDark: ComputedRef<string> = computed(() =>
   configStore.themeDark ? 'dark' : 'light'
 );
+
 /** Theme Color */
 const themeColor: ComputedRef<string> = computed(
   () => theme.computedThemes.value[isDark.value].colors.primary
@@ -64,7 +67,9 @@ const themeColor: ComputedRef<string> = computed(
 watch(
   () => globalStore.message,
   value => {
-    if (value) {
+    if (!value) {
+      snackbar.value = false;
+    } else {
       snackbar.value = true;
     }
   }

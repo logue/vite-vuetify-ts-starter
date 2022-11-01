@@ -44,6 +44,7 @@ router.beforeEach(
     const globalStore = useGlobal();
     // Show Loading
     globalStore.setLoading(true);
+    globalStore.setMessage('');
     await nextTick();
 
     next();
