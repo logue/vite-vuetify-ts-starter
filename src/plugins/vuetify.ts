@@ -3,6 +3,9 @@
  */
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import { createVuetify } from 'vuetify';
+
+// For test use. Do not include createVuetify()
+// see https://next.vuetifyjs.com/en/features/treeshaking/
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 
@@ -51,11 +54,7 @@ export default createVuetify({
   theme: {
     defaultTheme: 'light',
   },
-  // Tree shaking. Do not change bellow line.
-  // https://next.vuetifyjs.com/en/getting-started/installation/
-  components,
-  directives,
 });
 
-// For Test use
+// Export for test.
 export { components, directives };

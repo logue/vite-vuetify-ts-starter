@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "vite-vuetify-ts-starter",
   "description": "Vue3 Vuetify TypeScript Startar project for Vite.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "type": "module",
   "private": true,
@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@types/jsdom": "^20.0.0",
-    "@types/node": "^18.11.8",
+    "@types/node": "^18.11.9",
     "@types/webfontloader": "^1.6.35",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
