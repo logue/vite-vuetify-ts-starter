@@ -1,10 +1,10 @@
 /* eslint spaced-comment: off */
 /// <reference types="vite/client" />
 
+// Vue
 declare module '*.vue' {
-  import type { DefineComponent } from 'vue';
-  const component: DefineComponent<{}, {}, any>;
-  export default component;
+  import Vue from 'vue';
+  export default Vue;
 }
 
 interface ImportMetaEnv {
