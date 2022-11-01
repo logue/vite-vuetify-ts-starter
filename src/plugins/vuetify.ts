@@ -49,7 +49,7 @@ export default createVuetify({
   // Theme
   // https://next.vuetifyjs.com/en/features/theme/
   theme: {
-    defaultTheme: 'dark',
+    defaultTheme: 'light',
   },
   // Tree shaking. Do not change bellow line.
   // https://next.vuetifyjs.com/en/getting-started/installation/
