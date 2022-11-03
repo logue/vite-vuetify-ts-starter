@@ -50,7 +50,8 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
         typescript: true,
         vueTsc: true,
         eslint: {
-          lintCommand: 'eslint', // for example, lint .ts & .tsx
+          lintCommand:
+            'eslint . --fix --cache --cache-location ./node_modules/.vite/vite-plugin-eslint', // for example, lint .ts & .tsx
         },
       }),
     ],
@@ -72,7 +73,6 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
               'vuetify',
               'vuetify/components',
               'vuetify/directives',
-              'vuetify/lib/styles/main.css',
               'webfontloader',
             ],
             materialdesignicons: ['@mdi/font/css/materialdesignicons.css'],
