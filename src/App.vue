@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import {
   computed,
-  onMounted,
   nextTick,
+  onMounted,
   ref,
   watch,
   type ComputedRef,
@@ -10,13 +10,12 @@ import {
   type WritableComputedRef,
 } from 'vue';
 import { useTheme } from 'vuetify/lib/framework.mjs';
+// Stores
+import { useGlobal, useConfig } from '@/store';
 
 // Components
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
-
-// Stores
-import { useGlobal, useConfig } from '@/store';
 
 import logo from '@/assets/logo.svg';
 
@@ -66,17 +65,11 @@ const themeColor: ComputedRef<string> = computed(
 // When snackbar text has been set, show snackbar.
 watch(
   () => globalStore.message,
-  value => {
-    if (!value) {
-      snackbar.value = false;
-    } else {
-      snackbar.value = true;
-    }
-  }
+  value => (snackbar.value = !value)
 );
 
 // When loading overlay value change, force redraw screen.
-watch(loading, async () => await nextTick());
+watch(loading, async () => nextTick());
 
 onMounted(() => {
   document.title = title;
@@ -130,7 +123,7 @@ onMounted(() => {
       </template>
     </v-snackbar>
 
-    <v-footer app elevation="1">
+    <v-footer app elevation="3">
       <span class="mr-5">2022 &copy;</span>
     </v-footer>
   </v-app>
@@ -141,7 +134,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@import 'node_modules/vuetify/lib/styles/settings';
+@import 'node_modules/vuetify/lib/styles/settings/_colors';
 
 html {
   // Fix always scrollbar shown.
