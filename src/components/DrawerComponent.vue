@@ -30,36 +30,32 @@ const items: DrawerMenuItem[] = [
     <template v-else>
       <!-- Menu Item -->
       <v-list-item v-if="!item.items" :to="item.to" :disabled="!item.to" link>
-        <template #prepend>
+        <template v-if="item.icon" #prepend>
           <v-icon>{{ item.icon }}</v-icon>
         </template>
         <v-list-item-title>{{ item.title }}</v-list-item-title>
       </v-list-item>
       <!-- Sub menu -->
-      <v-list-group v-else v-model="item.active" no-action>
-        <template #activator>
-          <v-list-item link>
-            <template #prepend>
+      <v-list-group v-else-if="item.items" v-model="item.active" no-action>
+        <template #activator="{ props }">
+          <v-list-item v-bind="props" link>
+            <template v-if="item.icon" #prepend>
               <v-icon>{{ item.icon }}</v-icon>
             </template>
             <v-list-item-title>{{ item.title }}</v-list-item-title>
           </v-list-item>
         </template>
         <!-- Sub menu item -->
-        <template v-if="item.items">
-          <v-divider v-if="item.title === '-'" />
-          <v-list-item
-            v-for="subItem in item.items"
-            :key="subItem.title"
-            :to="subItem.to"
-            :disabled="!subItem.to"
-            link
-          >
-            <template #prepend>
-              <v-icon>{{ item.icon }}</v-icon>
-            </template>
-            <v-list-item-title>{{ subItem.title }}</v-list-item-title>
-          </v-list-item>
+        <template v-for="subItem in item.items" :key="subItem.title">
+          <v-divider v-if="subItem.title === '-'" />
+          <template v-else>
+            <v-list-item :to="subItem.to" :disabled="!subItem.to" link>
+              <template v-if="subItem.icon" #prepend>
+                <v-icon>{{ subItem.icon }}</v-icon>
+              </template>
+              <v-list-item-title>{{ subItem.title }}</v-list-item-title>
+            </v-list-item>
+          </template>
         </template>
       </v-list-group>
     </template>

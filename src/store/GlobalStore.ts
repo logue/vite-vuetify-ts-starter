@@ -7,16 +7,16 @@ type GlobalState = {
   /** ProgressBar Percentage */
   _progress: number | null;
   /** SnackBar Text */
-  _message?: string;
+  _message: string;
 };
 
 /** Global Store */
 export default defineStore('global', {
   // Default Global State
   state: (): GlobalState => ({
-    _loading: false,
+    _loading: true,
     _progress: null,
-    _message: undefined,
+    _message: '',
   }),
   // Getters
   getters: {
@@ -29,8 +29,8 @@ export default defineStore('global', {
       s._loading = true;
       return s._progress;
     },
-    /** Snackbar Text (Unused) */
-    message(s): string | undefined {
+    /** Snackbar Text */
+    message(s): string {
       return s._message;
     },
   },
@@ -41,20 +41,26 @@ export default defineStore('global', {
       this._loading = display;
       if (!display) {
         // Reset Progress value
-        this._progress = 0;
+        this._progress = null;
       }
     },
     /** Update progress value */
-    setProgress(progress: number | null) {
+    setProgress(progress: number | null = null) {
       // update progress value
       this._progress = progress;
       // display loading overlay
       this._loading = true;
     },
     /** Show snackbar message */
-    setMessage(message?: string) {
+    setMessage(message: string = '') {
       // put snackbar text
       this._message = message;
     },
   },
+  /*
+  persist: {
+    key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE || 'vuetify',
+    storage: window.localStorage,
+  },
+  */
 });

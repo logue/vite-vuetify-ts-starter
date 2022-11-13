@@ -6,10 +6,10 @@
 </template>
 
 <script lang="ts" setup>
-import GlobalStore from '@/store/GlobalStore';
+import { useGlobal } from '@/store';
 
 /** Global Store */
-const globalStore = GlobalStore();
+const globalStore = useGlobal();
 
 /** Display snackbar */
 const showSnackbar = (message: string) => {

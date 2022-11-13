@@ -1,6 +1,6 @@
 import { defineConfig, type UserConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
-import checker from 'vite-plugin-checker';
+import { checker } from 'vite-plugin-checker';
 import vue from '@vitejs/plugin-vue';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
@@ -61,6 +61,9 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
       // Build Target
       // https://vitejs.dev/config/build-options.html#build-target
       target: 'esnext',
+      // Minify option
+      // https://vitejs.dev/config/build-options.html#build-minify
+      minify: 'esbuild',
       // Rollup Options
       // https://vitejs.dev/config/build-options.html#build-rollupoptions
       rollupOptions: {
@@ -84,8 +87,6 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
                 visualizer({
                   open: true,
                   filename: 'dist/stats.html',
-                  gzipSize: true,
-                  brotliSize: true,
                 })
               : undefined,
             /*
@@ -100,9 +101,6 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
           ],
         },
       },
-      // Minify option
-      // https://vitejs.dev/config/build-options.html#build-minify
-      minify: 'esbuild',
     },
     esbuild: {
       // Drop console when production build.

@@ -28,7 +28,7 @@ const globalStore = useGlobal();
 const configStore = useConfig();
 
 /** Title */
-const title = import.meta.env.VITE_APP_TITLE || 'Vuetify Application';
+const title = import.meta.env.VITE_APP_TITLE || 'Vuetify3 Application';
 
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);
@@ -57,7 +57,7 @@ const isDark: ComputedRef<string> = computed(() =>
   configStore.themeDark ? 'dark' : 'light'
 );
 
-/** Theme Color */
+/** Theme Color (Sync browser theme color to vuetify theme color) */
 const themeColor: ComputedRef<string> = computed(
   () => theme.computedThemes.value[isDark.value].colors.primary
 );
@@ -65,8 +65,17 @@ const themeColor: ComputedRef<string> = computed(
 // When snackbar text has been set, show snackbar.
 watch(
   () => globalStore.message,
-  value => (snackbar.value = !value)
+  async value => {
+    snackbar.value = value !== '';
+    await nextTick();
+  }
 );
+
+// Clear store when snackbar disappears
+const onSnackbarChanged = async () => {
+  globalStore.setMessage();
+  await nextTick();
+};
 
 // When loading overlay value change, force redraw screen.
 watch(loading, async () => nextTick());
@@ -109,15 +118,10 @@ onMounted(() => {
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 
-    <v-snackbar
-      v-model="snackbar"
-      app
-      timeout="5000"
-      transition="scroll-y-transition"
-    >
+    <v-snackbar v-model="snackbar" app @update:model-value="onSnackbarChanged">
       {{ snackbarText }}
       <template #actions>
-        <v-btn icon @click="snackbar = false">
+        <v-btn icon @click="onSnackbarChanged">
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </template>

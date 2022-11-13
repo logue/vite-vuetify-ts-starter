@@ -2,6 +2,7 @@ root: true
 env:
   browser: true
   es6: true
+  node: true
 extends:
   - eslint:recommended
   - google
@@ -35,18 +36,24 @@ rules:
   no-unused-vars: warn
   require-jsdoc: warn
   valid-jsdoc: off
-  import/no-named-as-default: off
   jsdoc/require-param-type: off
-  jsdoc/require-param: ['off', { enableRootFixer: false }]
+  jsdoc/require-param:
+    - off
+    - enableRootFixer: false
   jsdoc/require-returns-description: off
   jsdoc/require-returns-type: off
   jsdoc/require-returns: off
   tsdoc/syntax: warn
-  vue/html-self-closing: [error, html: { void: always }]
+  vue/html-self-closing:
+    - error
+    - html:
+        void: always
   vue/multi-word-component-names: warn
 settings:
   import/parsers:
-    '@typescript-eslint/parser': [.ts, .tsx]
+    '@typescript-eslint/parser':
+      - .ts
+      - .tsx
   import/resolver:
     typescript: {}
     alias:
