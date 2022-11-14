@@ -21,6 +21,7 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
       // https://vitejs.dev/config/shared-options.html#resolve-alias
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
       },
     },
     // https://vitejs.dev/config/server-options.html

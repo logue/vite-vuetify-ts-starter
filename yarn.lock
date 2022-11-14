@@ -791,12 +791,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/test-utils@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@vue/test-utils@npm:2.2.1"
+"@vue/test-utils@npm:^2.2.2":
+  version: 2.2.2
+  resolution: "@vue/test-utils@npm:2.2.2"
   peerDependencies:
     vue: ^3.0.1
-  checksum: 6eccfbcd1839b43a6cdf7838c537a5b2446553d78a6743cc73c29765c21a66a7894089179139b7187b0b06a1bef1bee1758c738b18fd1dd8c91dec752a37da92
+  checksum: fdfd15d755ea14c5cd65a9ce36ef6e5d29bcfb72f5fc8daa3f698e16b35f0c1b695ceb7d50d81dc4f3bf89500ca3d97cf61c814aff04c3c62ffe4eb73a70a730
   languageName: node
   linkType: hard
 
@@ -1491,16 +1491,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:^7.0.1":
-  version: 7.0.1
-  resolution: "cosmiconfig@npm:7.0.1"
+"cosmiconfig@npm:^7.1.0":
+  version: 7.1.0
+  resolution: "cosmiconfig@npm:7.1.0"
   dependencies:
     "@types/parse-json": ^4.0.0
     import-fresh: ^3.2.1
     parse-json: ^5.0.0
     path-type: ^4.0.0
     yaml: ^1.10.0
-  checksum: 4be63e7117955fd88333d7460e4c466a90f556df6ef34efd59034d2463484e339666c41f02b523d574a797ec61f4a91918c5b89a316db2ea2f834e0d2d09465b
+  checksum: c53bf7befc1591b2651a22414a5e786cd5f2eeaa87f3678a3d49d6069835a9d8d1aef223728e98aa8fec9a95bf831120d245096db12abe019fecb51f5696c96f
   languageName: node
   linkType: hard
 
@@ -4961,15 +4961,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pinia-plugin-persistedstate@npm:^2.3.0":
-  version: 2.3.0
-  resolution: "pinia-plugin-persistedstate@npm:2.3.0"
+"pinia-plugin-persistedstate@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "pinia-plugin-persistedstate@npm:2.4.0"
   peerDependencies:
     pinia: ^2.0.0
   peerDependenciesMeta:
     pinia:
       optional: true
-  checksum: a244631282f06a209c057555b2d83b906cdc43e59e9950b28145b8a9f4542e8cc1b07c8bc7b94382bc3e2df6af06eef64d3e27824dc7a9e0cca74e61891ecb55
+  checksum: 8b847a4d967ea7e96815084bdf21e993ac0956d2b9093c0ef452287af66379799bc5d05057a256848b1bc254a8e232df8d0e0b19a63eef85ee4cc6aae6e8352d
   languageName: node
   linkType: hard
 
@@ -5953,6 +5953,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"stylelint-config-prettier@npm:^9.0.4":
+  version: 9.0.4
+  resolution: "stylelint-config-prettier@npm:9.0.4"
+  peerDependencies:
+    stylelint: ">=11.0.0"
+  bin:
+    stylelint-config-prettier: bin/check.js
+    stylelint-config-prettier-check: bin/check.js
+  checksum: cf94f646f6b1756a9e41940524a8c276ec05be9a2a02907fee6cb4ebdc39e3a9049c96ec97e79cc3f3c0487f5870c81b3d68b0a65d1ee81cd9d7700420788cee
+  languageName: node
+  linkType: hard
+
 "stylelint-config-recommended-scss@npm:^8.0.0":
   version: 8.0.0
   resolution: "stylelint-config-recommended-scss@npm:8.0.0"
@@ -6029,14 +6041,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:^14.14.1":
-  version: 14.14.1
-  resolution: "stylelint@npm:14.14.1"
+"stylelint@npm:^14.15.0":
+  version: 14.15.0
+  resolution: "stylelint@npm:14.15.0"
   dependencies:
     "@csstools/selector-specificity": ^2.0.2
     balanced-match: ^2.0.0
     colord: ^2.9.3
-    cosmiconfig: ^7.0.1
+    cosmiconfig: ^7.1.0
     css-functions-list: ^3.1.0
     debug: ^4.3.4
     fast-glob: ^3.2.12
@@ -6056,7 +6068,7 @@ __metadata:
     micromatch: ^4.0.5
     normalize-path: ^3.0.0
     picocolors: ^1.0.0
-    postcss: ^8.4.18
+    postcss: ^8.4.19
     postcss-media-query-parser: ^0.2.3
     postcss-resolve-nested-selector: ^0.1.1
     postcss-safe-parser: ^6.0.0
@@ -6073,7 +6085,7 @@ __metadata:
     write-file-atomic: ^4.0.2
   bin:
     stylelint: bin/stylelint.js
-  checksum: be35a419e181ccf31410091d3a92766ffd17c71e8b6dda481343e2c589cbde96be539472783477f7f2907802bd9d79cc8322c3d22fb62c0fbd42fefd4ba66435
+  checksum: a3b4593a35a2303987305ca5147ea31e92a47e1994d393be8d1a07a6dc8720b9eee1fed62aafaca618cd8f06e0b3ca601af4fa6618967f1f359ea36ade4c2550
   languageName: node
   linkType: hard
 
@@ -6557,7 +6569,7 @@ __metadata:
     "@vitejs/plugin-vue": ^3.2.0
     "@vitest/coverage-c8": ^0.25.1
     "@vue/eslint-config-prettier": ^7.0.0
-    "@vue/test-utils": ^2.2.1
+    "@vue/test-utils": ^2.2.2
     "@vue/tsconfig": ^0.1.3
     eslint: ^8.27.0
     eslint-config-google: ^0.14.0
@@ -6576,7 +6588,7 @@ __metadata:
     lint-staged: ^13.0.3
     npm-run-all: ^4.1.5
     pinia: ^2.0.23
-    pinia-plugin-persistedstate: ^2.3.0
+    pinia-plugin-persistedstate: ^2.4.0
     postcss: ^8.4.19
     postcss-html: ^1.5.0
     postcss-scss: ^4.0.5
@@ -6584,7 +6596,8 @@ __metadata:
     rimraf: ^3.0.2
     rollup-plugin-visualizer: ^5.8.3
     sass: ^1.56.1
-    stylelint: ^14.14.1
+    stylelint: ^14.15.0
+    stylelint-config-prettier: ^9.0.4
     stylelint-config-recommended-scss: ^8.0.0
     stylelint-config-recommended-vue: ^1.4.0
     stylelint-order: ^5.0.0
