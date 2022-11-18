@@ -48,9 +48,7 @@ const progress: ComputedRef<number | null> = computed(
 const snackbar: Ref<boolean> = ref(false);
 
 /** Snackbar text */
-const snackbarText: ComputedRef<string | undefined> = computed(
-  () => globalStore.message
-);
+const snackbarText: ComputedRef<string> = computed(() => globalStore.message);
 
 /** Toggle Dark mode */
 const isDark: ComputedRef<string> = computed(() =>
@@ -71,7 +69,7 @@ watch(
   }
 );
 
-// Clear store when snackbar disappears
+/** Clear store when snackbar hide */
 const onSnackbarChanged = async () => {
   globalStore.setMessage();
   await nextTick();
