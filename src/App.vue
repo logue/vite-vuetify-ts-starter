@@ -52,7 +52,7 @@ const snackbarText: ComputedRef<string> = computed(() => globalStore.message);
 
 /** Toggle Dark mode */
 const isDark: ComputedRef<string> = computed(() =>
-  configStore.themeDark ? 'dark' : 'light'
+  configStore._themeDark ? 'dark' : 'light'
 );
 
 /** Theme Color (Sync browser theme color to vuetify theme color) */
@@ -99,9 +99,7 @@ onMounted(() => {
         v-show="loading"
         :active="loading"
         :indeterminate="progress === null"
-        :value="progress"
-        absolute
-        bottom
+        :model-value="progress !== null ? progress : 0"
         color="blue accent-3"
       />
     </v-app-bar>
@@ -165,6 +163,12 @@ html {
 // Fixed a bug that the theme color is interrupted when scrolling
 .v-application {
   overflow-y: auto;
+}
+
+// Fix app-bar's progress-bar
+.v-app-bar .v-progress-linear {
+  position: absolute;
+  bottom: 0;
 }
 
 /*
