@@ -21,18 +21,14 @@ export default defineStore('global', {
   // Getters
   getters: {
     /** Loading overlay visibility */
-    loading(s): boolean {
-      return s._loading;
-    },
+    loading: (s): boolean => s._loading,
     /** Loadig progress value */
-    progress(s): number | null {
+    progress: (s): number | null => {
       s._loading = true;
       return s._progress;
     },
     /** Snackbar Text */
-    message(s): string {
-      return s._message;
-    },
+    message: (s): string => s._message,
   },
   // Actions
   actions: {

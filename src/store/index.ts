@@ -7,6 +7,8 @@ pinia.use(piniaPluginPersistedstate);
 
 export default pinia;
 
+// Pinia Stores
+
 import useGlobal from './GlobalStore';
 import useConfig from './ConfigStore';
 

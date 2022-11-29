@@ -7,7 +7,5 @@ const configStore = useConfig();
 
 <template>
   <!-- Toggle Dark mode -->
-  <v-btn icon @click="configStore.toggleTheme">
-    <v-icon>mdi-theme-light-dark</v-icon>
-  </v-btn>
+  <v-btn icon="mdi-theme-light-dark" @click="configStore.toggleTheme" />
 </template>

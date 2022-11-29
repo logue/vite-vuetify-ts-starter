@@ -19,12 +19,8 @@ export default defineStore('config', {
   }),
   // Getters
   getters: {
-    themeDark(s): boolean {
-      return s._themeDark;
-    },
-    locale(s): string {
-      return s._locale;
-    },
+    themeDark: (s): boolean => s._themeDark,
+    locale: (s): string => s._locale,
   },
   // Actions
   actions: {

@@ -16,21 +16,8 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
   const config: UserConfig = {
     // https://vitejs.dev/config/shared-options.html#base
     base: './',
-    // Resolver
-    resolve: {
-      // https://vitejs.dev/config/shared-options.html#resolve-alias
-      alias: {
-        '@': fileURLToPath(new URL('./src', import.meta.url)),
-        '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
-      },
-    },
-    // https://vitejs.dev/config/server-options.html
-    server: {
-      fs: {
-        // Allow serving files from one level up to the project root
-        allow: ['..'],
-      },
-    },
+    // https://vitejs.dev/config/shared-options.html#define
+    define: { 'process.env': {} },
     plugins: [
       // Vue3
       vue({
@@ -43,7 +30,7 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
       // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin#vite-plugin-vuetify
       vuetify({
         autoImport: true,
-        styles: { configFile: './src/styles/variables.scss' },
+        styles: { configFile: 'src/styles/settings.scss' },
       }),
       // vite-plugin-checker
       // https://github.com/fi3ework/vite-plugin-checker
@@ -56,6 +43,22 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
         },
       }),
     ],
+    // https://vitejs.dev/config/server-options.html
+    server: {
+      fs: {
+        // Allow serving files from one level up to the project root
+        allow: ['..'],
+      },
+    },
+    // Resolver
+    resolve: {
+      // https://vitejs.dev/config/shared-options.html#resolve-alias
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
+      },
+      extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
+    },
     // Build Options
     // https://vitejs.dev/config/build-options.html
     build: {

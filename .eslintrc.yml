@@ -1,7 +1,7 @@
 root: true
 env:
   browser: true
-  es6: true
+  es2022: true # Vuetify recommended
   node: true
 extends:
   - eslint:recommended
@@ -49,21 +49,27 @@ rules:
     - html:
         void: always
   vue/multi-word-component-names: warn
+overrides:
+  - files:
+      - '*.html'
+    processor: vue/.vue
 settings:
   import/parsers:
     '@typescript-eslint/parser':
-      - .ts
-      - .tsx
+      - '*.ts'
+      - '*.tsx'
+      - '*.vue'
   import/resolver:
     typescript: {}
     alias:
       map:
         - ['@', './src']
+        - ['~', './node_modules']
       extensions:
         - .js
         - .ts
         - .jsx
         - .tsx
         - .vue
-    vite:
-      configPath: ./vite.config.ts
+  vite:
+    configPath: ./vite.config.ts

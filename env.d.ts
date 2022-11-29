@@ -1,12 +1,6 @@
 /* eslint spaced-comment: off */
 /// <reference types="vite/client" />
 
-// Vue
-declare module '*.vue' {
-  import Vue from 'vue';
-  export default Vue;
-}
-
 // Vuetify color fix.
 declare module 'vuetify/lib/util/colors.mjs';
 

@@ -1,8 +1,5 @@
 <script setup lang="ts">
-import { ref, type Ref } from 'vue';
-
 import type MetaInterface from '@/interfaces/MetaInterface';
-import logo from '@/assets/logo.svg';
 import Meta from '@/Meta';
 
 type HelloWordProps = {
@@ -14,156 +11,72 @@ defineProps<HelloWordProps>();
 
 /** Meta information */
 const meta: MetaInterface = Meta;
-
-const ecosystem: Ref<Record<string, string>[]> = ref([
-  {
-    text: 'vite-plugin-vuetify',
-    href: 'https://www.npmjs.com/package/vite-plugin-vuetify',
-  },
-  {
-    text: 'github',
-    href: 'https://github.com/vuetifyjs/vuetify',
-  },
-  {
-    text: 'awesome-vuetify',
-    href: 'https://github.com/vuetifyjs/awesome-vuetify',
-  },
-]);
-
-const importantLinks: Ref<Record<string, string>[]> = ref([
-  {
-    text: 'Chat',
-    href: 'https://community.vuetifyjs.com',
-  },
-  {
-    text: 'Made with Vuetify',
-    href: 'https://madewithvuejs.com/vuetify',
-  },
-  {
-    text: 'Twitter',
-    href: 'https://twitter.com/vuetifyjs',
-  },
-  {
-    text: 'Articles',
-    href: 'https://medium.com/vuetify',
-  },
-]);
-
-const whatsNext: Ref<Record<string, string>[]> = ref([
-  {
-    text: 'Explore components',
-    href: 'https://next.vuetifyjs.com/',
-  },
-  {
-    text: 'Roadmap',
-    href: 'https://next.vuetifyjs.com/introduction/roadmap/',
-  },
-  {
-    text: 'Frequently Asked Questions',
-    href: 'https://next.vuetifyjs.com/getting-started/installation/#frequently-asked-questions',
-  },
-]);
 </script>
 
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col cols="12" class="mb-4">
-        <v-img
-          :src="logo"
-          alt="Vuetify"
-          class="my-3 logo vuetify"
-          contain
-          height="200"
+  <v-container class="fill-height">
+    <v-responsive class="d-flex align-center text-center fill-height">
+      <v-img contain height="300" src="@/assets/logo.svg" alt="vuetify" />
+      <h1 class="text-h2 font-weight-bold">Welcome to the Vuetify 3</h1>
+      <p class="text-medium-emphasis">
+        <a
+          href="https://github.com/logue/vite-vuetify-ts-starter"
+          target="_blank"
+        >
+          vite-vuetify-ts-starter
+        </a>
+        &nbsp;/&nbsp;Build:
+        <time
+          :datetime="meta.date"
+          v-text="new Date(meta.date).toLocaleString()"
         />
-        <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to the Vuetify 3
-        </h1>
-        <p class="text-medium-emphasis">
-          <a
-            href="https://github.com/logue/vite-vuetify-ts-starter"
+      </p>
+      <div class="py-14" />
+      <v-row class="d-flex align-center justify-center">
+        <v-col cols="auto">
+          <v-btn
+            href="https://next.vuetifyjs.com/components/all/"
+            min-width="164"
+            rel="noopener noreferrer"
             target="_blank"
+            variant="text"
           >
-            vite-vuetify-ts-starter
-          </a>
-          <br />
-          Build:
-          <time
-            :datetime="meta.date"
-            v-text="new Date(meta.date).toLocaleString()"
-          />
-        </p>
-      </v-col>
-      <v-col class="mb-4">
-        <p v-text="msg" />
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />
-          please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">
-            Discord Community
-          </a>
-        </p>
-      </v-col>
+            <v-icon icon="mdi-view-dashboard" size="large" start />
 
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-5">What's next?</h2>
+            Components
+          </v-btn>
+        </v-col>
 
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
+        <v-col cols="auto">
+          <v-btn
+            color="primary"
+            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
+            min-width="228"
+            rel="noopener noreferrer"
+            size="x-large"
             target="_blank"
+            variant="flat"
           >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
+            <v-icon icon="mdi-speedometer" size="large" start />
 
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-5">Important Links</h2>
+            Get Started
+          </v-btn>
+        </v-col>
 
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
+        <v-col cols="auto">
+          <v-btn
+            href="https://community.vuetifyjs.com/"
+            min-width="164"
+            rel="noopener noreferrer"
             target="_blank"
+            variant="text"
           >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
+            <v-icon icon="mdi-account-group" size="large" start />
 
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-5">Ecosystem</h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
+            Community
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-responsive>
   </v-container>
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo.vuetify:hover {
-  filter: drop-shadow(0 0 2em #2196f3aa);
-}
-</style>
