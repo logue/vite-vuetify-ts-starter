@@ -12,6 +12,7 @@ extends:
   - plugin:jsdoc/recommended
   - plugin:vue/vue3-recommended
   - plugin:vuejs-accessibility/recommended
+  - plugin:vuetify/base
   - plugin:yaml/recommended
   - plugin:jsonc/prettier
   - '@vue/eslint-config-prettier'
