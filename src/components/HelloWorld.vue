@@ -16,7 +16,7 @@ const meta: MetaInterface = Meta;
 <template>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
-      <v-img contain height="300" src="@/assets/logo.svg" alt="vuetify" />
+      <v-img src="@/assets/logo.svg" alt="vuetify" style="height: 300px" />
       <h1 class="text-h2 font-weight-bold">Welcome to the Vuetify 3</h1>
       <p class="text-medium-emphasis">
         <a

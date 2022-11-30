@@ -86,11 +86,11 @@ onMounted(() => {
 
 <template>
   <v-app :theme="isDark">
-    <v-navigation-drawer v-model="drawer" temporary app>
+    <v-navigation-drawer v-model="drawer" temporary>
       <drawer-component />
     </v-navigation-drawer>
 
-    <v-app-bar app>
+    <v-app-bar>
       <v-app-bar-nav-icon @click="drawer = !drawer" />
       <v-app-bar-title tag="h1">{{ title }}</v-app-bar-title>
       <v-spacer />
@@ -100,7 +100,7 @@ onMounted(() => {
         :active="loading"
         :indeterminate="progress === null"
         :model-value="progress !== null ? progress : 0"
-        color="blue accent-3"
+        color="blue-accent-3"
       />
     </v-app-bar>
 
@@ -114,7 +114,7 @@ onMounted(() => {
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 
-    <v-snackbar v-model="snackbar" app @update:model-value="onSnackbarChanged">
+    <v-snackbar v-model="snackbar" @update:model-value="onSnackbarChanged">
       {{ snackbarText }}
       <template #actions>
         <v-btn icon @click="onSnackbarChanged">

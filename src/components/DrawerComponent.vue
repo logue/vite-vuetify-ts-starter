@@ -39,7 +39,7 @@ const items: DrawerMenuItem[] = [
           link
         />
         <!-- Sub menu -->
-        <v-list-group v-else-if="item.items" v-model="item.active" no-action>
+        <v-list-group v-else-if="item.items" v-model="item.active">
           <template #activator="{ props }">
             <v-list-item
               v-bind="props"
