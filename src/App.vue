@@ -170,23 +170,4 @@ html {
   position: absolute;
   bottom: 0;
 }
-
-/*
-// Color scheme of scroll bar according to the theme
-.theme-- {
-  &light {
-    scrollbar-color: map-get($grey, 'lighten-2') map-get($grey, 'base');
-    ::-webkit-scrollbar-track {
-      background-color: map-get($grey, 'lighten-2');
-    }
-  }
-  &dark {
-    scrollbar-color: map-get($grey, 'darken-2') map-get($grey, 'base');
-
-    ::-webkit-scrollbar-track {
-      background-color: map-get($grey, 'darken-2');
-    }
-  }
-}
-*/
 </style>
