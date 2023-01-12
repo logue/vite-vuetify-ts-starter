@@ -93,15 +93,6 @@ export default defineConfig(async ({ command, mode }): Promise<UserConfig> => {
                   filename: 'dist/stats.html',
                 })
               : undefined,
-            /*
-            // if you use Code encryption by rollup-plugin-obfuscator
-            // https://github.com/getkey/rollup-plugin-obfuscator
-            obfuscator({
-              globalOptions: {
-                debugProtection: true,
-              },
-            }),
-            */
           ],
         },
       },
