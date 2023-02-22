@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { createVuetify } from 'vuetify';
 import type MetaInterface from '@/interfaces/MetaInterface';
 import Meta from '@/Meta';
 
@@ -16,8 +17,16 @@ const meta: MetaInterface = Meta;
 <template>
   <v-container class="fill-height">
     <v-responsive class="d-flex align-center text-center fill-height">
-      <v-img src="@/assets/logo.svg" alt="vuetify" style="height: 300px" />
-      <h1 class="text-h2 font-weight-bold">Welcome to the Vuetify 3</h1>
+      <v-img
+        src="@/assets/logo.svg"
+        alt="vuetify"
+        :width="300"
+        class="logo mx-auto"
+      />
+      <h1 class="text-h2 font-weight-bold mb-3">
+        Welcome to the Vuetify
+        {{ 'v' + createVuetify.version }}
+      </h1>
       <p class="text-medium-emphasis">
         <a
           href="https://github.com/logue/vite-vuetify-ts-starter"
@@ -31,7 +40,7 @@ const meta: MetaInterface = Meta;
           v-text="new Date(meta.date).toLocaleString()"
         />
       </p>
-      <div class="py-14" />
+      <div class="py-10" />
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn
@@ -80,3 +89,10 @@ const meta: MetaInterface = Meta;
     </v-responsive>
   </v-container>
 </template>
+
+<style scoped>
+.logo:hover {
+  will-change: filter;
+  filter: drop-shadow(0 0 1em #2196f3aa);
+}
+</style>
