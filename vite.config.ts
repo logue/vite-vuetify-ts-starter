@@ -1,11 +1,11 @@
+import { fileURLToPath, URL } from 'node:url';
+import fs from 'node:fs';
+
 import { defineConfig, type UserConfig } from 'vite';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { checker } from 'vite-plugin-checker';
 import vue from '@vitejs/plugin-vue';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
-
-import { fileURLToPath, URL } from 'node:url';
-import fs from 'node:fs';
 
 /**
  * Vite Configure

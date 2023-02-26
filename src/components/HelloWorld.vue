@@ -1,17 +1,11 @@
 <script setup lang="ts">
 import { createVuetify } from 'vuetify';
-import type MetaInterface from '@/interfaces/MetaInterface';
 import Meta from '@/Meta';
 
-type HelloWordProps = {
-  msg: string;
-};
-
 /** Props */
-defineProps<HelloWordProps>();
-
-/** Meta information */
-const meta: MetaInterface = Meta;
+defineProps<{
+  msg: string;
+}>();
 </script>
 
 <template>
@@ -20,13 +14,14 @@ const meta: MetaInterface = Meta;
       <v-img
         src="@/assets/logo.svg"
         alt="vuetify"
-        :width="300"
+        :width="256"
         class="logo mx-auto"
       />
       <h1 class="text-h2 font-weight-bold mb-3">
         Welcome to the Vuetify
         {{ 'v' + createVuetify.version }}
       </h1>
+      <p>{{ msg }}</p>
       <p class="text-medium-emphasis">
         <a
           href="https://github.com/logue/vite-vuetify-ts-starter"
@@ -36,8 +31,8 @@ const meta: MetaInterface = Meta;
         </a>
         &nbsp;/&nbsp;Build:
         <time
-          :datetime="meta.date"
-          v-text="new Date(meta.date).toLocaleString()"
+          :datetime="Meta.date"
+          v-text="new Date(Meta.date).toLocaleString()"
         />
       </p>
       <div class="py-10" />

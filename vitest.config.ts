@@ -1,15 +1,21 @@
-import { defineConfig } from 'vitest/config';
+import { fileURLToPath, URL } from 'node:url';
+
+import { configDefaults, defineConfig } from 'vitest/config';
 import vue from '@vitejs/plugin-vue';
 import vuetify from 'vite-plugin-vuetify';
 
-import { fileURLToPath, URL } from 'node:url';
-
+/**
+ * Vitest Configure
+ *
+ * @see {@link https://vitest.dev/config/}
+ */
 export default defineConfig({
   // Resolver
   resolve: {
     // https://vitejs.dev/config/#resolve-alias
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
     },
   },
   // plugins
@@ -35,9 +41,11 @@ export default defineConfig({
   ],
   test: {
     // https://vitest.dev/guide/#configuring-vitest
+    environment: 'jsdom',
+    exclude: [...configDefaults.exclude, 'e2e/*'],
     globals: true,
     globalSetup: [fileURLToPath(new URL('./vitest/setup.ts', import.meta.url))],
-    environment: 'jsdom',
+    root: fileURLToPath(new URL('./', import.meta.url)),
     deps: {
       inline: ['vuetify'],
     },

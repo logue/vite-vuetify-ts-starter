@@ -14,14 +14,14 @@ import { useGlobal } from '@/store';
 // import { goTo } from 'vuetify/lib/services/goto/index.mjs';
 
 // Components
-import HomePage from '@/views/HomePage.vue';
+import HomeView from '@/views/HomeView.vue';
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
-    component: HomePage,
+    component: HomeView,
   },
   {
     path: '/about',
@@ -29,7 +29,7 @@ const routes: RouteRecordRaw[] = [
     // route level code-splitting
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import('@/views/AboutPage.vue'),
+    component: () => import('@/views/AboutView.vue'),
   },
 ];
 

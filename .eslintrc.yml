@@ -58,6 +58,7 @@ settings:
     '@typescript-eslint/parser':
       - '*.ts'
       - '*.tsx'
+    vue-eslint-parser:
       - '*.vue'
   import/resolver:
     typescript: true
