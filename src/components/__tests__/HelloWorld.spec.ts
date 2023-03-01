@@ -4,19 +4,22 @@ import vuetify, { components } from '@/plugins/vuetify';
 
 import HelloWorld from '../HelloWorld.vue';
 
-describe('HelloWorld.ts', () => {
+describe('HelloWorld', () => {
+  const wrapper = mount(HelloWorld, {
+    global: { plugins: [vuetify] },
+    props: { msg: 'Hello Vitest' },
+  });
+
   it('mount component', async () => {
     expect(HelloWorld).toBeTruthy();
-
-    const wrapper = mount(HelloWorld as any, {
-      global: {
-        plugins: [vuetify],
-      },
-    });
 
     const img = wrapper.findComponent(components.VImg);
     expect(img).toBeTruthy();
 
     expect(wrapper.text()).toContain('Welcome to the Vuetify');
+  });
+
+  it('renders properly', () => {
+    expect(wrapper.text()).toContain('Hello Vitest');
   });
 });
