@@ -134,7 +134,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
-@use 'vuetify/settings';
+@use 'vuetify/_settings';
 
 html {
   // Fix always scrollbar shown.
