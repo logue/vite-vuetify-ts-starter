@@ -1,6 +1,9 @@
 /**
  * Vuetify3 Plugin
  */
+import 'vuetify/styles';
+import '@mdi/font/css/materialdesignicons.css';
+
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import { createVuetify } from 'vuetify';
 
@@ -14,11 +17,8 @@ import { en } from 'vuetify/locale';
 
 // Misc
 import { loadFonts } from './webfontloader';
-loadFonts();
 
-// Styles
-import 'vuetify/styles';
-import '@mdi/font/css/materialdesignicons.css';
+await loadFonts();
 
 export default createVuetify({
   // Global configuration

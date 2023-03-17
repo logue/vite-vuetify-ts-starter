@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
-import vuetify, { components } from '@/plugins/vuetify';
+import vuetify, { components } from '../../plugins/vuetify';
 
 import HelloWorld from '../HelloWorld.vue';
 

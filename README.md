@@ -12,6 +12,8 @@ In addition, [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), 
 
 Also, when the development server is executed, it is checked in real time by [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker).
 
+First define `VITE_APP_TITLE` in your `.env` file.
+
 ## Recommended IDE Setup
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=vue.volar) (and disable Vetur).

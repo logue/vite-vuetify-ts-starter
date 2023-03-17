@@ -1,48 +1,41 @@
-root: true
 env:
   browser: true
   es2022: true # Vuetify recommended
   node: true
 extends:
-  - eslint:recommended
-  - google
+  - plugin:vue/vue3-recommended
+  - standard-with-typescript
   - plugin:@typescript-eslint/eslint-recommended
   - plugin:import/recommended
   - plugin:import/typescript
-  - plugin:jsdoc/recommended
-  - plugin:vue/vue3-recommended
   - plugin:vuejs-accessibility/recommended
   - plugin:vuetify/base
   - plugin:yaml/recommended
   - '@vue/eslint-config-prettier'
+parser: vue-eslint-parser
+parserOptions:
+  parser: '@typescript-eslint/parser'
+  ecmaVersion: latest
+  sourceType: module
+  project:
+    - ./tsconfig.app.json
+    - ./tsconfig.node.json
+    - ./tsconfig.vitest.json
+  extraFileExtensions:
+    - .vue
 plugins:
-  - '@typescript-eslint'
-  - jsdoc
+  - import
   - tsdoc
   - html
   - yaml
   - vue
-parser: vue-eslint-parser
-parserOptions:
-  ecmaVersion: latest
-  parser: '@typescript-eslint/parser'
-  sourceType: module
-  createDefaultProgram: true
-  project:
-    - ./tsconfig.json
 rules:
-  new-cap: off
-  no-invalid-this: off
-  no-unused-vars: warn
   require-jsdoc: warn
-  valid-jsdoc: off
-  jsdoc/require-param-type: off
-  jsdoc/require-param:
-    - off
-    - enableRootFixer: false
-  jsdoc/require-returns-description: off
-  jsdoc/require-returns-type: off
-  jsdoc/require-returns: off
+  no-unused-vars: warn
+  '@typescript-eslint/ban-ts-comment': off
+  '@typescript-eslint/no-confusing-void-expression': off
+  '@typescript-eslint/strict-boolean-expressions': off
+  '@typescript-eslint/triple-slash-reference': off
   tsdoc/syntax: warn
   vue/html-self-closing:
     - error
@@ -61,7 +54,8 @@ settings:
     vue-eslint-parser:
       - '*.vue'
   import/resolver:
-    typescript: true
+    typescript:
+      project: ./tsconfig.*.json
     node: true
     alias:
       map:
