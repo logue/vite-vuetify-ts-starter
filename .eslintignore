@@ -5,4 +5,3 @@ coverage/
 dist/
 public/assets/
 tsconfig.*.json
-vitest/
