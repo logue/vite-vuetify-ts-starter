@@ -1,7 +1,7 @@
 /**
  * Vitest setup function
  */
-export async function setup() {
+export function setup(): void {
   global.CSS = {
     supports: (str: string) => false,
     escape: (str: string) => str,
@@ -14,6 +14,6 @@ export async function setup() {
 /**
  * Vitest Teardown function
  */
-export async function teardown() {
+export function teardown(): void {
   console.log('📝 vitest globalTeardown');
 }

@@ -20,6 +20,9 @@ vue.use(store);
 vue.use(vuetify);
 
 // Run!
-router.isReady().then(() => {
-  vue.mount('#app');
-});
+router
+  .isReady()
+  .then(() => {
+    vue.mount('#app');
+  })
+  .catch(e => console.error(e));

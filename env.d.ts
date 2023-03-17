@@ -1,4 +1,3 @@
-/* eslint spaced-comment: off */
 /// <reference types="vite/client" />
 
 // Vuetify color fix.
