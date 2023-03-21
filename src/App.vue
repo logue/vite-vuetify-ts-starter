@@ -28,7 +28,7 @@ const globalStore = useGlobal();
 const configStore = useConfig();
 
 /** Title */
-const title = import.meta.env.VITE_APP_TITLE || 'Vuetify3 Application';
+const title = import.meta.env.VITE_APP_TITLE ?? 'Vuetify3 Application';
 
 /** drawer visibility */
 const drawer: Ref<boolean> = ref(false);

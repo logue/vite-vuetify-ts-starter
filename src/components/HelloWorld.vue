@@ -2,6 +2,8 @@
 import { createVuetify } from 'vuetify';
 import Meta from '@/Meta';
 
+const title = import.meta.env.VITE_APP_TITLE;
+
 /** Props */
 defineProps<{
   msg: string;
@@ -35,6 +37,18 @@ defineProps<{
           v-text="new Date(Meta.date).toLocaleString()"
         />
       </p>
+      <v-alert
+        v-if="!title"
+        variant="outlined"
+        type="info"
+        class="my-3 w-75 mx-auto"
+      >
+        Please define
+        <code>VITE_APP_TITLE</code>
+        variable in to
+        <code>.env</code>
+        file.
+      </v-alert>
       <div class="py-10" />
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
