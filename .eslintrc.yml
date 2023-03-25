@@ -36,20 +36,24 @@ plugins:
 rules:
   require-jsdoc: warn
   no-unused-vars: warn
+  '@typescript-eslint/array-type':
+    - error
+    - default: array
+    - readonly: array
   '@typescript-eslint/ban-ts-comment': off
   '@typescript-eslint/no-confusing-void-expression': off
+  '@typescript-eslint/no-dynamic-delete': off
+  '@typescript-eslint/no-extraneous-class': off
   '@typescript-eslint/no-floating-promises': off
-  '@typescript-eslint/no-invalid-void-type': off
-  '@typescript-eslint/prefer-nullish-coalescing': off
   '@typescript-eslint/strict-boolean-expressions': off
   '@typescript-eslint/triple-slash-reference': off
-  import/default: off
   tsdoc/syntax: warn
   vue/html-self-closing:
     - error
     - html:
         void: always
   vue/multi-word-component-names: warn
+  vue/no-template-shadow: off # for Vuetify tooltip fix
 settings:
   import/parsers:
     '@typescript-eslint/parser':

@@ -24,6 +24,7 @@ const theme = useTheme();
 
 /** Global Store */
 const globalStore = useGlobal();
+
 /** Config Store */
 const configStore = useConfig();
 
@@ -45,7 +46,7 @@ const progress: ComputedRef<number | null> = computed(
 );
 
 /** Snackbar visibility */
-const snackbar: Ref<boolean> = ref(false);
+const snackbarVisibility: Ref<boolean> = ref(false);
 
 /** Snackbar text */
 const snackbarText: ComputedRef<string> = computed(() => globalStore.message);
@@ -55,16 +56,11 @@ const isDark: ComputedRef<string> = computed(() =>
   configStore._themeDark ? 'dark' : 'light'
 );
 
-/** Theme Color (Sync browser theme color to vuetify theme color) */
-const themeColor: ComputedRef<string> = computed(
-  () => theme.computedThemes.value[isDark.value].colors.primary
-);
-
 // When snackbar text has been set, show snackbar.
 watch(
   () => globalStore.message,
-  async value => {
-    snackbar.value = value !== '';
+  async message => {
+    snackbarVisibility.value = message !== '';
     await nextTick();
   }
 );
@@ -76,7 +72,7 @@ const onSnackbarChanged = async () => {
 };
 
 // When loading overlay value change, force redraw screen.
-watch(loading, async () => nextTick());
+watch(loading, async () => await nextTick());
 
 onMounted(() => {
   document.title = title;
@@ -114,7 +110,10 @@ onMounted(() => {
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 
-    <v-snackbar v-model="snackbar" @update:model-value="onSnackbarChanged">
+    <v-snackbar
+      v-model="snackbarVisibility"
+      @update:model-value="onSnackbarChanged"
+    >
       {{ snackbarText }}
       <template #actions>
         <v-btn icon @click="onSnackbarChanged">
@@ -128,7 +127,10 @@ onMounted(() => {
     </v-footer>
   </v-app>
   <teleport to="head">
-    <meta name="theme-color" :content="themeColor" />
+    <meta
+      name="theme-color"
+      :content="theme.computedThemes.value[isDark].colors.primary"
+    />
     <link rel="icon" :href="logo" type="image/svg+xml" />
   </teleport>
 </template>

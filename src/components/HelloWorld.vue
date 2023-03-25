@@ -39,8 +39,9 @@ defineProps<{
       </p>
       <v-alert
         v-if="!title"
-        variant="outlined"
-        type="info"
+        variant="tonal"
+        density="compact"
+        type="warning"
         class="my-3 w-75 mx-auto"
       >
         Please define
