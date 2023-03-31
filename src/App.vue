@@ -116,9 +116,7 @@ onMounted(() => {
     >
       {{ snackbarText }}
       <template #actions>
-        <v-btn icon @click="onSnackbarChanged">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
+        <v-btn icon="mdi-close" @click="onSnackbarChanged" />
       </template>
     </v-snackbar>
 

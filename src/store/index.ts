@@ -3,8 +3,8 @@ import { createPinia, type Pinia } from 'pinia';
 
 // Pinia Stores
 
-import useGlobal from './GlobalStore';
-import useConfig from './ConfigStore';
+import useGlobal from '@/store/GlobalStore';
+import useConfig from '@/store/ConfigStore';
 
 /** Pinia Store */
 const pinia: Pinia = createPinia();
