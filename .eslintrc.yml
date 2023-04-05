@@ -57,6 +57,7 @@ rules:
         void: always
   vue/multi-word-component-names: warn
   vue/no-template-shadow: off # for Vuetify tooltip fix
+  vuetify/no-deprecated-components: warn # for Vuetify Labs Fix (v-data-tables etc.)
 settings:
   import/parsers:
     '@typescript-eslint/parser':
