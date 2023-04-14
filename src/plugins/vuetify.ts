@@ -12,6 +12,10 @@ import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 
+// If you use Vuetify Labs
+// https://vuetifyjs.com/en/labs/introduction/
+// import * as labs from 'vuetify/labs/components';
+
 // Translations provided by Vuetify
 import { en } from 'vuetify/locale';
 
@@ -21,6 +25,11 @@ import { loadFonts } from './webfontloader';
 await loadFonts();
 
 export default createVuetify({
+  // Vuetify Components
+  // https://vuetifyjs.com/en/labs/introduction/
+  components: {
+    // ...labs,
+  },
   // Global configuration
   // https://next.vuetifyjs.com/en/features/global-configuration/
   /*
