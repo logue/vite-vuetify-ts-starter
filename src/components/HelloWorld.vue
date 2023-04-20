@@ -21,7 +21,7 @@ defineProps<{
       />
       <h1 class="text-h2 font-weight-bold mb-3">
         Welcome to the Vuetify
-        {{ 'v' + createVuetify.version }}
+        <v-code tag="code">{{ 'v' + createVuetify.version }}</v-code>
       </h1>
       <p>{{ msg }}</p>
       <p class="text-medium-emphasis">
@@ -39,15 +39,15 @@ defineProps<{
       </p>
       <v-alert
         v-if="!title"
-        variant="tonal"
+        class="my-3 w-75 mx-auto"
         density="compact"
         type="warning"
-        class="my-3 w-75 mx-auto"
+        variant="tonal"
       >
         Please define
-        <code>VITE_APP_TITLE</code>
+        <v-code tag="code">VITE_APP_TITLE</v-code>
         variable in to
-        <code>.env</code>
+        <v-code tag="code">.env</v-code>
         file.
       </v-alert>
       <div class="py-10" />
