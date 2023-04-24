@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "extends": ["@vue/tsconfig/tsconfig.json", "@vue/tsconfig/tsconfig.dom.json"],
   "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
@@ -8,6 +8,6 @@
     "baseUrl": ".",
     "paths": { "@/*": ["./src/*"] },
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
-    "types": ["vuetify"]
+    "types": ["vue/ref-macros", "vuetify"]
   }
 }
