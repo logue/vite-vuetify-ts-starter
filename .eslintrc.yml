@@ -11,10 +11,6 @@ extends:
   - plugin:vuetify/base
   - plugin:yaml/recommended
   - '@vue/eslint-config-prettier'
-overrides:
-  - files:
-      - '*.html'
-    processor: vue/.vue
 parser: vue-eslint-parser
 parserOptions:
   ecmaVersion: latest
@@ -30,7 +26,6 @@ parserOptions:
 plugins:
   - import
   - tsdoc
-  - html
   - yaml
   - vue
 rules:
@@ -49,7 +44,9 @@ rules:
   '@typescript-eslint/strict-boolean-expressions': off
   '@typescript-eslint/triple-slash-reference': off
   import/default: off
-  import/no-default-export: off
+  import/no-default-export: off # Fix for Vuetify
+  import/no-named-as-default: off # Fix for Vuetify
+  import/no-named-as-default-member: off # Fix for Vuetify
   tsdoc/syntax: warn
   vue/html-self-closing:
     - error

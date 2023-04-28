@@ -9,7 +9,7 @@ import {
   type Ref,
   type WritableComputedRef,
 } from 'vue';
-import { useTheme } from 'vuetify/lib/framework.mjs';
+import { useTheme } from 'vuetify';
 // Stores
 import { useGlobal, useConfig } from '@/store';
 

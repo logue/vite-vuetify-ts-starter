@@ -1,10 +1,11 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": [
-    "@tsconfig/strictest/tsconfig.json",
+    "@tsconfig/node-lts/tsconfig.json",
     "@vue/tsconfig/tsconfig.json"
   ],
   "include": [
+    "env.d.ts",
     "vite.config.*",
     "vitest.config.*",
     "cypress.config.*",

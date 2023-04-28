@@ -1,6 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "./tsconfig.app.json",
+  "include": ["env.d.ts", "src/**/*", "tests/unit/**/*"],
   "exclude": [],
   "compilerOptions": {
     "composite": true,

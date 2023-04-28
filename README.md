@@ -65,7 +65,12 @@ When you use this template, try follow the checklist to update your info properl
 
 ## See Also
 
-- [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter.
-- [vite-vue2-vuetify-ts-starter](https://github.com/logue/vite-vue2-vuetify-ts-starter) - UI library using Vuetify2
-- [laravel9-vite-vue2-starter](https://github.com/logue/laravel9-vite-vue2-starter) - Vue2 for Laravel9 + Breeze.
-- [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-ssr-starter) - SSR (Server Side Rendering) Version.
+- for Vue3
+  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter)
+  - [vite-elemental-plus-ts-starter](https://github.com/logue/vite-elemental-plus-ts-starter)
+  - vite-bootstrap-vue-ts-starter - Comming soon.
+- for Vue2
+  - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter.
+  - [vite-vue2-vuetify-ts-starter](https://github.com/logue/vite-vue2-vuetify-ts-starter) - UI library using Vuetify2
+  - [laravel9-vite-vue2-starter](https://github.com/logue/laravel9-vite-vue2-starter) - Vue2 for Laravel9 + Breeze.
+  - [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-ssr-starter) - SSR (Server Side Rendering) Version.

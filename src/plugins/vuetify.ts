@@ -8,13 +8,13 @@ import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import { createVuetify } from 'vuetify';
 
 // For test use. Do not include createVuetify()
-// see https://next.vuetifyjs.com/en/features/treeshaking/
+// see https://vuetifyjs.com/en/features/treeshaking/
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 
 // If you use Vuetify Labs
 // https://vuetifyjs.com/en/labs/introduction/
-// import * as labs from 'vuetify/labs/components';
+import * as labs from 'vuetify/labs/components';
 
 // Translations provided by Vuetify
 import { en } from 'vuetify/locale';
@@ -24,12 +24,31 @@ import { loadFonts } from './webfontloader';
 
 await loadFonts();
 
+/**
+ * Vuetify Components
+ *
+ * Notice: This variable is used during development to load all components to speed up the display
+ *         and to reduce the size during build.
+ *
+ * @see {@link https://vuetifyjs.com/en/labs/introduction/}
+ */
+const vuetifyComponents = import.meta.env.DEV
+  ? {
+      components: {
+        components,
+        ...labs,
+      },
+      directives,
+    }
+  : {
+      components: {
+        components,
+        ...labs,
+      },
+    };
+
 export default createVuetify({
-  // Vuetify Components
-  // https://vuetifyjs.com/en/labs/introduction/
-  components: {
-    // ...labs,
-  },
+  vuetifyComponents,
   // Global configuration
   // https://next.vuetifyjs.com/en/features/global-configuration/
   /*
