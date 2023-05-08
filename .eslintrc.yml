@@ -1,7 +1,6 @@
 env:
   browser: true
-  es2022: true # Vuetify recommended
-  node: true
+  es2022: true
 extends:
   - plugin:vue/vue3-recommended
   - standard-with-typescript
@@ -11,6 +10,7 @@ extends:
   - plugin:vuetify/base
   - plugin:yaml/recommended
   - '@vue/eslint-config-prettier'
+overrides: []
 parser: vue-eslint-parser
 parserOptions:
   ecmaVersion: latest
@@ -36,6 +36,7 @@ rules:
     - default: array
     - readonly: array
   '@typescript-eslint/ban-ts-comment': off
+  '@typescript-eslint/explicit-function-return-type': off
   '@typescript-eslint/no-confusing-void-expression': off
   '@typescript-eslint/no-dynamic-delete': off
   '@typescript-eslint/no-extraneous-class': off
@@ -64,7 +65,6 @@ settings:
       - .vue
   import/resolver:
     typescript: true
-    node: true
     alias:
       map:
         - ['@', './src']
