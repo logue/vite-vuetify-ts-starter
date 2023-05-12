@@ -86,6 +86,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
               'vuetify',
               'vuetify/components',
               'vuetify/directives',
+              // 'vuetify/labs',
               'webfontloader',
             ],
             materialdesignicons: ['@mdi/font/css/materialdesignicons.css'],

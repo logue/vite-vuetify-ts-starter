@@ -1,6 +1,7 @@
 /// <reference types="vite/client" />
 
 // Vuetify shims
+// fix for https://github.com/vuetifyjs/vuetify/issues/15885
 declare module 'vuetify';
 declare module 'vuetify/components';
 declare module 'vuetify/directives';
