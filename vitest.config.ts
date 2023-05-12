@@ -25,16 +25,15 @@ export default mergeConfig(
       },
     ],
     test: {
-      // https://vitest.dev/guide/#configuring-vitest
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/*'],
-      root: fileURLToPath(new URL('./', import.meta.url)),
       globalSetup: [
         fileURLToPath(new URL('./vitest/setup.ts', import.meta.url)),
       ],
       deps: {
-        inline: ['vuetify'],
+        inline: [/vuetify/],
       },
+      root: fileURLToPath(new URL('./', import.meta.url)),
     },
   })
 );

@@ -553,10 +553,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsconfig/node-lts@npm:^18.12.1":
-  version: 18.12.1
-  resolution: "@tsconfig/node-lts@npm:18.12.1"
-  checksum: a59f2dc4cb12690585be3ad81a45f56bf6c68df79fdae7b8ef82162706bc37ee126ed08c476888a54eacdae1d22a21e81c247f2706fa59241a4f8acbf4a756ba
+"@tsconfig/node-lts@npm:^18.12.2":
+  version: 18.12.2
+  resolution: "@tsconfig/node-lts@npm:18.12.2"
+  checksum: 67190ca756f5be97c96338d0e3ad7f84ac95a92a728593d933e41c1f72b2a2b24f13ec7d3a68eb9ada4635fbe5bf98bc3a44e3ea5c0e15af6071bd462896f8ca
   languageName: node
   linkType: hard
 
@@ -1314,10 +1314,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/tsconfig@npm:^0.3.2":
-  version: 0.3.2
-  resolution: "@vue/tsconfig@npm:0.3.2"
-  checksum: 54288cbd3886728ee2560e44299a2ce2b92fa97b70123a8aeb0ce52cb5990f280ae91ef41eb8cb58346cdaa3ca5b360f0e194628272e14aa21c5d358d6618160
+"@vue/tsconfig@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@vue/tsconfig@npm:0.4.0"
+  checksum: 1acdd0c5702e163c071fec7ba4ad7eede0a37aaf473e4afc015dad2dd200f85c638831394ca9b9c058cf9d133f4cf92f8d1c99a401f173d5bf1e40700fdcd678
   languageName: node
   linkType: hard
 
@@ -7262,7 +7262,7 @@ __metadata:
     "@babel/types": ^7.21.5
     "@mdi/font": ^7.2.96
     "@rushstack/eslint-patch": ^1.2.0
-    "@tsconfig/node-lts": ^18.12.1
+    "@tsconfig/node-lts": ^18.12.2
     "@types/jsdom": ^21.1.1
     "@types/node": ^20.1.3
     "@types/webfontloader": ^1.6.35
@@ -7272,7 +7272,7 @@ __metadata:
     "@vue/eslint-config-prettier": ^7.1.0
     "@vue/eslint-config-typescript": ^11.0.3
     "@vue/test-utils": ^2.3.2
-    "@vue/tsconfig": ^0.3.2
+    "@vue/tsconfig": ^0.4.0
     core-js: ^3.30.2
     eslint: ^8.40.0
     eslint-config-standard-with-typescript: latest

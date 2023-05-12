@@ -19,12 +19,12 @@ const jsonLd = JSON.stringify(
 
 <template>
   <v-container fluid>
-    <hello-world msg="⚡Hello Vue 3 + Vuetify 3 + TypeScript + Vite⚡" />
+    <hello-world msg="⚡Hello Vue 3.3 + Vuetify 3 + TypeScript + Vite⚡" />
   </v-container>
   <teleport to="head">
     <meta
       name="keyword"
-      content="template,typescript,vue3,vue-property-decorator,vue-class-component,vuetify,vite,vite-template,volar"
+      content="template,typescript,vue3,vuetify,vite,vite-template,volar"
     />
     <meta name="description" content="Vite Vue3 Vuetify TypeScript Demo" />
     <component :is="'script'" type="application/ld+json">
