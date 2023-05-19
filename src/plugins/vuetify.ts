@@ -4,18 +4,11 @@
 import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
 
-import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import { createVuetify } from 'vuetify';
-
-// For test use. Do not include createVuetify()
-// see https://vuetifyjs.com/en/features/treeshaking/
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
-
-// If you use Vuetify Labs
-// https://vuetifyjs.com/en/labs/introduction/
+import { aliases, mdi } from 'vuetify/iconsets/mdi';
 import * as labs from 'vuetify/labs/components';
-
 // Translations provided by Vuetify
 import { en } from 'vuetify/locale';
 

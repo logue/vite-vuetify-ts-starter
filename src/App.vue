@@ -9,15 +9,15 @@ import {
   type Ref,
   type WritableComputedRef,
 } from 'vue';
+
 import { useTheme } from 'vuetify';
-// Stores
-import { useGlobal, useConfig } from '@/store';
 
 // Components
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
 
 import logo from '@/assets/logo.svg';
+import { useGlobal, useConfig } from '@/store';
 
 /** Vuetify Theme */
 const theme = useTheme();

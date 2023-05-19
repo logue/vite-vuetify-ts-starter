@@ -1,10 +1,10 @@
-import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import { createPinia, type Pinia } from 'pinia';
 
-// Pinia Stores
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
-import useGlobal from '@/store/GlobalStore';
+// Pinia Stores
 import useConfig from '@/store/ConfigStore';
+import useGlobal from '@/store/GlobalStore';
 
 /** Pinia Store */
 const pinia: Pinia = createPinia();

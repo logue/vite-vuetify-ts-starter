@@ -1,10 +1,11 @@
-import { fileURLToPath, URL } from 'node:url';
 import { writeFileSync } from 'node:fs';
+import { fileURLToPath, URL } from 'node:url';
 
+import vue from '@vitejs/plugin-vue';
 import { defineConfig, type UserConfig } from 'vite';
+
 import { visualizer } from 'rollup-plugin-visualizer';
 import { checker } from 'vite-plugin-checker';
-import vue from '@vitejs/plugin-vue';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 // @ts-nocheck

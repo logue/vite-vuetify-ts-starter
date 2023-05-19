@@ -1,3 +1,4 @@
+import { nextTick } from 'vue';
 import {
   createRouter,
   createWebHistory,
@@ -6,15 +7,15 @@ import {
   type RouteLocationNormalized,
   type RouteRecordRaw,
 } from 'vue-router';
-import { nextTick } from 'vue';
 
 // Pinia Store
+import HomeView from '@/views/HomeView.vue';
+
 import { useGlobal } from '@/store';
 
 // import { goTo } from 'vuetify/lib/services/goto/index.mjs';
 
 // Components
-import HomeView from '@/views/HomeView.vue';
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
