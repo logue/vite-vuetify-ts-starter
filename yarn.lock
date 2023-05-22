@@ -341,10 +341,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@eslint/js@npm:8.40.0":
-  version: 8.40.0
-  resolution: "@eslint/js@npm:8.40.0"
-  checksum: e84936b8ebd1c8fd90e860182e95d1404006da4cbca722b14950b298aeeca102b080aa9b62c8e69f90824ec54e19f1ba79b239046223624d1414ee82e8e628ac
+"@eslint/js@npm:8.41.0":
+  version: 8.41.0
+  resolution: "@eslint/js@npm:8.41.0"
+  checksum: af013d70fe8d0429cdf5cd8b5dcc6fc384ed026c1eccb0cfe30f5849b968ab91645111373fd1b83282b38955b1bdfbe667c1a7dbda3b06cae753521223cad775
   languageName: node
   linkType: hard
 
@@ -643,10 +643,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^20.2.1":
-  version: 20.2.1
-  resolution: "@types/node@npm:20.2.1"
-  checksum: ed774afa6e9b4ad7868ed0182a8ca40ad0dd54815a70d3051b23fa850f3bca6bea4d0cb55e1fc769666786ac2cc4c1b37aeade313cb4c4634133f18ebcded496
+"@types/node@npm:^20.2.3":
+  version: 20.2.3
+  resolution: "@types/node@npm:20.2.3"
+  checksum: 576065e8fc1fa45798c8f59a6bf809169582d04abc2e25fab1a048ffc734975b9992ae31be0d960cf705a21fb37112f7fcde11aa322beddf7491e73d5a5a988c
   languageName: node
   linkType: hard
 
@@ -2973,16 +2973,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-vuetify@npm:^2.0.0-beta.4":
-  version: 2.0.0-beta.4
-  resolution: "eslint-plugin-vuetify@npm:2.0.0-beta.4"
+"eslint-plugin-vuetify@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "eslint-plugin-vuetify@npm:2.0.1"
   dependencies:
     eslint-plugin-vue: ^9.6.0
     requireindex: ^1.2.0
   peerDependencies:
     eslint: ^8.0.0
     vuetify: ^3.0.0
-  checksum: 0937719ecf6cae1c90baa6cbd71b04ace987e628edfb076c9271f8127d369edd1d3168144ddd23869008b0f7402c113ed0f494176ab3818711cd4ccb9cda5ccd
+  checksum: 35e2bf9cbe0449e3090899abd807e45fe26af534fcafedb0bbf8b8c76b3ba5f9389b572811d9f12e32a96bb6c756331e9ceca7b7cca40c81a6b2ed50ac0ad012
   languageName: node
   linkType: hard
 
@@ -3030,14 +3030,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^8.40.0":
-  version: 8.40.0
-  resolution: "eslint@npm:8.40.0"
+"eslint@npm:^8.41.0":
+  version: 8.41.0
+  resolution: "eslint@npm:8.41.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.2.0
     "@eslint-community/regexpp": ^4.4.0
     "@eslint/eslintrc": ^2.0.3
-    "@eslint/js": 8.40.0
+    "@eslint/js": 8.41.0
     "@humanwhocodes/config-array": ^0.11.8
     "@humanwhocodes/module-importer": ^1.0.1
     "@nodelib/fs.walk": ^1.2.8
@@ -3057,13 +3057,12 @@ __metadata:
     find-up: ^5.0.0
     glob-parent: ^6.0.2
     globals: ^13.19.0
-    grapheme-splitter: ^1.0.4
+    graphemer: ^1.4.0
     ignore: ^5.2.0
     import-fresh: ^3.0.0
     imurmurhash: ^0.1.4
     is-glob: ^4.0.0
     is-path-inside: ^3.0.3
-    js-sdsl: ^4.1.4
     js-yaml: ^4.1.0
     json-stable-stringify-without-jsonify: ^1.0.1
     levn: ^0.4.1
@@ -3076,7 +3075,7 @@ __metadata:
     text-table: ^0.2.0
   bin:
     eslint: bin/eslint.js
-  checksum: b79eba37f52f517a420eec99a80ae9f284d2cbe73afc0d4d3d4d5ed1cce0b06f21badc0374bfb7ac239efd2d49a1fd7c6111d6c3d52888521f377ba33de77e61
+  checksum: 09979a6f8451dcc508a7005b6670845c8a518376280b3fd96657a406b8b6ef29d0e480d1ba11b4eb48da93d607e0c55c9b877676fe089d09973ec152354e23b2
   languageName: node
   linkType: hard
 
@@ -3638,6 +3637,13 @@ __metadata:
   version: 1.0.4
   resolution: "grapheme-splitter@npm:1.0.4"
   checksum: 0c22ec54dee1b05cd480f78cf14f732cb5b108edc073572c4ec205df4cd63f30f8db8025afc5debc8835a8ddeacf648a1c7992fe3dcd6ad38f9a476d84906620
+  languageName: node
+  linkType: hard
+
+"graphemer@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "graphemer@npm:1.4.0"
+  checksum: bab8f0be9b568857c7bec9fda95a89f87b783546d02951c40c33f84d05bb7da3fd10f863a9beb901463669b6583173a8c8cc6d6b306ea2b9b9d5d3d943c3a673
   languageName: node
   linkType: hard
 
@@ -4312,13 +4318,6 @@ __metadata:
     html-beautify: js/bin/html-beautify.js
     js-beautify: js/bin/js-beautify.js
   checksum: 2e61c1183c73d7464ec7d5354763ee9e17ecb4b5c7a3744e9a9dc2e9c406fc6e0c37399130d1ee48313ff502e03e8a949dce96acdaee309dc44317249565934d
-  languageName: node
-  linkType: hard
-
-"js-sdsl@npm:^4.1.4":
-  version: 4.4.0
-  resolution: "js-sdsl@npm:4.4.0"
-  checksum: 7bb08a2d746ab7ff742720339aa006c631afe05e77d11eda988c1c35fae8e03e492e4e347e883e786e3ce6170685d4780c125619111f0730c11fdb41b04059c7
   languageName: node
   linkType: hard
 
@@ -7244,7 +7243,7 @@ __metadata:
     "@rushstack/eslint-patch": ^1.2.0
     "@tsconfig/node-lts": ^18.12.2
     "@types/jsdom": ^21.1.1
-    "@types/node": ^20.2.1
+    "@types/node": ^20.2.3
     "@types/webfontloader": ^1.6.35
     "@typescript-eslint/eslint-plugin": ^5.59.6
     "@vitejs/plugin-vue": ^4.2.3
@@ -7254,7 +7253,7 @@ __metadata:
     "@vue/test-utils": ^2.3.2
     "@vue/tsconfig": ^0.4.0
     core-js: ^3.30.2
-    eslint: ^8.40.0
+    eslint: ^8.41.0
     eslint-config-standard-with-typescript: latest
     eslint-import-resolver-alias: ^1.1.2
     eslint-import-resolver-typescript: ^3.5.5
@@ -7265,7 +7264,7 @@ __metadata:
     eslint-plugin-tsdoc: ^0.2.17
     eslint-plugin-vue: latest
     eslint-plugin-vuejs-accessibility: ^2.1.0
-    eslint-plugin-vuetify: ^2.0.0-beta.4
+    eslint-plugin-vuetify: ^2.0.1
     eslint-plugin-yaml: ^0.5.0
     husky: ^8.0.3
     jsdom: ^22.0.0
@@ -7292,7 +7291,7 @@ __metadata:
     vue-eslint-parser: ^9.3.0
     vue-router: ^4.2.1
     vue-tsc: ^1.7.0
-    vuetify: ^3.2.5
+    vuetify: ^3.3.0
     webfontloader: ^1.6.28
   languageName: unknown
   linkType: soft
@@ -7591,22 +7590,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuetify@npm:^3.2.5":
-  version: 3.2.5
-  resolution: "vuetify@npm:3.2.5"
+"vuetify@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "vuetify@npm:3.3.0"
   peerDependencies:
+    typescript: ">=4.7"
     vite-plugin-vuetify: ^1.0.0-alpha.12
     vue: ^3.2.0
     vue-i18n: ^9.0.0
     webpack-plugin-vuetify: ^2.0.0-alpha.11
   peerDependenciesMeta:
+    typescript:
+      optional: true
     vite-plugin-vuetify:
       optional: true
     vue-i18n:
       optional: true
     webpack-plugin-vuetify:
       optional: true
-  checksum: b974f87165b66eaf13ad86fb717f3f8673092be7d0fb7842ea650cdc02eb0091729593464b825d91cd0b86843a65acc240ddb7649d2049cac3544afb7072d09c
+  checksum: 355d48eef396e837bba1acf784744005981d6e68517c9d130e9cdbe3c428dfe642a7a845a888230840cdc165335d5e19e50456db969aa8cbc4f60c793862cc6e
   languageName: node
   linkType: hard
 

@@ -10,6 +10,7 @@ import {
   type WritableComputedRef,
 } from 'vue';
 
+// @ts-expect-error
 import { useTheme } from 'vuetify';
 
 // Components

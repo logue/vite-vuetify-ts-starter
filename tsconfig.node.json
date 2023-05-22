@@ -12,6 +12,6 @@
     "composite": true,
     "resolveJsonModule": true,
     "module": "ESNext",
-    "types": ["node"]
+    "types": ["node", "vuetify"]
   }
 }

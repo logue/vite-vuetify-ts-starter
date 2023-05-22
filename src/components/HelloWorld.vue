@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { createVuetify } from 'vuetify';
+// @ts-nocheck
+import { version } from 'vuetify';
 
 import Meta from '@/Meta';
 
@@ -13,7 +14,7 @@ defineProps<{
 
 <template>
   <v-container class="fill-height">
-    <v-responsive class="d-flex align-center text-center fill-height">
+    <v-responsive class="align-center text-center fill-height">
       <v-img
         src="@/assets/logo.svg"
         alt="vuetify"
@@ -22,7 +23,7 @@ defineProps<{
       />
       <h1 class="text-h2 font-weight-bold mb-3">
         Welcome to the Vuetify
-        <v-code tag="code">{{ 'v' + createVuetify.version }}</v-code>
+        <v-code tag="code">{{ 'v' + version }}</v-code>
       </h1>
       <p>{{ msg }}</p>
       <p class="text-medium-emphasis">

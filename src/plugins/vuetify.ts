@@ -1,10 +1,8 @@
 /**
  * Vuetify3 Plugin
  */
-import 'vuetify/styles';
-import '@mdi/font/css/materialdesignicons.css';
-
-import { createVuetify } from 'vuetify';
+// @ts-expect-error
+import { createVuetify, type VuetifyOptions } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
@@ -13,7 +11,11 @@ import * as labs from 'vuetify/labs/components';
 import { en } from 'vuetify/locale';
 
 // Misc
-import { loadFonts } from './webfontloader';
+import { loadFonts } from '@/plugins/webfontloader';
+
+// Styles
+import 'vuetify/styles';
+import '@mdi/font/css/materialdesignicons.css';
 
 await loadFonts();
 
@@ -25,8 +27,9 @@ await loadFonts();
  *
  * @see {@link https://vuetifyjs.com/en/labs/introduction/}
  */
-const vuetifyComponents = import.meta.env.DEV
+const vuetifyComponents: VuetifyOptions = import.meta.env.DEV
   ? {
+      // For development
       components: {
         components,
         ...labs,
@@ -34,6 +37,7 @@ const vuetifyComponents = import.meta.env.DEV
       directives,
     }
   : {
+      // For production
       components: {
         components,
         ...labs,
@@ -41,10 +45,11 @@ const vuetifyComponents = import.meta.env.DEV
     };
 
 export default createVuetify({
-  vuetifyComponents,
-  // Global configuration
-  // https://next.vuetifyjs.com/en/features/global-configuration/
-  /*
+  ...vuetifyComponents,
+  ...{
+    // Global configuration
+    // https://next.vuetifyjs.com/en/features/global-configuration/
+    /*
   defaults: {
     global: {
       ripple: false,
@@ -54,26 +59,27 @@ export default createVuetify({
     },
   },
   */
-  // Icon Fonts
-  // https://next.vuetifyjs.com/en/features/icon-fonts/
-  icons: {
-    defaultSet: 'mdi',
-    aliases,
-    sets: {
-      mdi,
+    // Icon Fonts
+    // https://next.vuetifyjs.com/en/features/icon-fonts/
+    icons: {
+      defaultSet: 'mdi',
+      aliases,
+      sets: {
+        mdi,
+      },
     },
-  },
-  // Internationalization (i18n)
-  // https://next.vuetifyjs.com/en/features/internationalization/#internationalization-i18n
-  locale: {
-    locale: 'en',
-    fallback: 'en',
-    messages: { en },
-  },
-  // Theme
-  // https://next.vuetifyjs.com/en/features/theme/
-  theme: {
-    defaultTheme: 'light',
+    // Internationalization (i18n)
+    // https://next.vuetifyjs.com/en/features/internationalization/#internationalization-i18n
+    locale: {
+      locale: 'en',
+      fallback: 'en',
+      messages: { en },
+    },
+    // Theme
+    // https://next.vuetifyjs.com/en/features/theme/
+    theme: {
+      defaultTheme: 'light',
+    },
   },
 });
 

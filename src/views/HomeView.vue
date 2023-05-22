@@ -18,7 +18,7 @@ const jsonLd = JSON.stringify(
 </script>
 
 <template>
-  <v-container fluid>
+  <v-container>
     <hello-world msg="⚡Hello Vue 3.3 + Vuetify 3 + TypeScript + Vite⚡" />
   </v-container>
   <teleport to="head">
