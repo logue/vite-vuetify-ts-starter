@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// @ts-nocheck
 import { version } from 'vuetify';
 
 import Meta from '@/Meta';

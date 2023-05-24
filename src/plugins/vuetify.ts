@@ -1,8 +1,7 @@
 /**
  * Vuetify3 Plugin
  */
-// @ts-expect-error
-import { createVuetify, type VuetifyConfig } from 'vuetify';
+import { createVuetify, type VuetifyOptions } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 import { aliases, mdi } from 'vuetify/iconsets/mdi';
@@ -24,7 +23,7 @@ await loadFonts();
  *
  * @see {@link https://vuetifyjs.com/en/features/treeshaking/}
  */
-let vuetifyConfig: VuetifyConfig = {
+let vuetifyConfig: VuetifyOptions = {
   // Global configuration
   // https://vuetifyjs.com/en/features/global-configuration/
   /*

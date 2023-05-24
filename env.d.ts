@@ -1,11 +1,5 @@
 /// <reference types="vite/client" />
 
-// Vuetify shims
-// fix for https://github.com/vuetifyjs/vuetify/issues/15885
-declare module 'vuetify' {
-  import vuetify from 'vuetify/dist/vuetify.d.ts';
-  return vuetify;
-}
 // if use color
 // declare module 'vuetify/lib/util/colors.mjs';
 
