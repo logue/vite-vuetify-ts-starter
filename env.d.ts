@@ -6,6 +6,9 @@ declare module 'vuetify' {
   import vuetify from 'vuetify/dist/vuetify.d.ts';
   return vuetify;
 }
+// if use color
+// declare module 'vuetify/lib/util/colors.mjs';
+
 interface ImportMetaEnv {
   // see https://vitejs.dev/guide/env-and-mode.html#env-files
   // add .env variables.

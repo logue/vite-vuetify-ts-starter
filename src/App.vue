@@ -60,10 +60,7 @@ const isDark: ComputedRef<string> = computed(() =>
 // When snackbar text has been set, show snackbar.
 watch(
   () => globalStore.message,
-  async message => {
-    snackbarVisibility.value = message !== '';
-    await nextTick();
-  }
+  message => (snackbarVisibility.value = message !== '')
 );
 
 /** Clear store when snackbar hide */
@@ -72,12 +69,8 @@ const onSnackbarChanged = async () => {
   await nextTick();
 };
 
-// When loading overlay value change, force redraw screen.
-watch(loading, async () => await nextTick());
-
 onMounted(() => {
   document.title = title;
-  loading.value = false;
 });
 </script>
 

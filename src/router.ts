@@ -1,4 +1,3 @@
-import { nextTick } from 'vue';
 import {
   createRouter,
   createWebHistory,
@@ -8,14 +7,14 @@ import {
   type RouteRecordRaw,
 } from 'vue-router';
 
-// Pinia Store
+// Components
 import HomeView from '@/views/HomeView.vue';
 
+// Pinia Store
 import { useGlobal } from '@/store';
 
+// Unimplemented in Vuetify 3.3.1
 // import { goTo } from 'vuetify/lib/services/goto/index.mjs';
-
-// Components
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
@@ -43,8 +42,7 @@ const router: Router = createRouter({
    */
   history: createWebHistory(import.meta.env.BASE_URL), // createWebHashHistory(import.meta.env.BASE_URL)
   /*
-  // Unimplemented in Vuetify 3.1.6
-  scrollBehavior: (to, _from, savedPosition ) => {
+  scrollBehavior: (to, _from, savedPosition) => {
     let scrollTo: number | string = 0;
 
     if (to.hash) {
@@ -52,7 +50,6 @@ const router: Router = createRouter({
     } else if (savedPosition) {
       scrollTo = savedPosition.top;
     }
-
     return goTo(scrollTo);
   },
   */
@@ -69,11 +66,10 @@ router.beforeEach(
   ) => {
     const globalStore = useGlobal();
     // Show Loading
-    globalStore.setLoading(true);
+    // comment out for https://github.com/logue/vite-vuetify-ts-starter/issues/16
+    // globalStore.setLoading(true);
     // Hide snack bar
     globalStore.setMessage('');
-    await nextTick();
-
     next();
   }
 );

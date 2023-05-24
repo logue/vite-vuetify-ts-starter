@@ -31,7 +31,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
         },
       }),
       // Vuetify Loader
-      // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin#vite-plugin-vuetify
+      // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin
       vuetify({
         autoImport: true,
         styles: { configFile: 'src/styles/settings.scss' },
@@ -87,7 +87,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
               'vuetify',
               'vuetify/components',
               'vuetify/directives',
-              // 'vuetify/labs',
+              // 'vuetify/lib/labs',
               'webfontloader',
             ],
             materialdesignicons: ['@mdi/font/css/materialdesignicons.css'],
