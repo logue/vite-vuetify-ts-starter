@@ -1,3 +1,4 @@
+import { useGlobal } from '@/store';
 import {
   createRouter,
   createWebHistory,
@@ -11,7 +12,6 @@ import {
 import HomeView from '@/views/HomeView.vue';
 
 // Pinia Store
-import { useGlobal } from '@/store';
 
 // Unimplemented in Vuetify 3.3.1
 // import { goTo } from 'vuetify/lib/services/goto/index.mjs';
@@ -68,6 +68,7 @@ router.beforeEach(
     // Show Loading
     // comment out for https://github.com/logue/vite-vuetify-ts-starter/issues/16
     // globalStore.setLoading(true);
+
     // Hide snack bar
     globalStore.setMessage('');
     next();

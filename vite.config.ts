@@ -8,7 +8,6 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import { checker } from 'vite-plugin-checker';
 import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
-// @ts-nocheck
 import pkg from './package.json';
 
 /**

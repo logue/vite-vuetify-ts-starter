@@ -1,9 +1,11 @@
 import { fileURLToPath } from 'node:url';
 
+import vue from '@vitejs/plugin-vue';
 import { mergeConfig } from 'vite';
 import { configDefaults, defineConfig } from 'vitest/config';
 
 import viteConfig from './vite.config';
+
 /**
  * Vitest Configure
  *
@@ -12,13 +14,17 @@ import viteConfig from './vite.config';
 export default mergeConfig(
   viteConfig,
   defineConfig({
+    plugins: [vue() as any],
     test: {
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/*'],
-      deps: {
-        inline: [/vuetify/],
-      },
       root: fileURLToPath(new URL('./', import.meta.url)),
+      transformMode: {
+        web: [/\.[jt]sx$/],
+      },
+      deps: {
+        //  inline: [/vuetify/],
+      },
     },
   })
 );

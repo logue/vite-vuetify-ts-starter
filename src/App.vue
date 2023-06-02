@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { useGlobal, useConfig } from '@/store';
 import {
   computed,
   nextTick,
@@ -13,11 +14,9 @@ import {
 import { useTheme } from 'vuetify';
 
 // Components
+import logo from '@/assets/logo.svg';
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
-
-import logo from '@/assets/logo.svg';
-import { useGlobal, useConfig } from '@/store';
 
 /** Vuetify Theme */
 const theme = useTheme();
