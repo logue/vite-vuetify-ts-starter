@@ -5,9 +5,7 @@ import { useGlobal } from '@/store';
 const globalStore = useGlobal();
 
 /** Display snackbar */
-const showSnackbar = (message: string) => {
-  globalStore.setMessage(message);
-};
+const showSnackbar = (message: string) => globalStore.setMessage(message);
 </script>
 
 <template>

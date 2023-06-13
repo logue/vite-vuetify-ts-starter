@@ -1,43 +1,35 @@
 import { defineStore } from 'pinia';
-
-/** Config State */
-interface ConfigState {
-  /** Dark Theme mode */
-  _themeDark: boolean;
-  /** Language */
-  _locale: string;
-}
+import { ref, type Ref } from 'vue';
 
 /** Config Store */
-export default defineStore('config', {
-  // Default Config State
-  state: (): ConfigState => ({
-    _themeDark: window.matchMedia('(prefers-color-scheme: dark)').matches,
-    _locale: window.navigator.languages[0] ?? window.navigator.language,
-  }),
-  // Getters
-  getters: {
-    themeDark: (s): boolean => s._themeDark,
-    locale: (s): string => s._locale,
-  },
-  // Actions
-  actions: {
+export default defineStore(
+  'config',
+  () => {
+    /** Dark Theme mode */
+    const theme: Ref<boolean> = ref(
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    );
+
+    const locale: Ref<string> = ref(
+      window.navigator.languages[0] ?? window.navigator.language
+    );
+
     /** Toggle Dark/Light mode */
-    toggleTheme(): void {
-      this._themeDark = !this._themeDark;
-    },
+    const toggleTheme = () => (theme.value = !theme.value);
     /**
      * Set Locale.
      *
      * @param locale - Locale
      */
-    setLocale(locale: string): void {
-      this._locale = locale;
+    const setLocale = (l: string) => (locale.value = l);
+
+    return { theme, toggleTheme, setLocale };
+  },
+  {
+    // Data persistence destination
+    persist: {
+      key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE ?? 'vuetify',
+      storage: window.sessionStorage,
     },
-  },
-  // Data persistence destination
-  persist: {
-    key: import.meta.env.VITE_APP_WEBSTORAGE_NAMESPACE ?? 'vuetify',
-    storage: window.sessionStorage,
-  },
-});
+  }
+);

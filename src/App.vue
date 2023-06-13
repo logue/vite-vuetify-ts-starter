@@ -52,7 +52,7 @@ const snackbarText: ComputedRef<string> = computed(() => globalStore.message);
 
 /** Toggle Dark mode */
 const isDark: ComputedRef<string> = computed(() =>
-  configStore._themeDark ? 'dark' : 'light'
+  configStore.theme ? 'dark' : 'light'
 );
 
 // When snackbar text has been set, show snackbar.
@@ -94,7 +94,7 @@ onMounted(() => {
 
     <v-main>
       <router-view v-slot="{ Component, route }">
-        <component :is="Component" :key="route.path" />
+        <component :is="Component" :key="route.name" />
       </router-view>
     </v-main>
 

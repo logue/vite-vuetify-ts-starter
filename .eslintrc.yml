@@ -49,7 +49,7 @@ rules:
         ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type']
       pathGroups:
         # Vue Core
-        - pattern: '{vue,vue-router,pinia,@/store,vue-i18n,vite,vitest,vitest/**,@vitejs/**,@vue/**}'
+        - pattern: '{vue,vue-router,vuex,@/store,vue-i18n,pinia,vite,vitest,vitest/**,@vitejs/**,@vue/**}'
           group: external
           position: before
         # UI Library
