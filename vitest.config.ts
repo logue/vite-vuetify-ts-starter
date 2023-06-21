@@ -15,15 +15,21 @@ export default mergeConfig(
   viteConfig,
   defineConfig({
     plugins: [vue() as any],
+    // Resolver
+    resolve: {
+      // https://vitest.dev/config/#alias
+      alias: {
+        '@': fileURLToPath(new URL('./src', import.meta.url)),
+        '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
+      },
+      extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
+    },
     test: {
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/*'],
       root: fileURLToPath(new URL('./', import.meta.url)),
       transformMode: {
         web: [/\.[jt]sx$/],
-      },
-      deps: {
-        //  inline: [/vuetify/],
       },
     },
   })
