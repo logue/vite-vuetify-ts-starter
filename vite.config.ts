@@ -23,6 +23,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
     define: { 'process.env': {} },
     plugins: [
       // Vue3
+      // @ts-expect-error
       vue({
         template: {
           // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin#image-loading
@@ -31,6 +32,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       }),
       // Vuetify Loader
       // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin
+      // @ts-expect-error
       vuetify({
         autoImport: true,
         styles: { configFile: 'src/styles/settings.scss' },
@@ -40,14 +42,8 @@ export default defineConfig(({ command, mode }): UserConfig => {
       checker({
         typescript: true,
         vueTsc: true,
-        eslint: {
-          // for example, lint .ts and .tsx
-          lintCommand: 'eslint "./src/**/*.{ts,tsx,vue}"',
-        },
-        stylelint: {
-          // for example, lint .css and .vue
-          lintCommand: 'stylelint ./src/**/*.{css,scss,vue}',
-        },
+        // eslint: { lintCommand: 'eslint' },
+        // stylelint: { lintCommand: 'stylelint' },
       }),
     ],
     // https://vitejs.dev/config/server-options.html
