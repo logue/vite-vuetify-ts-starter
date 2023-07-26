@@ -1,4 +1,5 @@
 /// <reference types="vite/client" />
+/// <reference types="vitest" />
 
 // if use color
 // declare module 'vuetify/lib/util/colors.mjs';

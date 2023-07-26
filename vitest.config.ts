@@ -1,9 +1,9 @@
 import { fileURLToPath } from 'node:url';
 
 import vue from '@vitejs/plugin-vue';
-import { mergeConfig } from 'vite';
-import { configDefaults, defineConfig } from 'vitest/config';
+import { configDefaults, defineConfig, mergeConfig } from 'vitest/config';
 
+// @ts-expect-error
 import viteConfig from './vite.config';
 
 /**
@@ -14,7 +14,10 @@ import viteConfig from './vite.config';
 export default mergeConfig(
   viteConfig,
   defineConfig({
-    plugins: [vue() as any],
+    plugins: [
+      // @ts-expect-error
+      vue(),
+    ],
     // Resolver
     resolve: {
       // https://vitest.dev/config/#alias
