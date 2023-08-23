@@ -23,7 +23,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
     define: { 'process.env': {} },
     plugins: [
       // Vue3
-      // @ts-expect-error
       vue({
         template: {
           // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin#image-loading
