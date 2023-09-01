@@ -1,6 +1,6 @@
 env:
   browser: true
-  es2022: true
+  es2021: true
 extends:
   - plugin:vue/vue3-recommended
   - standard-with-typescript
@@ -31,7 +31,13 @@ plugins:
 rules:
   require-jsdoc: warn
   no-unused-vars: warn
+  '@typescript-eslint/array-type':
+    - error
+    - default: array # const lines: string[] = []; style
   '@typescript-eslint/ban-ts-comment': off # Enable @ts-ignore etc.
+  '@typescript-eslint/consistent-generic-constructors':
+    - error
+    - type-annotation # Left-hand side style
   '@typescript-eslint/consistent-type-imports': # Enable import sort order, see bellow.
     - off
     - prefer: type-imports
