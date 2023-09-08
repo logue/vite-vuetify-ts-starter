@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/package.json",
   "name": "vite-vuetify-ts-starter",
   "description": "Vue3 Vuetify TypeScript Startar project for Vite.",
-  "version": "1.5.13",
+  "version": "1.5.14",
   "license": "MIT",
   "type": "module",
   "private": true,
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "@mdi/font": "^7.2.96",
-    "core-js": "^3.32.1",
+    "core-js": "^3.32.2",
     "pinia": "^2.1.6",
     "pinia-plugin-persistedstate": "^3.2.0",
     "vue": "^3.3.4",
@@ -50,13 +50,13 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@babel/types": "^7.22.11",
+    "@babel/types": "^7.22.15",
     "@rushstack/eslint-patch": "^1.3.3",
     "@tsconfig/node-lts": "^18.12.5",
     "@types/jsdom": "^21.1.2",
-    "@types/node": "^20.5.7",
+    "@types/node": "^20.5.9",
     "@types/webfontloader": "^1.6.35",
-    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@vitejs/plugin-vue": "^4.3.4",
     "@vitest/coverage-c8": "^0.33.0",
     "@vue/eslint-config-prettier": "^8.0.0",
@@ -82,11 +82,12 @@
     "npm-run-all": "^4.1.5",
     "postcss-html": "^1.5.0",
     "prettier": "^3.0.3",
+    "resize-observer-polyfill": "^1.5.1",
     "rimraf": "^5.0.1",
     "rollup-plugin-visualizer": "^5.9.2",
     "sass": "^1.66.1",
     "stylelint": "^15.10.3",
-    "stylelint-config-recommended-scss": "^12.0.0",
+    "stylelint-config-recommended-scss": "^13.0.0",
     "stylelint-config-recommended-vue": "^1.5.0",
     "stylelint-order": "^6.0.3",
     "typescript": "*",
@@ -94,7 +95,7 @@
     "vite-plugin-checker": "0.6.2",
     "vite-plugin-vuetify": "^1.0.2",
     "vitest": "^0.34.3",
-    "vue-tsc": "^1.8.8"
+    "vue-tsc": "^1.8.10"
   },
   "husky": {
     "hooks": {
@@ -110,6 +111,8 @@
     "http-cache-semantics": "^4.1.1",
     "json5": "^2.2.3",
     "semver": "^7.5.2",
+    "tough-cookie": "^4.1.3",
+    "vite": "4.0.5",
     "yaml": "^2.2.2"
   },
   "stackblitz": {
