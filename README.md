@@ -56,6 +56,8 @@ Since TypeScript cannot handle type information for `.vue` imports, they are shi
 
 When adding or deleting files, an error may occur and even if the error is corrected, it may not be reflected in devserver. In that case, stop devserver and delete all the files in the `node_modules/.vite` directory. You can also run it with the `clean` command.
 
+It will not work properly if you are using Node v21.0.0. Please upgrade to 21.1.0 or later.
+
 ### Npm Scripts outputs `MODULE_NOT_FOUND`.
 
 Due to [yarn issues](https://github.com/yarnpkg/berry/issues/4448), it may not work properly if the path contains non-ASCII characters (such as 日本語 or 한국어, 中文 etc.).
