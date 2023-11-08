@@ -60,8 +60,8 @@ const router: Router = createRouter({
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards}
 router.beforeEach(
   async (
-    _to: RouteLocationNormalized,
-    _from: RouteLocationNormalized,
+    to: RouteLocationNormalized,
+    from: RouteLocationNormalized,
     next: NavigationGuardNext
   ) => {
     const globalStore = useGlobal();
@@ -82,5 +82,30 @@ router.afterEach(() => {
   // Hide Loading
   globalStore.setLoading(false);
 });
+
+/*
+const scrollBehavior = async (
+  to: RouteLocationNormalized,
+  _from: RouteLocationNormalized,
+  savedPosition: RouteLocation
+): Promise<any> => {
+  let scrollpos = {};
+  if (to.hash) {
+    scrollpos = {
+      el: to.hash,
+      behavior: 'smooth',
+    };
+  } else if (savedPosition) {
+    scrollpos = savedPosition;
+  } else {
+    scrollpos = { top: 0 };
+  }
+  return await new Promise((resolve, _reject) => {
+    setTimeout(() => {
+      resolve(scrollpos);
+    }, 600);
+  });
+};
+*/
 
 export default router;
