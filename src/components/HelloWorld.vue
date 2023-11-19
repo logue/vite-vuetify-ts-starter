@@ -63,9 +63,8 @@ defineProps({
             rel="noopener noreferrer"
             target="_blank"
             variant="text"
+            prepend-icon="mdi-view-dashboard"
           >
-            <v-icon icon="mdi-view-dashboard" size="large" start />
-
             Components
           </v-btn>
         </v-col>
@@ -79,9 +78,8 @@ defineProps({
             size="x-large"
             target="_blank"
             variant="flat"
+            prepend-icon="mdi-speedometer"
           >
-            <v-icon icon="mdi-speedometer" size="large" start />
-
             Get Started
           </v-btn>
         </v-col>
@@ -93,9 +91,8 @@ defineProps({
             rel="noopener noreferrer"
             target="_blank"
             variant="text"
+            prepend-icon="mdi-account-group"
           >
-            <v-icon icon="mdi-account-group" size="large" start />
-
             Community
           </v-btn>
         </v-col>

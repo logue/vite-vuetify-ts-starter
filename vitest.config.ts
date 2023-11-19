@@ -1,6 +1,5 @@
 import { fileURLToPath } from 'node:url';
 
-import vue from '@vitejs/plugin-vue';
 import { configDefaults, defineConfig, mergeConfig } from 'vitest/config';
 
 import viteConfig from './vite.config';
@@ -11,9 +10,8 @@ import viteConfig from './vite.config';
  * @see {@link https://vitest.dev/config/}
  */
 export default mergeConfig(
-  viteConfig,
+  viteConfig({ command: 'serve', mode: '' }),
   defineConfig({
-    plugins: [vue()],
     // Resolver
     resolve: {
       // https://vitest.dev/config/#alias

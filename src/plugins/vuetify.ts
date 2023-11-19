@@ -4,7 +4,7 @@
 import { createVuetify, type VuetifyOptions } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
-import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
+// import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
 import * as labsComponents from 'vuetify/labs/components';
 // Translations provided by Vuetify
 import { en } from 'vuetify/locale';
@@ -36,6 +36,7 @@ let vuetifyConfig: VuetifyOptions = {
     },
   },
   */
+  /*
   // Icon Fonts
   // https://vuetifyjs.com/en/features/icon-fonts/
   icons: {
@@ -45,6 +46,7 @@ let vuetifyConfig: VuetifyOptions = {
       mdi,
     },
   },
+  */
   // Internationalization (i18n)
   // https://vuetifyjs.com/en/features/internationalization/#internationalization-i18n
   locale: {
