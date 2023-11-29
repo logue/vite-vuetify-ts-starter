@@ -24,6 +24,7 @@ export default mergeConfig(
     test: {
       environment: 'jsdom',
       exclude: [...configDefaults.exclude, 'e2e/*'],
+      globals: true,
       root: fileURLToPath(new URL('./', import.meta.url)),
       // https://vuetifyjs.com/en/getting-started/unit-testing/
       server: {
