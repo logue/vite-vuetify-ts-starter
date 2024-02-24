@@ -94,7 +94,9 @@ onMounted(() => {
 
     <v-main>
       <router-view v-slot="{ Component, route }">
-        <component :is="Component" :key="route.name" />
+        <transition name="fade">
+          <component :is="Component" :key="route.name" />
+        </transition>
       </router-view>
     </v-main>
 

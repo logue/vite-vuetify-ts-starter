@@ -13,8 +13,8 @@ import HomeView from '@/views/HomeView.vue';
 
 // Pinia Store
 
-// Unimplemented in Vuetify 3.3.1
-// import { goTo } from 'vuetify/lib/services/goto/index.mjs';
+// Unimplemented in Vuetify 3.5.6
+// import { goTo } from 'vuetify/services';
 
 /** Router Rules */
 const routes: RouteRecordRaw[] = [
