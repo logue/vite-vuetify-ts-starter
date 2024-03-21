@@ -23,9 +23,6 @@ export default mergeConfig(
           inline: ['vuetify'],
         },
       },
-      env: {
-        DEV: '1',
-      },
     },
   })
 );
