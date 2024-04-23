@@ -1,4 +1,3 @@
-import { useGlobal } from '@/store';
 import {
   createRouter,
   createWebHistory,
@@ -8,6 +7,7 @@ import {
   type RouteRecordRaw,
 } from 'vue-router';
 
+import { useGlobal } from '@/store';
 // Components
 import HomeView from '@/views/HomeView.vue';
 
