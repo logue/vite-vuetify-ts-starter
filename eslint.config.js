@@ -1,10 +1,11 @@
 import eslint from '@eslint/js';
 import tseslint from 'typescript-eslint';
-import eslintConfigPrettier from 'eslint-config-prettier';
+import configPrettier from 'eslint-config-prettier';
 
 import pluginImport from 'eslint-plugin-import';
 import pluginTsdoc from 'eslint-plugin-tsdoc';
-// import pluginVue from 'eslint-plugin-vue';
+import pluginVue from 'eslint-plugin-vue';
+// import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 import pluginVuetify from 'eslint-plugin-vuetify';
 import pluginYaml from 'eslint-plugin-yaml';
 
@@ -19,16 +20,19 @@ export default tseslint.config(
       '.yarn/',
       'dist/',
       'public/',
-      'src/** /*.generated.*',
+      'src/**/*.generated.*',
       'eslint.config.js',
     ],
   },
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
+  ...pluginVue.configs['flat/recommended'],
+  // ...pluginVueA11y.configs['flat/recommended'],
   {
     languageOptions: {
       parserOptions: {
+        parser: tseslint.parser,
         project: [
           'tsconfig.app.json',
           'tsconfig.node.json',
@@ -43,7 +47,6 @@ export default tseslint.config(
     plugins: {
       import: pluginImport,
       tsdoc: pluginTsdoc,
-      // vue: pluginVue,
       vuetify: pluginVuetify,
       yaml: pluginYaml,
     },
@@ -70,8 +73,6 @@ export default tseslint.config(
       },
     },
     rules: {
-      '@typescript-eslint/consistent-type-imports': 'error',
-      '@typescript-eslint/no-import-type-side-effects': 'error',
       // ...importPlugin.configs["recommended"].rules,
       'no-unused-vars': 'warn',
       // const lines: string[] = []; style
@@ -130,7 +131,7 @@ export default tseslint.config(
             // Vue Core
             {
               pattern:
-                '{vue,vue-router,vuex,@/stores,vue-i18n,pinia,vite,vitest,vitest/**,@vitejs/**,@vue/**}',
+                '{vue,vue-router,vuex,@/store,vue-i18n,pinia,vite,vitest,vitest/**,@vitejs/**,@vue/**}',
               group: 'external',
               position: 'before',
             },
@@ -149,7 +150,6 @@ export default tseslint.config(
         },
       ],
       'tsdoc/syntax': 'warn',
-      /*
       // A tag with no content should be written like <br />.
       'vue/html-self-closing': [
         'error',
@@ -161,11 +161,7 @@ export default tseslint.config(
       ],
       // Mitigate non-multiword component name errors to warnings.
       'vue/multi-word-component-names': 'warn',
-      // for Vuetify Labs Fix (v-data-tables etc.)
-      'vuetify/no-deprecated-components': 'warn',
-      */
     },
   },
-  // ...pluginVue.configs['flat/recommended'],
-  eslintConfigPrettier
+  configPrettier
 );

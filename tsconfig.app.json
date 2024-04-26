@@ -9,7 +9,6 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    },
-    "types": ["vuetify"]
+    }
   }
 }

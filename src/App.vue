@@ -94,9 +94,9 @@ onMounted(() => {
 
     <v-main>
       <router-view v-slot="{ Component, route }">
-        <transition name="fade">
-          <component :is="Component" :key="route.name" />
-        </transition>
+        <!--transition :name="route.meta.transition as string || 'fade'"-->
+        <component :is="Component" :key="route.path" />
+        <!--/transition-->
       </router-view>
     </v-main>
 
@@ -115,7 +115,7 @@ onMounted(() => {
     </v-snackbar>
 
     <v-footer app elevation="3">
-      <span class="mr-5">2023 &copy;</span>
+      <span class="mr-5">2024 &copy;</span>
     </v-footer>
   </v-app>
   <teleport to="head">
