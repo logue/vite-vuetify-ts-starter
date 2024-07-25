@@ -100,7 +100,12 @@ onMounted(() => {
       </router-view>
     </v-main>
 
-    <v-overlay v-model="loading" app class="justify-center align-center">
+    <v-overlay
+      v-model="loading"
+      app
+      class="justify-center align-center"
+      persistent
+    >
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 

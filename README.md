@@ -14,17 +14,11 @@ Also, when the development server is executed, it is checked in real time by [vi
 
 First define `VITE_APP_TITLE` in your `.env` file.
 
-## ⚠ Important Notice
-
-As of 3.3.0, TypeScript5 support is not sufficient due to problems on the Vuetify side. For this reason, you should add `// @ts-expect-error` before any `import` statements, such as when calling the `useTheme()` function.
-
-Also, the first time you run a unit test, you will always get an error. Press `a` to rerun and the test will pass.
+Versions 1.11 and later use pnpm as the package manager.
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=vue.volar) (and disable Vetur).
-
-And use [Volar Takeover Mode](https://vuejs.org/guide/typescript/overview.html#volar-takeover-mode) for better performance.
+[VSCode](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=vue.volar) (and disable Vetur).
 
 ## Commands
 

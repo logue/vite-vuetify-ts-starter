@@ -5,7 +5,7 @@ import configPrettier from 'eslint-config-prettier';
 import pluginImport from 'eslint-plugin-import';
 import pluginTsdoc from 'eslint-plugin-tsdoc';
 import pluginVue from 'eslint-plugin-vue';
-// import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
+import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
 import pluginVuetify from 'eslint-plugin-vuetify';
 import pluginYaml from 'eslint-plugin-yaml';
 
@@ -21,6 +21,7 @@ export default tseslint.config(
       'coverage/',
       'dist/',
       'eslint.config.js',
+      'pnpm-lock.yaml',
       'public/',
       'src/**/*.generated.*',
     ],
@@ -29,7 +30,7 @@ export default tseslint.config(
   ...tseslint.configs.recommended,
   ...tseslint.configs.stylistic,
   ...pluginVue.configs['flat/recommended'],
-  // ...pluginVueA11y.configs['flat/recommended'],
+  ...pluginVueA11y.configs['flat/recommended'],
   {
     languageOptions: {
       parserOptions: {

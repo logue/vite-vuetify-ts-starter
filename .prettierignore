@@ -1,6 +1,7 @@
 .husky/
 .vscode/
 .yarn/
-dist/
 coverage/
+dist/
+pnpm-lock.yaml
 public/assets/
