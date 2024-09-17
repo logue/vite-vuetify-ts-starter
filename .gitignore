@@ -34,6 +34,8 @@ dist-ssr
 
 # Vitest coverage
 coverage/
+test-results/
+playwright-report/
 
 # Special File
 .husky/

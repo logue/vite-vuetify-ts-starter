@@ -13,4 +13,3 @@ rules:
   function-no-unknown: null
   no-descending-specificity: null
   scss/no-global-function-names: null
-  scss/load-no-partial-leading-underscore: null
