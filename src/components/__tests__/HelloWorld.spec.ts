@@ -1,6 +1,7 @@
 import { mount } from '@vue/test-utils';
 import { describe, expect, it } from 'vitest';
 
+import ResizeObserver from 'resize-observer-polyfill';
 import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
@@ -9,20 +10,20 @@ import * as labsComponents from 'vuetify/labs/components';
 import HelloWorld from '../HelloWorld.vue';
 const vuetify = createVuetify({
   components: { components, labsComponents },
-  directives,
+  directives
 });
 
-global.ResizeObserver = require('resize-observer-polyfill');
+global.ResizeObserver = ResizeObserver;
 
 describe('HelloWorld', () => {
   const wrapper = mount(HelloWorld, {
     props: { msg: 'Hello Vitest' },
     global: {
       components: {
-        HelloWorld,
+        HelloWorld
       },
-      plugins: [vuetify],
-    },
+      plugins: [vuetify]
+    }
   });
 
   it('mount component', async () => {

@@ -10,7 +10,7 @@ const jsonLd = JSON.stringify(
     '@type': 'WebSite',
     name: 'Vite Vue3 Vuetify3 Beta TypeScript Startar',
     url: 'https://github.com/logue/vite-vuetify-ts-starter',
-    description: 'Vite Vue3 Vuetify3 Beta TypeScript Demo',
+    description: 'Vite Vue3 Vuetify3 Beta TypeScript Demo'
   },
   null,
   2
@@ -22,10 +22,7 @@ const jsonLd = JSON.stringify(
     <hello-world msg="⚡Hello Vue 3.3 + Vuetify 3 + TypeScript + Vite⚡" />
   </v-container>
   <teleport to="head">
-    <meta
-      name="keyword"
-      content="template,typescript,vue3,vuetify,vite,vite-template,volar"
-    />
+    <meta name="keyword" content="template,typescript,vue3,vuetify,vite,vite-template,volar" />
     <meta name="description" content="Vite Vue3 Vuetify TypeScript Demo" />
     <component :is="'script'" type="application/ld+json">
       {{ jsonLd }}

@@ -39,12 +39,12 @@ export async function loadFonts(): Promise<void> {
 
             // Emoji Fix
             // (Only put `display=swap` on the last line.)
-            'Noto+Color+Emoji&display=swap',
-          ],
+            'Noto+Color+Emoji&display=swap'
+          ]
         },
         active: () => {
           resolve();
-        },
+        }
       }
     );
   });

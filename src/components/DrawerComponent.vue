@@ -6,21 +6,21 @@ const items: DrawerMenuItem[] = [
   {
     title: 'Home',
     icon: 'mdi-home',
-    to: { name: 'Home' },
+    to: { name: 'Home' }
   },
   {
-    title: '-', // Divider
+    title: '-' // Divider
   },
   {
     title: 'About',
     icon: 'mdi-information',
-    to: { name: 'About' },
+    to: { name: 'About' }
   },
   {
     title: 'Disabled Item',
-    icon: 'mdi-cancel',
+    icon: 'mdi-cancel'
     // empty `to` value becomes to disabled item
-  },
+  }
 ];
 </script>
 
@@ -41,11 +41,7 @@ const items: DrawerMenuItem[] = [
         <!-- Sub menu -->
         <v-list-group v-else-if="item.items" v-model="item.active">
           <template #activator="{ props }">
-            <v-list-item
-              v-bind="props"
-              :prepend-icon="item.icon"
-              :title="item.title"
-            />
+            <v-list-item v-bind="props" :prepend-icon="item.icon" :title="item.title" />
           </template>
           <!-- Sub menu item -->
           <template v-for="subItem in item.items" :key="subItem.title">

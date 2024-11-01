@@ -5,7 +5,7 @@ import {
   type Router,
   type NavigationGuardNext,
   type RouteLocationNormalized,
-  type RouteRecordRaw,
+  type RouteRecordRaw
 } from 'vue-router';
 
 // Components
@@ -21,7 +21,7 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Home',
-    component: HomeView,
+    component: HomeView
   },
   {
     path: '/about',
@@ -29,8 +29,8 @@ const routes: RouteRecordRaw[] = [
     // route level code-splitting
     // this generates a separate chunk (About.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: async () => await import('@/views/AboutView.vue'),
-  },
+    component: async () => await import('@/views/AboutView.vue')
+  }
 ];
 
 /** Vue Router */
@@ -53,17 +53,13 @@ const router: Router = createRouter({
     return goTo(scrollTo);
   },
   */
-  routes,
+  routes
 });
 
 // Global before guards
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards}
 router.beforeEach(
-  async (
-    to: RouteLocationNormalized,
-    from: RouteLocationNormalized,
-    next: NavigationGuardNext
-  ) => {
+  async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
     const globalStore = useGlobal();
     // Show Loading
     // comment out for https://github.com/logue/vite-vuetify-ts-starter/issues/16

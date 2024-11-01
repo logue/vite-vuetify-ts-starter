@@ -8,7 +8,7 @@ import {
   watch,
   type ComputedRef,
   type Ref,
-  type WritableComputedRef,
+  type WritableComputedRef
 } from 'vue';
 
 import { useTheme } from 'vuetify';
@@ -36,13 +36,11 @@ const drawer: Ref<boolean> = ref(false);
 /** loading overlay visibility */
 const loading: WritableComputedRef<boolean> = computed({
   get: () => globalStore.loading,
-  set: v => globalStore.setLoading(v),
+  set: v => globalStore.setLoading(v)
 });
 
 /** Appbar progressbar value */
-const progress: ComputedRef<number | null> = computed(
-  () => globalStore.progress
-);
+const progress: ComputedRef<number | null> = computed(() => globalStore.progress);
 
 /** Snackbar visibility */
 const snackbarVisibility: Ref<boolean> = ref(false);
@@ -51,9 +49,7 @@ const snackbarVisibility: Ref<boolean> = ref(false);
 const snackbarText: ComputedRef<string> = computed(() => globalStore.message);
 
 /** Toggle Dark mode */
-const isDark: ComputedRef<string> = computed(() =>
-  configStore.theme ? 'dark' : 'light'
-);
+const isDark: ComputedRef<string> = computed(() => (configStore.theme ? 'dark' : 'light'));
 
 // When snackbar text has been set, show snackbar.
 watch(
@@ -100,19 +96,11 @@ onMounted(() => {
       </router-view>
     </v-main>
 
-    <v-overlay
-      v-model="loading"
-      app
-      class="justify-center align-center"
-      persistent
-    >
+    <v-overlay v-model="loading" app class="justify-center align-center" persistent>
       <v-progress-circular indeterminate size="64" />
     </v-overlay>
 
-    <v-snackbar
-      v-model="snackbarVisibility"
-      @update:model-value="onSnackbarChanged"
-    >
+    <v-snackbar v-model="snackbarVisibility" @update:model-value="onSnackbarChanged">
       {{ snackbarText }}
       <template #actions>
         <v-btn icon="mdi-close" @click="onSnackbarChanged" />
@@ -124,10 +112,7 @@ onMounted(() => {
     </v-footer>
   </v-app>
   <teleport to="head">
-    <meta
-      name="theme-color"
-      :content="theme.computedThemes.value[isDark].colors.primary"
-    />
+    <meta name="theme-color" :content="theme.computedThemes.value[isDark].colors.primary" />
     <link rel="icon" :href="logo" type="image/svg+xml" />
   </teleport>
 </template>
@@ -140,8 +125,7 @@ html {
   overflow-y: auto;
   // Modern scrollbar style
   scrollbar-width: thin;
-  scrollbar-color: map-get(settings.$grey, 'lighten-2')
-    map-get(settings.$grey, 'base');
+  scrollbar-color: map-get(settings.$grey, 'lighten-2') map-get(settings.$grey, 'base');
 }
 
 ::-webkit-scrollbar {

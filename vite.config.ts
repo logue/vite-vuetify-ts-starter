@@ -6,8 +6,8 @@ import { defineConfig, type UserConfig } from 'vite';
 
 import { visualizer } from 'rollup-plugin-visualizer';
 import { checker } from 'vite-plugin-checker';
-import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 import vueDevTools from 'vite-plugin-vue-devtools';
+import vuetify, { transformAssetUrls } from 'vite-plugin-vuetify';
 
 import pkg from './package.json';
 
@@ -27,40 +27,40 @@ export default defineConfig(({ command, mode }): UserConfig => {
       vue({
         template: {
           // https://github.com/vuetifyjs/vuetify-loader/tree/next/packages/vite-plugin#image-loading
-          transformAssetUrls,
-        },
+          transformAssetUrls
+        }
       }),
       vueDevTools(),
       // Vuetify Loader
       // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin
       vuetify({
         autoImport: true,
-        styles: { configFile: 'src/styles/settings.scss' },
+        styles: { configFile: 'src/styles/settings.scss' }
       }),
       // vite-plugin-checker
       // https://github.com/fi3ework/vite-plugin-checker
       checker({
-        typescript: true,
+        typescript: true
         // vueTsc: true,
         // eslint: { lintCommand: 'eslint' },
         // stylelint: { lintCommand: 'stylelint' },
-      }),
+      })
     ],
     // https://vitejs.dev/config/server-options.html
     server: {
       fs: {
         // Allow serving files from one level up to the project root
-        allow: ['..'],
-      },
+        allow: ['..']
+      }
     },
     // Resolver
     resolve: {
       // https://vitejs.dev/config/shared-options.html#resolve-alias
       alias: {
         '@': fileURLToPath(new URL('./src', import.meta.url)),
-        '~': fileURLToPath(new URL('./node_modules', import.meta.url)),
+        '~': fileURLToPath(new URL('./node_modules', import.meta.url))
       },
-      extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue'],
+      extensions: ['.js', '.json', '.jsx', '.mjs', '.ts', '.tsx', '.vue']
     },
     // Build Options
     // https://vitejs.dev/config/build-options.html
@@ -83,9 +83,9 @@ export default defineConfig(({ command, mode }): UserConfig => {
               'vuetify/components',
               'vuetify/directives',
               // 'vuetify/lib/labs',
-              'webfontloader',
+              'webfontloader'
             ],
-            materialdesignicons: ['@mdi/font/css/materialdesignicons.css'],
+            materialdesignicons: ['@mdi/font/css/materialdesignicons.css']
           },
           plugins: [
             mode === 'analyze'
@@ -93,17 +93,17 @@ export default defineConfig(({ command, mode }): UserConfig => {
                 // https://github.com/btd/rollup-plugin-visualizer
                 visualizer({
                   open: true,
-                  filename: 'dist/stats.html',
+                  filename: 'dist/stats.html'
                 })
-              : undefined,
-          ],
-        },
-      },
+              : undefined
+          ]
+        }
+      }
     },
     esbuild: {
       // Drop console when production build.
-      drop: command === 'serve' ? [] : ['console'],
-    },
+      drop: command === 'serve' ? [] : ['console']
+    }
   };
 
   // Write meta data.

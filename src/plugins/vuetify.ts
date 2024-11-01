@@ -52,13 +52,13 @@ let vuetifyConfig: VuetifyOptions = {
   locale: {
     locale: 'en',
     fallback: 'en',
-    messages: { en },
+    messages: { en }
   },
   // Theme
   // https://vuetifyjs.com/en/features/theme/
   theme: {
-    defaultTheme: 'light',
-  },
+    defaultTheme: 'light'
+  }
 };
 
 if (import.meta.env.DEV) {
@@ -66,7 +66,7 @@ if (import.meta.env.DEV) {
   vuetifyConfig = {
     components: { components, labsComponents },
     directives,
-    ...vuetifyConfig,
+    ...vuetifyConfig
   };
 }
 export default createVuetify(vuetifyConfig);
