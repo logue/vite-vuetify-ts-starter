@@ -55,11 +55,11 @@ export default tseslint.config(
       'import/resolver': {
         typescript: true,
         node: true,
-        alias: {
-          map: [
-            ['@', './src'],
-            ['~', './node_modules']
-          ],
+        'eslint-import-resolver-custom-alias': {
+          alias: {
+            '@': './src',
+            '~': './node_modules'
+          },
           extensions: ['.js', '.ts', '.jsx', '.tsx', '.vue']
         }
       },
