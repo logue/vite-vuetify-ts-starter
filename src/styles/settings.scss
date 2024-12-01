@@ -7,8 +7,7 @@
 // https://next.vuetifyjs.com/features/sass-variables/
 @forward 'vuetify/settings' with (
   // Place SASS variable overrides here
-  $body-font-family: (Roboto, 'Noto Color Emoji', sans-serif)
-    // $body-font-family: ('Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Color Emoji', sans-serif)
+  $body-font-family: (Roboto, 'Noto Color Emoji', sans-serif) // $body-font-family: ('Noto Sans', 'Noto Sans JP', 'Noto Sans KR', 'Noto Color Emoji', sans-serif)
 );
 
 // Fix for monospace Font.

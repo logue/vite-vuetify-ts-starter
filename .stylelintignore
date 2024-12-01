@@ -4,3 +4,5 @@
 coverage/
 dist/
 public/assets/
+playwright-report/
+test-results/

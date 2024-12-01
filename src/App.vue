@@ -118,6 +118,7 @@ onMounted(() => {
 </template>
 
 <style lang="scss">
+/* stylelint-disable-next-line scss/load-no-partial-leading-underscore */
 @use 'vuetify/_settings';
 
 html {
