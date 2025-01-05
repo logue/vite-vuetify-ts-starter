@@ -108,7 +108,7 @@ onMounted(() => {
     </v-snackbar>
 
     <v-footer app elevation="3">
-      <span class="mr-5">2024 &copy;</span>
+      <span class="mr-5">2025 &copy;</span>
     </v-footer>
   </v-app>
   <teleport to="head">
