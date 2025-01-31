@@ -47,7 +47,7 @@ defineProps({
       <v-row class="d-flex align-center justify-center">
         <v-col cols="auto">
           <v-btn
-            href="https://next.vuetifyjs.com/components/all/"
+            href="https://vuetifyjs.com/en/components/all/#containment"
             min-width="164"
             rel="noopener noreferrer"
             target="_blank"
@@ -61,7 +61,7 @@ defineProps({
         <v-col cols="auto">
           <v-btn
             color="primary"
-            href="https://next.vuetifyjs.com/introduction/why-vuetify/#feature-guides"
+            href="https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides"
             min-width="228"
             rel="noopener noreferrer"
             size="x-large"
