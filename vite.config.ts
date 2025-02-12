@@ -46,13 +46,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
         // stylelint: { lintCommand: 'stylelint' },
       })
     ],
-    // https://vitejs.dev/config/server-options.html
-    server: {
-      fs: {
-        // Allow serving files from one level up to the project root
-        allow: ['..']
-      }
-    },
     // Resolver
     resolve: {
       // https://vitejs.dev/config/shared-options.html#resolve-alias
@@ -77,15 +70,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
         output: {
           manualChunks: {
             // Split external library from transpiled code.
-            vue: ['vue', 'vue-router', 'pinia', 'pinia-plugin-persistedstate'],
-            vuetify: [
-              'vuetify',
-              'vuetify/components',
-              'vuetify/directives',
-              // 'vuetify/lib/labs',
-              'webfontloader'
-            ],
-            materialdesignicons: ['@mdi/font/css/materialdesignicons.css']
+            vue: ['vue', 'vue-router', 'pinia', 'pinia-plugin-persistedstate']
           },
           plugins: [
             mode === 'analyze'

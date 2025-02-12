@@ -120,13 +120,14 @@ onMounted(() => {
 <style lang="scss">
 /* stylelint-disable-next-line scss/load-no-partial-leading-underscore */
 @use 'vuetify/_settings';
+@use 'sass:map';
 
 html {
   // Fix always scrollbar shown.
   overflow-y: auto;
   // Modern scrollbar style
   scrollbar-width: thin;
-  scrollbar-color: map-get(settings.$grey, 'lighten-2') map-get(settings.$grey, 'base');
+  scrollbar-color: map.get(settings.$grey, 'lighten-2') map.get(settings.$grey, 'base');
 }
 
 ::-webkit-scrollbar {
@@ -136,12 +137,12 @@ html {
 
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.1);
-  background-color: map-get(settings.$grey, 'lighten-2');
+  background-color: map.get(settings.$grey, 'lighten-2');
 }
 
 ::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
-  background-color: map-get(settings.$grey, 'base');
+  background-color: map.get(settings.$grey, 'base');
   box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
