@@ -59,7 +59,11 @@ const router: Router = createRouter({
 // Global before guards
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards}
 router.beforeEach(
-  async (to: RouteLocationNormalized, from: RouteLocationNormalized, next: NavigationGuardNext) => {
+  async (
+    _to: RouteLocationNormalized,
+    _from: RouteLocationNormalized,
+    next: NavigationGuardNext
+  ) => {
     const globalStore = useGlobal();
     // Show Loading
     // comment out for https://github.com/logue/vite-vuetify-ts-starter/issues/16

@@ -97,6 +97,19 @@ export default defineConfigWithVueTs(
       ],
       // Fix for pinia
       '@typescript-eslint/explicit-function-return-type': 'off',
+      // Exclude variables with leading underscores
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          args: 'all',
+          argsIgnorePattern: '^_',
+          caughtErrors: 'all',
+          caughtErrorsIgnorePattern: '^_',
+          destructuredArrayIgnorePattern: '^_',
+          varsIgnorePattern: '^_',
+          ignoreRestSiblings: true
+        }
+      ],
       // Fix for vite import.meta.env
       '@typescript-eslint/strict-boolean-expressions': 'off',
       // Fix for vite env.d.ts.
