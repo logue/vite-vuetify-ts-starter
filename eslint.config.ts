@@ -2,6 +2,7 @@ import configPrettier from '@vue/eslint-config-prettier';
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 
 import pluginVitest from '@vitest/eslint-plugin';
+import { globalIgnores } from 'eslint/config';
 // @ts-ignore
 import pluginImport from 'eslint-plugin-import';
 import pluginPlaywright from 'eslint-plugin-playwright';
@@ -23,21 +24,7 @@ export default defineConfigWithVueTs(
     name: 'app/files-to-lint',
     files: ['**/*.{ts,mts,tsx,vue}']
   },
-  {
-    name: 'app/files-to-ignore',
-    ignores: [
-      '.vscode/',
-      '.yarn/',
-      '**/dist/**',
-      '**/dist-ssr/**',
-      '**/coverage/**',
-      'pnpm-lock.yaml',
-      'playwright-report',
-      'test-results',
-      'public/',
-      'src/**/*.generated.*'
-    ]
-  },
+  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
   pluginVue.configs['flat/recommended'],
   ...pluginVueA11y.configs['flat/recommended'],
   vueTsConfigs.recommended,

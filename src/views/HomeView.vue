@@ -8,9 +8,9 @@ const jsonLd = JSON.stringify(
     '@schema': 'https://json.schemastore.org/jsonld.json',
     '@context': 'http://schema.org',
     '@type': 'WebSite',
-    name: 'Vite Vue3 Vuetify3 Beta TypeScript Startar',
+    name: 'Vite Vue3 Vuetify3 TypeScript Startar',
     url: 'https://github.com/logue/vite-vuetify-ts-starter',
-    description: 'Vite Vue3 Vuetify3 Beta TypeScript Demo'
+    description: 'Vite Vue3 Vuetify3 TypeScript Demo'
   },
   null,
   2
@@ -19,7 +19,7 @@ const jsonLd = JSON.stringify(
 
 <template>
   <v-container>
-    <hello-world msg="⚡Hello Vue 3.3 + Vuetify 3 + TypeScript + Vite⚡" />
+    <hello-world msg="⚡Hello Vue 3.5 + Vuetify 3 + TypeScript + Vite⚡" />
   </v-container>
   <teleport to="head">
     <meta name="keyword" content="template,typescript,vue3,vuetify,vite,vite-template,volar" />
