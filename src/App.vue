@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useGlobal, useConfig } from '@/store';
+import { useGlobalStore, useConfigStore } from '@/store';
 import {
   computed,
   nextTick,
@@ -22,10 +22,10 @@ import DrawerComponent from '@/components/DrawerComponent.vue';
 const theme = useTheme();
 
 /** Global Store */
-const globalStore = useGlobal();
+const globalStore = useGlobalStore();
 
 /** Config Store */
-const configStore = useConfig();
+const configStore = useConfigStore();
 
 /** Title */
 const title = import.meta.env.VITE_APP_TITLE ?? 'Vuetify3 Application';

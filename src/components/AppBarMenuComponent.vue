@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useConfig } from '@/store';
+import { useConfigStore } from '@/store';
 
 /** Config Store */
-const configStore = useConfig();
+const configStore = useConfigStore();
 </script>
 
 <template>

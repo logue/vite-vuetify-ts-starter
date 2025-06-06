@@ -1,8 +1,8 @@
 <script lang="ts" setup>
-import { useGlobal } from '@/store';
+import { useGlobalStore } from '@/store';
 
 /** Global Store */
-const globalStore = useGlobal();
+const globalStore = useGlobalStore();
 
 /** Display snackbar */
 const showSnackbar = (message: string) => globalStore.setMessage(message);
