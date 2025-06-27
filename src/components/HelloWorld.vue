@@ -5,12 +5,13 @@ import Meta from '@/Meta';
 
 const title = import.meta.env.VITE_APP_TITLE;
 
+interface Props {
+  msg?: string;
+}
+
 /** Props */
-defineProps({
-  msg: {
-    type: String,
-    default: 'Welcome to Vuetify.'
-  }
+withDefaults(defineProps<Props>(), {
+  msg: 'Welcome to Vuetify.'
 });
 </script>
 
