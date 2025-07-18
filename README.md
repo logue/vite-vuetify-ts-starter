@@ -66,6 +66,7 @@ When you use this template, try follow the checklist to update your info properl
 - for Vue3
   - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter)
   - [vite-elemental-plus-ts-starter](https://github.com/logue/vite-elemental-plus-ts-starter)
+  - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)
   - vite-bootstrap-vue-ts-starter - Comming soon.
 - for Vue2
   - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter.
