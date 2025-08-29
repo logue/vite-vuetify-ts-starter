@@ -36,7 +36,7 @@ export default defineStore('global', () => {
     // update progress value
     progress.value = v;
     // display loading overlay
-    loading.value = true;
+    loading.value = v !== null;
   }
 
   /**
