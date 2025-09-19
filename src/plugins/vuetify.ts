@@ -9,14 +9,9 @@ import * as labsComponents from 'vuetify/labs/components';
 // Translations provided by Vuetify
 import { en } from 'vuetify/locale';
 
-// Misc
-import { loadFonts } from '@/plugins/webfontloader';
-
 // Styles
 import 'vuetify/styles';
 import '@mdi/font/css/materialdesignicons.css';
-
-await loadFonts();
 
 /**
  * Vuetify Components
