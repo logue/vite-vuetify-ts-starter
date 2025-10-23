@@ -8,35 +8,32 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
+.DS_Store
 dist
 dist-ssr
+coverage
 *.local
-*.tsbuildinfo
 
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
 .idea
-.DS_Store
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
 
-# Yarn 3
-/.yarn/*
-# !/.yarn/patches
-# !/.yarn/plugins
-!/.yarn/releases
-# !/.yarn/sdks
-# !/.yarn/cache
+*.tsbuildinfo
 
-# Vitest coverage
-coverage/
+.eslintcache
+
+# Cypress
+/cypress/videos/
+/cypress/screenshots/
+
+# Vitest
+__screenshots__/
+
 test-results/
 playwright-report/
-
-# Special File
-.husky/
-src/Meta.ts
