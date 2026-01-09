@@ -1,7 +1,7 @@
 {
   "name": "vite-vuetify-ts-starter",
   "description": "Vue3 Vuetify TypeScript Startar project for Vite.",
-  "version": "1.17.6",
+  "version": "1.17.7",
   "license": "MIT",
   "type": "module",
   "private": true,
@@ -21,7 +21,7 @@
   "engines": {
     "node": "^20.19.0 || >=22.12.0"
   },
-  "packageManager": "pnpm@10.26.2",
+  "packageManager": "pnpm@10.27.0",
   "scripts": {
     "dev": "vite",
     "clean": "rimraf ./node_modules/.vite",
@@ -45,7 +45,7 @@
     "pinia-plugin-persistedstate": "^4.7.1",
     "vue": "^3.5.26",
     "vue-router": "^4.6.4",
-    "vuetify": "^3.11.5"
+    "vuetify": "^3.11.6"
   },
   "devDependencies": {
     "@playwright/test": "^1.57.0",
@@ -54,7 +54,7 @@
     "@types/node": "^25.0.3",
     "@vitejs/plugin-vue": "^6.0.3",
     "@vitest/coverage-v8": "^4.0.16",
-    "@vitest/eslint-plugin": "1.6.4",
+    "@vitest/eslint-plugin": "1.6.6",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.6.0",
     "@vue/test-utils": "^2.4.6",
@@ -69,7 +69,7 @@
     "eslint-plugin-vuetify": "^2.5.3",
     "husky": "^9.1.7",
     "jiti": "^2.6.1",
-    "jsdom": "27.3.0",
+    "jsdom": "27.4.0",
     "lint-staged": "^16.2.7",
     "npm-run-all2": "^8.0.4",
     "postcss-html": "^1.8.0",
@@ -77,19 +77,19 @@
     "resize-observer-polyfill": "^1.5.1",
     "rimraf": "^6.1.2",
     "rollup-plugin-visualizer": "^6.0.5",
-    "sass-embedded": "^1.97.1",
+    "sass-embedded": "^1.97.2",
     "stylelint": "^16.26.1",
     "stylelint-config-recommended-scss": "^16.0.2",
     "stylelint-config-recommended-vue": "^1.6.1",
-    "stylelint-order": "^7.0.0",
+    "stylelint-order": "^7.0.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.1",
-    "vite": "^7.3.0",
+    "typescript-eslint": "^8.52.0",
+    "vite": "^7.3.1",
     "vite-plugin-checker": "0.12.0",
     "vite-plugin-vue-devtools": "^8.0.5",
     "vite-plugin-vuetify": "^2.1.2",
     "vitest": "^4.0.16",
-    "vue-tsc": "^3.2.1"
+    "vue-tsc": "^3.2.2"
   },
   "husky": {
     "hooks": {
