@@ -108,11 +108,14 @@ onMounted(() => {
     </v-snackbar>
 
     <v-footer app elevation="3">
-      <span class="mr-5">2025 &copy;</span>
+      <span class="mr-5">2026 &copy;</span>
     </v-footer>
   </v-app>
   <teleport to="head">
-    <meta name="theme-color" :content="theme.computedThemes.value?.[isDark]?.colors?.primary ?? '#1976D2'" />
+    <meta
+      name="theme-color"
+      :content="theme.computedThemes.value?.[isDark]?.colors?.primary ?? '#1976D2'"
+    />
     <link rel="icon" :href="logo" type="image/svg+xml" />
   </teleport>
 </template>
