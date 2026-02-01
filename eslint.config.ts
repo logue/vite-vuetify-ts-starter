@@ -3,8 +3,8 @@ import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescri
 
 import pluginVitest from '@vitest/eslint-plugin';
 import { globalIgnores } from 'eslint/config';
-// @ts-ignore
 import pluginImport from 'eslint-plugin-import';
+import pluginOxlint from 'eslint-plugin-oxlint';
 import pluginPlaywright from 'eslint-plugin-playwright';
 import pluginVue from 'eslint-plugin-vue';
 import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
@@ -16,16 +16,15 @@ import pluginVuetify from 'eslint-plugin-vuetify';
 // configureVueProject({ scriptLangs: ['ts', 'tsx'] })
 // More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
 
-/**
- * ESLint Config
- */
 export default defineConfigWithVueTs(
   {
     name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}']
+    files: ['**/*.{vue,ts,mts,tsx}']
   },
+
   globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
-  pluginVue.configs['flat/recommended'],
+
+  ...pluginVue.configs['flat/recommended'],
   ...pluginVueA11y.configs['flat/recommended'],
   vueTsConfigs.recommended,
   pluginImport.flatConfigs.recommended,
@@ -149,13 +148,18 @@ export default defineConfigWithVueTs(
       'vue/multi-word-component-names': 'warn'
     }
   },
-  {
-    ...pluginVitest.configs.recommended,
-    files: ['src/**/__tests__/*']
-  },
+
   {
     ...pluginPlaywright.configs['flat/recommended'],
     files: ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}']
   },
+
+  {
+    ...pluginVitest.configs.recommended,
+    files: ['src/**/__tests__/*']
+  },
+
+  ...pluginOxlint.configs['flat/recommended'],
+
   configPrettier
 );
