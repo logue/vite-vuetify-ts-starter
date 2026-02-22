@@ -1,26 +1,73 @@
-# Vue 3 + Typescript + Vite + Vuetify 3.8
+# Vue 3 + TypeScript + Vite + Vuetify Starter
+
+[日本語版](README.ja.md)
+
+[![GitHub stars](https://img.shields.io/github/stars/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter)
+[![GitHub license](https://img.shields.io/github/license/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter/blob/master/LICENSE)
+[![Node.js Version](https://img.shields.io/badge/node-%5E20.19.0%20%7C%7C%20%3E%3D22.12.0-brightgreen.svg)](https://nodejs.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-10.30.1-orange.svg)](https://pnpm.io/)
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/480173/156953097-fe133174-2c02-4a7d-bb57-d28dd3332be2.png" alt="logo" width="300" height="300" />
 </p>
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This template helps you get started developing with Vue 3, TypeScript, and Vuetify 3 in Vite. It uses Vue 3 `<script setup>` SFCs; check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-Includes [vue-router](https://router.vuejs.org/) and [Pinia](https://pinia.vuejs.org/) [^1].
+Includes [vue-router](https://router.vuejs.org/), [Pinia](https://pinia.vuejs.org/) [^1], and [Vuetify 3](https://vuetifyjs.com/).
 
-In addition, [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), and [Prettier](https://prettier.io/) are also included and are set to be executed automatically at runtime and commit. (Since these settings are set strictly, please relax yourself.)
+Additionally, [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), and [Prettier](https://prettier.io/) are included and set to run automatically at runtime and on commit. (These settings are strict, so relax them as needed.)
 
-Also, when the development server is executed, it is checked in real time by [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker).
+When the development server runs, it is checked in real-time by [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker).
 
-First define `VITE_APP_TITLE` in your `.env` file.
+First, define `VITE_APP_TITLE` in your `.env` file.
 
 Versions 1.11 and later use pnpm as the package manager.
 
-## Recommended IDE Setup
+## 🚀 Quick Start
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+### Installation
 
-## Recommended Browser Setup
+```bash
+pnpm install
+```
+
+### Start Development Server
+
+```bash
+pnpm dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+### Build
+
+```bash
+pnpm build
+```
+
+### Test
+
+```bash
+pnpm test:unit
+pnpm test:e2e
+```
+
+## ✨ Features
+
+- **Vue 3** + **TypeScript** + **Vite** combination
+- **Vuetify 3** for Material Design UI components
+- Routing and state management with **vue-router** and **Pinia**
+- Code quality management with **ESLint**, **Stylelint**, and **Prettier**
+- Unit testing with **Vitest**
+- E2E testing with **Playwright**
+- Real-time type checking with **vite-plugin-checker**
+- Strict linter settings to maintain high-quality code
+
+## 🛠️ Recommended IDE Setup
+
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (disable Vetur).
+
+## 🌐 Recommended Browser Setup
 
 - Chromium-based browsers (Chrome, Edge, Brave, etc.):
   - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
@@ -29,56 +76,67 @@ Versions 1.11 and later use pnpm as the package manager.
   - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
   - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-## Commands
+## 📋 Commands
 
-It is designed to be close to [create-vue](https://github.com/vuejs/create-vue-templates/tree/main/typescript-router-pinia-vitest-playwright-eslint) commands.
+Designed to be close to [create-vue](https://github.com/vuejs/create-vue-templates/tree/main/typescript-router-pinia-vitest-playwright-eslint) commands.
 
-| Command       | Description                                            |
-| ------------- | ------------------------------------------------------ |
-| dev           | Start devserver.                                       |
-| clean         | Clear devserver cache.                                 |
-| type-check    | Check vue markup.                                      |
-| lint          | Run ESLint and prettier.                               |
-| lint:style    | Run Stylelint.                                         |
-| test          | Run vitest                                             |
-| test:unit     | Run Unit test                                          |
-| coverage      | Output Coverage Report.                                |
-| build         | Build for production.                                  |
-| build:analyze | Execute Bundle Analyzer                                |
-| build:clean   | Clear production build files.                          |
-| build-only    | Build for production without checking. For Deploy use. |
-| preview       | Run the program generated by the production build.     |
+| Command         | Description                                        |
+| --------------- | -------------------------------------------------- |
+| `dev`           | Start development server                           |
+| `clean`         | Clear development server cache                     |
+| `type-check`    | Check Vue markup                                   |
+| `lint`          | Run all linters                                    |
+| `lint:oxlint`   | Run oxlint                                         |
+| `lint:eslint`   | Run ESLint                                         |
+| `lint:style`    | Run Stylelint                                      |
+| `test:unit`     | Run unit tests                                     |
+| `test:coverage` | Output coverage report                             |
+| `test:e2e`      | Run E2E tests                                      |
+| `build`         | Build for production                               |
+| `build:analyze` | Execute Bundle Analyzer                            |
+| `build:clean`   | Clear production build files                       |
+| `build-only`    | Build for production without checking (for deploy) |
+| `preview`       | Run the program generated by the production build  |
 
-## Type Support For `.vue` Imports in TS
+## 🔧 Type Support for `.vue` Imports in TS
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+TypeScript cannot handle type information for `.vue` imports by default, so they are shimmed to be a generic Vue component type. In most cases, this is fine if you don't care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example, to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from the VSCode command palette.
 
-[^1]: [Pinia](https://pinia.vuejs.org/) is the recommended state management library to replace [Vuex](https://vuex.vuejs.org/) in the next Vue. see <https://github.com/vuejs/rfcs/discussions/270#discussioncomment-2066856>
+[^1]: [Pinia](https://pinia.vuejs.org/) is the recommended state management library to replace [Vuex](https://vuex.vuejs.org/) in Vue. See <https://github.com/vuejs/rfcs/discussions/270#discussioncomment-2066856>.
 
-## Troubleshooting
+## 🐛 Troubleshooting
 
-When adding or deleting files, an error may occur and even if the error is corrected, it may not be reflected in devserver. In that case, stop devserver and delete all the files in the `node_modules/.vite` directory. You can also run it with the `clean` command.
+When adding or deleting files, an error may occur, and even if corrected, it may not be reflected in the dev server. In that case, stop the dev server and delete all files in the `node_modules/.vite` directory. You can also run it with the `clean` command.
 
 It will not work properly if you are using Node v21.0.0. Please upgrade to 21.1.0 or later.
 
-## Checklist
+## 📝 Checklist
 
-When you use this template, try follow the checklist to update your info properly
+When using this template, follow the checklist to update your info properly.
 
 - [ ] Change the author name in `LICENSE`
 - [ ] Change the favicon in `public`
-- [ ] Remove the `.github` folder which contains the funding info
+- [ ] Remove the `.github` folder which contains funding info
 - [ ] Clean up the READMEs and remove routes
 
-## See Also
+## 🔗 Related Projects
 
-- for Vue3
-  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter)
-  - [vite-elemental-plus-ts-starter](https://github.com/logue/vite-elemental-plus-ts-starter)
+- **For Vue 3**:
+  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter) - Base template without UI framework
+  - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - WIP
+  - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - With Element Plus
   - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)
-  - vite-bootstrap-vue-ts-starter - Comming soon.
-- for Vue2
-  - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter.
+  - vite-bootstrap-vue-ts-starter - Coming soon
+- **For Vue 2** (DEPRECATED):
+  - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter
   - [vite-vue2-vuetify-ts-starter](https://github.com/logue/vite-vue2-vuetify-ts-starter) - UI library using Vuetify2
-  - [laravel9-vite-vue2-starter](https://github.com/logue/laravel9-vite-vue2-starter) - Vue2 for Laravel9 + Breeze.
-  - [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-ssr-starter) - SSR (Server Side Rendering) Version.
+  - [laravel9-vite-vue2-starter](https://github.com/logue/laravel9-vite-vue2-starter) - Vue2 for Laravel9 + Breeze
+  - [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-ssr-starter) - SSR (Server Side Rendering) version
+
+## 🎨 Crafted for Developers
+
+This template is built with a focus on **UI/UX excellence** and **modern developer experience**. Maintaining it involves constant testing and updates to ensure everything works seamlessly.
+
+If you appreciate the attention to detail in this project, a small sponsorship would go a long way in supporting my work across the Vue.js and Metaverse ecosystems.
+
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/logue?label=Sponsor&logo=github&color=ea4aaa)](https://github.com/sponsors/logue)
