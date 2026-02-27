@@ -123,7 +123,7 @@ When using this template, follow the checklist to update your info properly.
 
 - **For Vue 3**:
   - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter) - Base template without UI framework
-  - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - WIP
+    - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - For cross-platform desktop application use.
   - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - With Element Plus
   - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)
   - vite-bootstrap-vue-ts-starter - Coming soon

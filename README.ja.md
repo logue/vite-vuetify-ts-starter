@@ -123,7 +123,7 @@ Node v21.0.0 を使用している場合、正しく動作しません。21.1.0 
 
 - **Vue 3 用**:
   - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter) - UI フレームワークなしのベーステンプレート
-  - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - WIP
+    - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - クロスプラットフォームのディスクトップアプリ向け
   - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - Element Plus を使用
   - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)
   - vite-bootstrap-vue-ts-starter - 近日公開
