@@ -3,12 +3,13 @@ import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescri
 
 import pluginVitest from '@vitest/eslint-plugin';
 import { globalIgnores } from 'eslint/config';
-import pluginImport from 'eslint-plugin-import';
+import pluginImport from 'eslint-plugin-import-x';
 import pluginOxlint from 'eslint-plugin-oxlint';
 import pluginPlaywright from 'eslint-plugin-playwright';
+// @ts-ignore
+import pluginSecurity from 'eslint-plugin-security';
 import pluginVue from 'eslint-plugin-vue';
 import pluginVueA11y from 'eslint-plugin-vuejs-accessibility';
-// @ts-ignore
 import pluginVuetify from 'eslint-plugin-vuetify';
 
 // To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
@@ -42,12 +43,12 @@ export default defineConfigWithVueTs(
   {
     settings: {
       // This will do the trick
-      'import/parsers': {
+      'import-x/parsers': {
         espree: ['.js', '.cjs', '.mjs', '.jsx'],
         '@typescript-eslint/parser': ['.ts', '.tsx'],
         'vue-eslint-parser': ['.vue']
       },
-      'import/resolver': {
+      'import-x/resolver': {
         // You will also need to install and configure the TypeScript resolver
         // See also https://github.com/import-js/eslint-import-resolver-typescript#configuration
         typescript: true,
@@ -101,15 +102,15 @@ export default defineConfigWithVueTs(
       // Fix for vite env.d.ts.
       '@typescript-eslint/triple-slash-reference': 'off',
       // Fix for Vue setup style
-      'import/default': 'off',
+      'import-x/default': 'off',
       // Fix for vite
-      'import/namespace': 'off',
-      'import/no-default-export': 'off',
-      'import/no-named-as-default-member': 'off',
-      'import/no-named-as-default': 'off',
+      'import-x/namespace': 'off',
+      'import-x/no-default-export': 'off',
+      'import-x/no-named-as-default-member': 'off',
+      'import-x/no-named-as-default': 'off',
       // Sort Import Order.
       // see https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/order.md#importorder-enforce-a-convention-in-module-import-order
-      'import/order': [
+      'import-x/order': [
         'error',
         {
           groups: ['builtin', 'external', 'parent', 'sibling', 'index', 'object', 'type'],
@@ -160,6 +161,6 @@ export default defineConfigWithVueTs(
   },
 
   ...pluginOxlint.configs['flat/recommended'],
-
+  pluginSecurity.configs.recommended,
   configPrettier
 );
