@@ -30,6 +30,7 @@ export default defineConfigWithVueTs(
   vueTsConfigs.recommended,
   pluginImport.flatConfigs.recommended,
   pluginImport.flatConfigs.typescript,
+  pluginSecurity.configs.recommended,
   {
     name: 'Vuetify',
     files: ['*.vue', '**/*.vue'],
@@ -160,7 +161,6 @@ export default defineConfigWithVueTs(
     files: ['src/**/__tests__/*']
   },
 
-  ...pluginOxlint.configs['flat/recommended'],
-  pluginSecurity.configs.recommended,
+  ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),
   configPrettier
 );
