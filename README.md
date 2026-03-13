@@ -21,8 +21,6 @@ When the development server runs, it is checked in real-time by [vite-plugin-che
 
 First, define `VITE_APP_TITLE` in your `.env` file.
 
-Versions 1.11 and later use pnpm as the package manager.
-
 ## 🚀 Quick Start
 
 ### Installation

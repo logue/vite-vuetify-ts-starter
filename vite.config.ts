@@ -114,6 +114,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
   };
 
   // Write meta data.
+  // eslint-disable-next-line security/detect-non-literal-fs-filename
   writeFileSync(
     fileURLToPath(new URL('./src/Meta.ts', import.meta.url)),
 
