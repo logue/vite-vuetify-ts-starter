@@ -193,6 +193,7 @@ export default defineConfigWithVueTs(
   {
     name: 'markdown/final-overrides',
     files: MARKDOWN_FILES,
+    language: 'markdown/gfm',
     rules: {
       'prettier/prettier': 'off'
     }
