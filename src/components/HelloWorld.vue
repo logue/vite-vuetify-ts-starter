@@ -18,7 +18,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-center text-center fill-height">
-      <v-img src="@/assets/logo.svg" alt="vuetify" :width="256" class="logo mx-auto" />
+      <v-img :width="256" src="@/assets/logo.svg" alt="vuetify" class="logo mx-auto" />
       <h1 class="text-h2 font-weight-bold mb-3">
         Welcome to the Vuetify
         <v-code tag="code">{{ 'v' + version }}</v-code>

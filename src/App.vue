@@ -1,25 +1,13 @@
 <script setup lang="ts">
-import { useGlobalStore, useConfigStore } from '@/store';
-import {
-  computed,
-  nextTick,
-  onMounted,
-  ref,
-  watch,
-  type ComputedRef,
-  type Ref,
-  type WritableComputedRef
-} from 'vue';
-
-import { useTheme } from 'vuetify';
+import { useConfigStore, useGlobalStore } from '@/store';
+import { computed, ref, type ComputedRef, type Ref, type WritableComputedRef } from 'vue';
 
 // Components
 import logo from '@/assets/logo.svg';
 import AppBarMenuComponent from '@/components/AppBarMenuComponent.vue';
 import DrawerComponent from '@/components/DrawerComponent.vue';
-
-/** Vuetify Theme */
-const theme = useTheme();
+import { useAppHead } from '@/composables/useAppHead';
+import { useGlobalSnackbar } from '@/composables/useGlobalSnackbar';
 
 /** Global Store */
 const globalStore = useGlobalStore();
@@ -43,29 +31,14 @@ const loading: WritableComputedRef<boolean> = computed({
 const progress: ComputedRef<number | null> = computed(() => globalStore.progress);
 
 /** Snackbar visibility */
-const snackbarVisibility: Ref<boolean> = ref(false);
-
-/** Snackbar text */
-const snackbarText: ComputedRef<string> = computed(() => globalStore.message);
+const { snackbarVisibility, snackbarText, onSnackbarChanged } = useGlobalSnackbar();
 
 /** Toggle Dark mode */
-const isDark: ComputedRef<string> = computed(() => (configStore.theme ? 'dark' : 'light'));
-
-// When snackbar text has been set, show snackbar.
-watch(
-  () => globalStore.message,
-  message => (snackbarVisibility.value = message !== '')
+const isDark: ComputedRef<'dark' | 'light'> = computed(() =>
+  configStore.theme ? 'dark' : 'light'
 );
 
-/** Clear store when snackbar hide */
-const onSnackbarChanged = async () => {
-  globalStore.setMessage();
-  await nextTick();
-};
-
-onMounted(() => {
-  document.title = title;
-});
+const { themeColor } = useAppHead(title, isDark);
 </script>
 
 <template>
@@ -96,8 +69,8 @@ onMounted(() => {
       </router-view>
     </v-main>
 
-    <v-overlay v-model="loading" app class="justify-center align-center" persistent>
-      <v-progress-circular indeterminate size="64" />
+    <v-overlay v-model="loading" class="justify-center align-center" app persistent>
+      <v-progress-circular size="64" indeterminate />
     </v-overlay>
 
     <v-snackbar v-model="snackbarVisibility" @update:model-value="onSnackbarChanged">
@@ -107,20 +80,17 @@ onMounted(() => {
       </template>
     </v-snackbar>
 
-    <v-footer app elevation="3">
+    <v-footer elevation="3" app>
       <span class="mr-5">2026 &copy;</span>
     </v-footer>
   </v-app>
   <teleport to="head">
-    <meta
-      name="theme-color"
-      :content="theme.computedThemes.value?.[isDark]?.colors?.primary ?? '#1976D2'"
-    />
-    <link rel="icon" :href="logo" type="image/svg+xml" />
+    <meta :content="themeColor" name="theme-color" />
+    <link :href="logo" rel="icon" type="image/svg+xml" />
   </teleport>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
 /* stylelint-disable-next-line scss/load-no-partial-leading-underscore */
 @use 'vuetify/_settings';
 @use 'sass:map';

@@ -1,25 +1,27 @@
-# Vue 3 + TypeScript + Vite + Vuetify Starter
+# Vue 3 + Vuetify + TypeScript + Vite Starter
 
 [日本語版](README.ja.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter)
 [![GitHub license](https://img.shields.io/github/license/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter/blob/master/LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%5E20.19.0%20%7C%7C%20%3E%3D22.12.0-brightgreen.svg)](https://nodejs.org/)
-[![pnpm](https://img.shields.io/badge/pnpm-10.30.1-orange.svg)](https://pnpm.io/)
+[![pnpm](https://img.shields.io/badge/pnpm-10.33.2-orange.svg)](https://pnpm.io/)
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/480173/156953097-fe133174-2c02-4a7d-bb57-d28dd3332be2.png" alt="logo" width="300" height="300" />
-</p>
+This template helps you get started developing with Vue 3 and TypeScript in Vite. It uses Vue 3 `<script setup>` SFCs; check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-This template helps you get started developing with Vue 3, TypeScript, and Vuetify 3 in Vite. It uses Vue 3 `<script setup>` SFCs; check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-Includes [vue-router](https://router.vuejs.org/), [Pinia](https://pinia.vuejs.org/) [^1], and [Vuetify 3](https://vuetifyjs.com/).
+Includes [vue-router](https://router.vuejs.org/) and [Pinia](https://pinia.vuejs.org/) [^1].
 
 Additionally, [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), and [Prettier](https://prettier.io/) are included and set to run automatically at runtime and on commit. (These settings are strict, so relax them as needed.)
 
 When the development server runs, it is checked in real-time by [vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker).
 
 First, define `VITE_APP_TITLE` in your `.env` file.
+
+## AI Agent Guidance
+
+This repository includes [AGENT.md](AGENT.md), a guideline document for coding agents such as GitHub Copilot, Claude, and Cursor.
+
+If you use an AI coding agent in this project, make sure it follows [AGENT.md](AGENT.md) together with [.github/copilot-instructions.md](.github/copilot-instructions.md).
 
 ## 🚀 Quick Start
 
@@ -53,7 +55,6 @@ pnpm test:e2e
 ## ✨ Features
 
 - **Vue 3** + **TypeScript** + **Vite** combination
-- **Vuetify 3** for Material Design UI components
 - Routing and state management with **vue-router** and **Pinia**
 - Code quality management with **ESLint**, **Stylelint**, and **Prettier**
 - Unit testing with **Vitest**
@@ -87,6 +88,7 @@ Designed to be close to [create-vue](https://github.com/vuejs/create-vue-templat
 | `lint:oxlint`   | Run oxlint                                         |
 | `lint:eslint`   | Run ESLint                                         |
 | `lint:style`    | Run Stylelint                                      |
+| `test`          | Run Vitest                                         |
 | `test:unit`     | Run unit tests                                     |
 | `test:coverage` | Output coverage report                             |
 | `test:e2e`      | Run E2E tests                                      |
@@ -115,12 +117,14 @@ When using this template, follow the checklist to update your info properly.
 - [ ] Change the author name in `LICENSE`
 - [ ] Change the favicon in `public`
 - [ ] Remove the `.github` folder which contains funding info
+- [ ] Review and adapt `AGENT.md` for your project conventions
 - [ ] Clean up the READMEs and remove routes
 
 ## 🔗 Related Projects
 
 - **For Vue 3**:
-  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter) - Base template without UI framework
+  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter)
+  - [vite-vuetify-ts-starter](https://github.com/logue/vite-vuetify-ts-starter) - With Vuetify 3
     - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - For cross-platform desktop application use.
   - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - With Element Plus
   - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)

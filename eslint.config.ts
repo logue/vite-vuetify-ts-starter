@@ -2,6 +2,7 @@ import configPrettier from '@vue/eslint-config-prettier';
 import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript';
 
 import markdown from '@eslint/markdown';
+import comments from '@eslint-community/eslint-plugin-eslint-comments/configs';
 import pluginVitest from '@vitest/eslint-plugin';
 import { globalIgnores } from 'eslint/config';
 import pluginImport from 'eslint-plugin-import-x';
@@ -37,6 +38,7 @@ const markdownRecommendedConfigs = markdown.configs.recommended.map(config => ({
 }));
 
 const appRules: Linter.Config['rules'] = {
+  '@eslint-community/eslint-comments/require-description': 'error',
   'no-unused-vars': 'off',
   // const lines: string[] = []; style
   '@typescript-eslint/array-type': [
@@ -110,17 +112,9 @@ const appRules: Linter.Config['rules'] = {
       'newlines-between': 'always'
     }
   ],
-  // A tag with no content should be written like <br />.
-  'vue/html-self-closing': [
-    'error',
-    {
-      html: {
-        void: 'always'
-      }
-    }
-  ],
-  // Mitigate non-multiword component name errors to warnings.
-  'vue/multi-word-component-names': 'warn'
+  // Using `../` to navigate back to parent directories is completely prohibited (using `./foo` at the same level is OK).
+  // Alias imports like `@/` are excluded because they resolve via the configured alias, not a relative parent path.
+  'import-x/no-relative-parent-imports': ['error', { ignore: ['^@/', '^~/'] }]
 };
 
 const appSettings = {
@@ -159,6 +153,8 @@ export default defineConfigWithVueTs(
   ...scopeConfigsToFiles(pluginVueA11y.configs['flat/recommended'], VUE_FILES),
   ...scopeConfigsToFiles(pluginVuetify.configs['flat/recommended'], VUE_FILES),
   vueTsConfigs.recommended,
+  comments.recommended,
+
   {
     ...pluginImport.flatConfigs.recommended,
     files: APP_FILES
@@ -177,6 +173,70 @@ export default defineConfigWithVueTs(
     settings: appSettings,
     rules: appRules
   },
+  {
+    name: 'vue/rules',
+    files: VUE_FILES,
+    rules: {
+      // <script setup> required（Prohibit Options API）
+      'vue/component-api-style': ['error', ['script-setup']],
+
+      // defineProps / defineEmits only support type-based declarations (Prohibit runtime declaration style)
+      'vue/define-props-declaration': ['error', 'type-based'],
+      'vue/define-emits-declaration': ['error', 'type-based'],
+
+      // <style scoped> required（Prohibit global styles in components）
+      'vue/enforce-style-attribute': ['error', { allow: ['scoped'] }],
+      'vue/attributes-order': [
+        'warn',
+        {
+          order: [
+            'DEFINITION', // is, v-is
+            'LIST_RENDERING', // v-for
+            'CONDITIONALS', // v-if, v-else-if, v-else, v-show
+            'RENDER_MODIFIERS', // v-pre, v-once
+            'UNIQUE', // ref, key
+            'TWO_WAY_BINDING', // v-model
+            'OTHER_DIRECTIVES', // Other directives
+            'ATTR_DYNAMIC', // :prop
+            'ATTR_STATIC', // prop="value"
+            'ATTR_SHORTHAND_BOOL', // disabled
+            'EVENTS', // @click
+            'CONTENT' // v-html, v-text
+          ],
+          alphabetical: false
+        }
+      ],
+      // A tag with no content should be written like <br />.
+      'vue/html-self-closing': [
+        'error',
+        {
+          html: {
+            void: 'always'
+          }
+        }
+      ],
+      // Mitigate non-multiword component name errors to warnings.
+      'vue/multi-word-component-names': 'warn',
+      'vuejs-accessibility/label-has-for': [
+        'error',
+        {
+          components: ['VLabel'], // UI library label components are also targeted
+          controlComponents: ['VInput'], // Corresponding control components
+          required: { some: ['nesting', 'id'] }
+        }
+      ],
+      'vuejs-accessibility/no-autofocus': 'warn', // autofocus breaks screen readers and keyboard navigation
+      'vuejs-accessibility/anchor-has-content': 'error' // <a> elements must have content
+    }
+  },
+
+  {
+    name: 'vue/components-strict',
+    files: ['src/components/**/*.vue'],
+    rules: {
+      'vue/multi-word-component-names': 'error'
+    }
+  },
 
   {
     ...pluginPlaywright.configs['flat/recommended'],
@@ -186,6 +246,14 @@ export default defineConfigWithVueTs(
   {
     ...pluginVitest.configs.recommended,
     files: UNIT_TEST_FILES
+  },
+  {
+    // Test files intentionally import from parent directories (the component under test).
+    name: 'test/relax-parent-imports',
+    files: UNIT_TEST_FILES,
+    rules: {
+      'import-x/no-relative-parent-imports': 'off'
+    }
   },
 
   ...pluginOxlint.buildFromOxlintConfigFile('.oxlintrc.json'),

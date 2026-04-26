@@ -1,25 +1,27 @@
-# Vue 3 + TypeScript + Vite + Vuetify スターター
+# Vue 3 + Vuetify + TypeScript + Vite スターター
 
 [English](README.md)
 
 [![GitHub stars](https://img.shields.io/github/stars/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter)
 [![GitHub license](https://img.shields.io/github/license/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter/blob/master/LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%5E20.19.0%20%7C%7C%20%3E%3D22.12.0-brightgreen.svg)](https://nodejs.org/)
-[![pnpm](https://img.shields.io/badge/pnpm-10.30.1-orange.svg)](https://pnpm.io/)
+[![pnpm](https://img.shields.io/badge/pnpm-10.33.2-orange.svg)](https://pnpm.io/)
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/480173/156953097-fe133174-2c02-4a7d-bb57-d28dd3332be2.png" alt="logo" width="300" height="300" />
-</p>
+このテンプレートは、Vue 3 と TypeScript を使用して Vite で開発を始めるのに役立ちます。Vue 3 の `<script setup>` SFC を使用しており、[script setup ドキュメント](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) を参照して詳細を確認してください。
 
-このテンプレートは、Vue 3、TypeScript、Vuetify 3 を使用して Vite で開発を始めるのに役立ちます。Vue 3 の `<script setup>` SFC を使用しており、[script setup ドキュメント](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) を参照して詳細を確認してください。
-
-[vue-router](https://router.vuejs.org/)、[Pinia](https://pinia.vuejs.org/) [^1]、および [Vuetify 3](https://vuetifyjs.com/) が含まれています。
+[vue-router](https://router.vuejs.org/) と [Pinia](https://pinia.vuejs.org/) [^1] が含まれています。
 
 さらに、[ESLint](https://eslint.org/)、[Stylelint](https://stylelint.io/)、[Prettier](https://prettier.io/) が含まれており、実行時とコミット時に自動で実行されるように設定されています。（これらの設定は厳しく設定されているので、必要に応じて緩和してください。）
 
 開発サーバーの実行時には、[vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker) によってリアルタイムでチェックされます。
 
 `.env` ファイルで `VITE_APP_TITLE` を定義してください。
+
+## AI エージェント向けガイド
+
+このリポジトリには、GitHub Copilot / Claude / Cursor などのコーディングエージェント向けガイドラインとして [AGENT.md](AGENT.md) が含まれています。
+
+このプロジェクトで AI コーディングエージェントを使う場合は、[AGENT.md](AGENT.md) と [.github/copilot-instructions.md](.github/copilot-instructions.md) をあわせて参照してください。
 
 ## 🚀 クイックスタート
 
@@ -53,7 +55,6 @@ pnpm test:e2e
 ## ✨ 特徴
 
 - **Vue 3** + **TypeScript** + **Vite** の組み合わせ
-- **Vuetify 3** による Material Design UI コンポーネント
 - **vue-router** と **Pinia** によるルーティングと状態管理
 - **ESLint**、**Stylelint**、**Prettier** によるコード品質管理
 - **Vitest** によるユニットテスト
@@ -87,6 +88,7 @@ pnpm test:e2e
 | `lint:oxlint`   | oxlint を実行                          |
 | `lint:eslint`   | ESLint を実行                          |
 | `lint:style`    | Stylelint を実行                       |
+| `test`          | Vitest を実行                          |
 | `test:unit`     | ユニットテストを実行                   |
 | `test:coverage` | カバレッジレポートを出力               |
 | `test:e2e`      | E2E テストを実行                       |
@@ -115,12 +117,14 @@ Node v21.0.0 を使用している場合、正しく動作しません。21.1.0 
 - [ ] `LICENSE` の作者名を変更
 - [ ] `public` のファビコンを変更
 - [ ] ファンディング情報が含まれる `.github` フォルダを削除
+- [ ] プロジェクトの方針に合わせて `AGENT.md` を見直す
 - [ ] README をクリーンアップし、不要なルートを削除
 
 ## 🔗 関連プロジェクト
 
 - **Vue 3 用**:
-  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter) - UI フレームワークなしのベーステンプレート
+  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter)
+  - [vite-vuetify-ts-starter](https://github.com/logue/vite-vuetify-ts-starter) - Vuetify 3 を使用
     - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - クロスプラットフォームのディスクトップアプリ向け
   - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - Element Plus を使用
   - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)
@@ -129,7 +133,7 @@ Node v21.0.0 を使用している場合、正しく動作しません。21.1.0 
   - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 スターター
   - [vite-vue2-vuetify-ts-starter](https://github.com/logue/vite-vue2-vuetify-ts-starter) - Vuetify2 を使用した UI ライブラリ
   - [laravel9-vite-vue2-starter](https://github.com/logue/laravel9-vite-vue2-starter) - Laravel9 + Breeze 用 Vue2
-  - [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-starter) - SSR（サーバーサイドレンダリング）バージョン
+  - [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-ssr-starter) - SSR（サーバーサイドレンダリング）バージョン
 
 ## 🎨 開発者向けに作られました
 
