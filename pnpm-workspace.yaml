@@ -1,3 +1,7 @@
+allowBuilds:
+  '@parcel/watcher': true
+  core-js: true
+  unrs-resolver: true
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - core-js
