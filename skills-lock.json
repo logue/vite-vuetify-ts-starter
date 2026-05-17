@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "vue-best-practices": {
+      "source": "hyf0/vue-skills",
+      "sourceType": "github",
+      "skillPath": "skills/vue-best-practices/SKILL.md",
+      "computedHash": "3df585ad31aec78fe55c56c1411262737e6b231677a3153dec512a882fde80cd"
+    },
+    "vuetify-skilld": {
+      "source": "harlan-zw/vue-ecosystem-skills",
+      "sourceType": "github",
+      "skillPath": "skills/vuetify-skilld/SKILL.md",
+      "computedHash": "f1caf5d3c3080febb92f1a8c7cc609111167d3910cc7eff3df94a8ae1269f542"
+    }
+  }
+}

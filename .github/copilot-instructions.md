@@ -3,7 +3,7 @@
 ## Build and Test
 
 - Use pnpm for all tasks. Do not use npm or yarn in this workspace.
-- Use Node.js version `^20.19.0 || >=22.12.0`.
+- Use Node.js version `>=22.13.0`.
 - Install dependencies with `pnpm install`.
 - Common commands:
   - `pnpm dev` for local development
@@ -19,7 +19,7 @@
 - Entry points are `src/main.ts` and `src/App.vue`.
 - Route-level pages belong in `src/views`; reusable UI belongs in `src/components`.
 - Router configuration is centralized in `src/router.ts`.
-- Pinia stores are in `src/stores`.
+- Pinia stores are in `src/store`.
 - Import path alias `@` points to `src`.
 - UI framework is Vuetify 4; see `src/plugins/vuetify.ts` for setup and `vite.config.ts` for build chunking strategy.
 
@@ -43,10 +43,18 @@
 - Lint rules and import ordering details: `eslint.config.ts`
 - Build behavior and chunking strategy: `vite.config.ts`
 
+## Agent Skills
+
+This project uses AI agent skills (`.agents/skills/`) to provide context-aware guidance:
+
+- **`vue-best-practices`** — Applied for Vue.js tasks. Enforces Composition API + `<script setup>` + TypeScript best practices. Covers Vue 3, SSR, Volar, vue-tsc, Vue Router, and Pinia workflows.
+- **`vuetify-skilld`** — Applied for Vuetify UI development. Provides Material Design 3 API reference, component best practices, and Vuetify 4-specific breaking changes.
+
+These skills are automatically loaded and applied by AI agents when working on Vue and Vuetify-related code. Manage skills via `npx skills` or `skills-lock.json`.
+
 ## Related Customizations
 
 - Frontend file-specific instruction: `.github/instructions/frontend-vue.instructions.md`
-- Testing file-specific instruction: `.github/instructions/testing.instructions.md`
 - Reusable execution prompt: `.github/prompts/run-safe-change.prompt.md`
 - PR quality gate prompt: `.github/prompts/pre-pr-quality-gate.prompt.md`
 - Release readiness prompt: `.github/prompts/pre-release-readiness.prompt.md`

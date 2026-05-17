@@ -10,5 +10,10 @@ interface ImportMeta {
   readonly env: ImportMetaEnv;
 }
 
+declare module '*.vue' {
+  import vue from 'vue';
+  export default vue;
+}
+
 declare const __APP_VERSION__: string;
 declare const __BUILD_DATE__: string;

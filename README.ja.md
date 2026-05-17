@@ -4,8 +4,8 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter)
 [![GitHub license](https://img.shields.io/github/license/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter/blob/master/LICENSE)
-[![Node.js Version](https://img.shields.io/badge/node-%5E20.19.0%20%7C%7C%20%3E%3D22.12.0-brightgreen.svg)](https://nodejs.org/)
-[![pnpm](https://img.shields.io/badge/pnpm-10.33.2-orange.svg)](https://pnpm.io/)
+[![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.13.0-brightgreen.svg)](https://nodejs.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-11.1.2-orange.svg)](https://pnpm.io/)
 
 このテンプレートは、Vue 3 と TypeScript を使用して Vite で開発を始めるのに役立ちます。Vue 3 の `<script setup>` SFC を使用しており、[script setup ドキュメント](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) を参照して詳細を確認してください。
 

@@ -14,7 +14,7 @@ This file provides guidance for AI coding agents (GitHub Copilot, Claude, Cursor
 - **State management**: Pinia (setup-store style)
 - **Routing**: Vue Router 5
 - **Package manager**: pnpm (do not use npm or yarn)
-- **Node version**: `^20.19.0 || >=22.12.0`
+- **Node version**: `>=22.13.0`
 - **UI library**: Vuetify 4
 
 ---
@@ -101,11 +101,11 @@ Always run `pnpm lint` and `pnpm type-check` before committing. These are also e
 
   ```ts
   // OK
-  import { useUserStore } from '@/stores/user';
+  import { useUserStore } from '@/store/user';
   import type { User } from '@/types';
 
   // NG
-  import { useUserStore } from '../../../stores/user';
+  import { useUserStore } from '../../../store/user';
   ```
 
   > **Exception**: test files under `src/**/__tests__/` may use `../` to import the component under test (e.g., `import MyComponent from '../MyComponent.vue'`). This is intentional and the ESLint rule is disabled for that scope.
@@ -135,7 +135,7 @@ Always run `pnpm lint` and `pnpm type-check` before committing. These are also e
     return { user, setUser };
   });
   ```
-- Store ID must match the file name (e.g., `defineStore('user', ...)` in `stores/user.ts`).
+- Store ID must match the file name (e.g., `defineStore('user', ...)` in `store/user.ts`).
 - Persist state via `pinia-plugin-persistedstate` — do not manually read/write `localStorage`.
 
 ---
