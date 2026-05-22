@@ -23,6 +23,31 @@
 
 このプロジェクトで AI コーディングエージェントを使う場合は、[AGENT.md](AGENT.md) と [.github/copilot-instructions.md](.github/copilot-instructions.md) をあわせて参照してください。
 
+## 🤖 AI駆動開発（オプション）
+
+このテンプレートは、[Agent Skills](https://www.skills.sh/)でAI駆動開発にも対応しています。
+
+リポジトリの肥大化とCI/CDのオーバーヘッドを防ぐため、`.agents/` ディレクトリはGitの`.gitignore`から除外されています。
+
+このリポジトリでは、スキル定義とハッシュを `skills-lock.json` で管理し、実際にダウンロードされるスキル本体は各開発者のローカル `.agents/` に配置される想定です。
+
+AIエージェント（例：Claude Code、GitHub Copilot）を使用している場合は、以下のスキルをローカル環境にインストールすることを強くお勧めします。
+
+```bash
+# 初回インストール
+npx skills add https://github.com/hyf0/vue-skills --skill vue-best-practices
+npx skills add https://github.com/harlan-zw/vue-ecosystem-skills --skill vuetify-skilld
+
+# pull 後に lock ファイルを反映（推奨）
+npx skills update
+```
+
+### なぜプリインストールしないのか？（アーキテクチャ設計）
+
+- CI/CDオーバーヘッドゼロ：GitHub ActionsやVercelでのプロダクションビルド時に、数メガバイトもの重複ドキュメントをダウンロードする必要がなくなります。
+
+- スキル運用の安全性向上：アプリ本体とスキルを分離しつつ、`skills-lock.json` によってチーム内で再現性を維持できます。
+
 ## 🚀 クイックスタート
 
 ### インストール

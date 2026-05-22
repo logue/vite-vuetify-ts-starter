@@ -23,6 +23,29 @@ This repository includes [AGENT.md](AGENT.md), a guideline document for coding a
 
 If you use an AI coding agent in this project, make sure it follows [AGENT.md](AGENT.md) together with [.github/copilot-instructions.md](.github/copilot-instructions.md).
 
+## 🤖 AI-Driven Development (Optional)
+
+This template supports AI-driven development via [Agent Skills](https://www.skills.sh/).
+To prevent repository bloat and CI/CD overhead, `.agents/` is excluded from Git (`.gitignore`).
+
+This repository tracks `skills-lock.json` (skill definitions + hashes), while each developer keeps actual downloaded skill files in local `.agents/`.
+
+If you are using AI agents (e.g., Claude Code, GitHub Copilot), we highly recommend installing the following skills in your local environment:
+
+```bash
+# Initial install
+npx skills add https://github.com/hyf0/vue-skills --skill vue-best-practices
+npx skills add https://github.com/harlan-zw/vue-ecosystem-skills --skill vuetify-skilld
+
+# Refresh from lock file (recommended after pull)
+npx skills update
+```
+
+### Why not pre-installed? (Architecture Design)
+
+- Zero CI/CD Overhead: Prevents downloading megabytes of duplicate documentation during production builds on GitHub Actions or Vercel.
+- Safer Skill Lifecycle: Keeps skills decoupled from app source, while `skills-lock.json` preserves reproducibility across team members.
+
 ## 🚀 Quick Start
 
 ### Installation
