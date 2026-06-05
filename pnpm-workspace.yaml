@@ -23,6 +23,10 @@ minimumReleaseAgeExclude:
   - sass-embedded-win32-x64@1.100.0
   - sass-embedded@1.100.0
   - sass@1.100.0
+  - vue-router@5.1.0
+  - vuetify@4.0.8
+  - '@vue/eslint-config-typescript@14.8.0'
+  - '@vue/test-utils@2.4.11'
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - core-js
