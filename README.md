@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter)
 [![GitHub license](https://img.shields.io/github/license/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter/blob/master/LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.13.0-brightgreen.svg)](https://nodejs.org/)
-[![pnpm](https://img.shields.io/badge/pnpm-11.1.2-orange.svg)](https://pnpm.io/)
+[![pnpm](https://img.shields.io/badge/pnpm-11-orange.svg)](https://pnpm.io/)
 
 This template helps you get started developing with Vue 3 and TypeScript in Vite. It uses Vue 3 `<script setup>` SFCs; check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
@@ -150,7 +150,7 @@ When using this template, follow the checklist to update your info properly.
   - [vite-vuetify-ts-starter](https://github.com/logue/vite-vuetify-ts-starter) - With Vuetify 3
     - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - For cross-platform desktop application use.
   - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - With Element Plus
-  - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)
+  - [rsbuild-vue-starter](https://github.com/logue/rsbuild-vue-starter) - Built with Rsbuild stack instead of Vite
   - vite-bootstrap-vue-ts-starter - Coming soon
 - **For Vue 2** (DEPRECATED):
   - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter

@@ -5,7 +5,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter)
 [![GitHub license](https://img.shields.io/github/license/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter/blob/master/LICENSE)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.13.0-brightgreen.svg)](https://nodejs.org/)
-[![pnpm](https://img.shields.io/badge/pnpm-11.1.2-orange.svg)](https://pnpm.io/)
+[![pnpm](https://img.shields.io/badge/pnpm-11-orange.svg)](https://pnpm.io/)
 
 このテンプレートは、Vue 3 と TypeScript を使用して Vite で開発を始めるのに役立ちます。Vue 3 の `<script setup>` SFC を使用しており、[script setup ドキュメント](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) を参照して詳細を確認してください。
 
@@ -152,7 +152,7 @@ Node v21.0.0 を使用している場合、正しく動作しません。21.1.0 
   - [vite-vuetify-ts-starter](https://github.com/logue/vite-vuetify-ts-starter) - Vuetify 3 を使用
     - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - クロスプラットフォームのディスクトップアプリ向け
   - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - Element Plus を使用
-  - [rsbuild-vue3-ts-starter](https://github.com/logue/rsbuild-vue3-ts-starter)
+  - [rsbuild-vue-starter](https://github.com/logue/rsbuild-vue-starter) - Vite の代わりに Rsbuild スタックを使用したもの。
   - vite-bootstrap-vue-ts-starter - 近日公開
 - **Vue 2 用**（非推奨）:
   - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 スターター
