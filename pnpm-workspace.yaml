@@ -1,6 +1,7 @@
 allowBuilds:
   '@parcel/watcher': true
   core-js: true
+  esbuild: true
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - sass-embedded-all-unknown@1.100.0
@@ -38,6 +39,7 @@ minimumReleaseAgeExclude:
   - '@vue/shared@3.5.38'
   - eslint-plugin-security@4.0.1
   - vue@3.5.38
+  - '@types/node@26.0.0'
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - core-js
