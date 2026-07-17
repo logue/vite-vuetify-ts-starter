@@ -7,6 +7,9 @@
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.13.0-brightgreen.svg)](https://nodejs.org/)
 [![pnpm](https://img.shields.io/badge/pnpm-11-orange.svg)](https://pnpm.io/)
 
+> [!NOTE]
+> Because eslint does not support TypeScript 7, the current implementation temporarily allows for the coexistence of both 6 and 7.
+
 This template helps you get started developing with Vue 3 and TypeScript in Vite. It uses Vue 3 `<script setup>` SFCs; check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
 Includes [vue-router](https://router.vuejs.org/) and [Pinia](https://pinia.vuejs.org/) [^1].

@@ -5,6 +5,17 @@ allowBuilds:
   unrs-resolver: true
 minimumReleaseAgeExclude:
   - vuetify@4.1.3
+  - '@vue/compiler-core@3.5.40'
+  - '@vue/compiler-dom@3.5.40'
+  - '@vue/compiler-sfc@3.5.40'
+  - '@vue/compiler-ssr@3.5.40'
+  - '@vue/reactivity@3.5.40'
+  - '@vue/runtime-core@3.5.40'
+  - '@vue/runtime-dom@3.5.40'
+  - '@vue/server-renderer@3.5.40'
+  - '@vue/shared@3.5.40'
+  - vite@8.1.5
+  - vue@3.5.40
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - core-js
