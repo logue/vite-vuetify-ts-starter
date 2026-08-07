@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { version } from 'vuetify';
 
-import Meta from '@/Meta';
+import { Meta } from '@/types/Meta';
 
 const title = import.meta.env.VITE_APP_TITLE;
 

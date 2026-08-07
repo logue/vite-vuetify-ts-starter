@@ -1,7 +1,7 @@
 import type { RouteLocationRaw } from 'vue-router';
 
 /** Drawer Menu Item Interface */
-export default interface DrawerMenuItem {
+export type DrawerMenuItem = {
   /** Item Name */
   title: string;
   /** Item Icon */
@@ -12,4 +12,4 @@ export default interface DrawerMenuItem {
   active?: boolean;
   /** Sub Items */
   items?: DrawerMenuItem[];
-}
+};

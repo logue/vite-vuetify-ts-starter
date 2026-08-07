@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type DrawerMenuItem from '@/interfaces/DrawerMenuItemInterface';
+import type { DrawerMenuItem } from '@/types/DrawerMenuItem';
 
 /** Drawer menu items */
 const items: DrawerMenuItem[] = [
