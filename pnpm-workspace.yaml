@@ -3,13 +3,7 @@ allowBuilds:
   core-js: true
   esbuild: true
   unrs-resolver: true
+minimumReleaseAgeExclude:
+  - rollup-plugin-visualizer@7.1.1
 overrides:
   brace-expansion: '>=5.0.9'
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - core-js
-  - esbuild
-  - unrs-resolver
-minimumReleaseAgeExclude:
-  - vite@8.2.1
-  - vuetify@4.1.8
