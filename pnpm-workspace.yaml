@@ -3,5 +3,6 @@ allowBuilds:
   core-js: true
   esbuild: true
   unrs-resolver: true
-overrides:
-  brace-expansion: '>=5.0.9'
+minimumReleaseAgeExclude:
+  - '@vue/test-utils@2.5.0'
+  - vue-router@5.3.0
