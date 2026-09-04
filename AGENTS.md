@@ -1,239 +1,105 @@
-# AGENT.md
+# AGENTS.md
 
-This file provides guidance for AI coding agents (GitHub Copilot, Claude, Cursor, etc.) working in this repository.
+This is a Vue 3 + TypeScript + Vite starter project. Repository configuration is the source of truth for project rules; this file only documents key points for working in the repository.
 
----
+## Setup & Overview
 
-## Project Overview
-
-**Vue 3 + Vuetify + TypeScript + Vite** starter template.
-
-- **Framework**: Vue 3 (`<script setup>` SFC only)
 - **Build tool**: Vite 8
-- **Language**: TypeScript (strict)
-- **State management**: Pinia (setup-store style)
-- **Routing**: Vue Router 5
+- **Linter**: Rslint and Biome (with `@logue/biome-plugins` custom rules)
+- **Testing**: Vitest 5
+- **Language**: TypeScript 7
 - **Package manager**: pnpm (do not use npm or yarn)
-- **Node version**: `>=22.13.0`
-- **UI library**: Vuetify 4
+- **UI Library**: Vuetify 4
 
----
+**Last updated**: 2026-09-04
+**Verified with**: `package.json` in this repository
+
+### Tool Versions
+
+See `package.json` for authoritative dependency versions.
+
+This guide assumes:
+
+- TypeScript 7.0.2 or later
+- Vite 8.2.2 or later
+- Vitest 5.0.0 or later
+
+**If you encounter version-related issues, check `package.json` directly—it is the source of truth.**
+
+### Dependency Management
+
+- `minimumReleaseAge: 0` is set in `pnpm-workspace.yaml` to prevent unpredictable auto-injection of `minimumReleaseAgeExclude`
+- This ensures version resolution is deterministic and reproducible across projects
+
+### VS Code Setup
+
+Recommended extensions are listed in `.vscode/extensions.json`.
+
+- Default formatter: **Prettier**
+- Format on save: enabled
+- Auto-fix on save: Eslint
+
+When you open the project in VS Code, you'll be prompted to install recommended extensions.
+
+## Runtime and tooling
+
+- Use `pnpm` as the only package manager. Follow the Node.js version specified in the `engines` field of `package.json`.
+- The project uses Vue 3, Vue Router 5, and Pinia (setup stores).
+- Entry points are `src/main.ts` and `src/App.vue`.
+- Put pages in `src/views`, reusable components in `src/components`, router configuration in `src/router.ts`, and stores in `src/stores`.
+- `@/*` maps to `src/*`, and `~/*` maps to `node_modules/*`.
 
 ## Commands
 
 ```bash
-pnpm dev              # Start dev server (http://localhost:5173)
-pnpm build            # Type-check + production build
-pnpm lint             # Run all linters (oxlint → eslint → prettier → stylelint)
-pnpm type-check       # vue-tsc type check only
-pnpm test:unit        # Vitest unit tests
-pnpm test:coverage    # Vitest with coverage report
-pnpm test:e2e         # Playwright E2E tests
-pnpm build:analyze    # Bundle size analysis (rollup-plugin-visualizer)
-pnpm clean            # Clear Vite dev cache
+pnpm dev            # Development server
+pnpm build          # Type-check and production build
+pnpm type-check     # vue-tsc
+pnpm lint           # oxlint, ESLint, Prettier, and Stylelint
+pnpm test:unit      # Vitest
+pnpm test:coverage  # Vitest coverage
+pnpm test:e2e       # Playwright
+pnpm build:analyze  # Bundle analysis
+pnpm clean          # Clear the Vite cache
 ```
 
-Always run `pnpm lint` and `pnpm type-check` before committing. These are also enforced by husky pre-commit hooks via lint-staged.
+When changing runtime behavior, run at least `pnpm type-check` and the relevant tests. Run `pnpm lint` before committing.
 
----
+## Documentation
 
-## TypeScript Rules
+- Vite: <https://vite.dev/llms.txt>
+- Rstest: <https://vitest.dev/llms.txt>
+- Vue: <https://vuejs.org/llms-full.txt>
+- Vuetify: <https://vuetifyjs.com/llms.txt>
 
-- **No `any`** — use `unknown` and narrow with type guards.
-- **Explicit return types** on exported functions (Pinia stores are exempt due to setup-style inference).
-- **Use `type` over `interface`** for object shapes; extend via intersection (`&`).
-- **Union literal types** instead of magic strings:
-  ```ts
-  type Status = 'active' | 'inactive' | 'pending';
-  ```
-- **Underscore prefix** for intentionally unused variables: `_value`, `_error`.
-- **Array type syntax**: `string[]` not `Array<string>`.
-- **Generic constructors**: left-hand side style — `const map: Map<string, User> = new Map()`.
+## Source conventions
 
----
+- Use `<script lang="ts" setup vapor>` for new or modified Vue SFCs. Do not weaken TypeScript strictness.
+- Use the `@/` alias for internal modules, except where ESLint explicitly permits an exception, such as importing the component under test.
+- Use Pinia setup stores and `pinia-plugin-persistedstate` for persistence. Do not access `localStorage` or `sessionStorage` directly.
+- Follow the existing multi-word naming convention for component and file names.
+- Mock external APIs, browser APIs, databases, and similar dependencies in tests; unit tests must not make real network requests.
+- Use the `VITE_APP_*` prefix for client-exposed environment variables, and do not commit `.env` files.
 
-## Vue SFC Rules
+## Source of truth
 
-### Script
+Do not duplicate detailed rules here. Check and update the following configuration files instead.
 
-- Always use `<script setup lang="ts">` — Options API is prohibited.
-- `defineProps` and `defineEmits` must use **type-based declarations** (runtime declarations are prohibited):
+- TypeScript: `tsconfig*.json`
+- Vue, imports, a11y, unused variables, and suppression-comment reasons: `eslint.config.ts`
+- Fast checks: `.oxlintrc.json`
+- CSS/SCSS: `.stylelintrc.yaml`
+- Formatting: `.prettierrc.yaml`
+- Vite aliases, defines, build, and chunking: `vite.config.ts`
+- Vitest: `vitest.config.ts`
+- Playwright: `playwright.config.ts`
+- Shared Copilot instructions: `.github/copilot-instructions.md`
+- Additional instructions for `src`: `.github/instructions/frontend-vue.instructions.md`
 
-  ```ts
-  // OK
-  const props = defineProps<{ title: string; count?: number }>();
-  const emit = defineEmits<{ change: [value: string]; close: [] }>();
+If this file conflicts with executable configuration, follow the configuration and update this file.
 
-  // NG
-  const props = defineProps({ title: String });
-  ```
+## Repository hygiene
 
-- Return values from composables as individual `ref`s (not `reactive`) to enable destructuring.
-- Internal state exposed from composables should be wrapped in `readonly()`.
-
-### Template
-
-- **Self-closing void elements**: `<br />`, `<img />`, `<input />`.
-- **Attribute order** (enforced by `vue/attributes-order`):
-  `DEFINITION` → `LIST_RENDERING` → `CONDITIONALS` → `RENDER_MODIFIERS` → `UNIQUE` → `TWO_WAY_BINDING` → `OTHER_DIRECTIVES` → `ATTR_DYNAMIC` → `ATTR_STATIC` → `ATTR_SHORTHAND_BOOL` → `EVENTS` → `CONTENT`
-- Run `pnpm lint` to auto-fix attribute order.
-
-### Style
-
-- Always use `<style lang="scss" scoped>` — unscoped styles are prohibited.
-- CSS custom properties (design tokens) must be defined in a shared file (e.g., `src/styles/variables.scss`) and not duplicated per component.
-- CSS property order is enforced by stylelint-order — run `pnpm lint:style` to auto-fix.
-
----
-
-## Component Naming
-
-- Component files: **PascalCase**, multi-word required (e.g., `UserCard.vue`, `AppHeader.vue`).
-  - `src/components/**/*.vue` — `error`
-  - `src/pages/**/*.vue` and `src/layouts/**/*.vue` — `warn` (file-based routing constraint)
-- Do not create single-word components like `Header.vue` or `Card.vue` outside of pages/layouts.
-
----
-
-## Import Rules
-
-- **Always use the `@/` alias** for internal imports — relative parent traversal (`../`) is prohibited in application code:
-
-  ```ts
-  // OK
-  import { useUserStore } from '@/store/user';
-  import type { User } from '@/types';
-
-  // NG
-  import { useUserStore } from '../../../store/user';
-  ```
-
-  > **Exception**: test files under `src/**/__tests__/` may use `../` to import the component under test (e.g., `import MyComponent from '../MyComponent.vue'`). This is intentional and the ESLint rule is disabled for that scope.
-
-- The `~` alias maps to `node_modules` (e.g., `~/some-lib/style.css`).
-- **Import order** (enforced by `import-x/order`, auto-fixed by `pnpm lint:eslint`):
-  1. Node built-ins
-  2. Vue core (`vue`, `vue-router`, `pinia`, `@vue/*`, `@vitejs/*`)
-  3. External packages
-  4. Internal (`@/**`)
-  5. Sibling / index
-  6. Type imports
-     A blank line is required between each group.
-
----
-
-## Pinia Store Rules
-
-- Use **setup-store style** exclusively (not options-store style):
-  ```ts
-  // OK
-  export const useUserStore = defineStore('user', () => {
-    const user = ref<User | null>(null);
-    function setUser(u: User) {
-      user.value = u;
-    }
-    return { user, setUser };
-  });
-  ```
-- Store ID must match the file name (e.g., `defineStore('user', ...)` in `store/user.ts`).
-- Persist state via `pinia-plugin-persistedstate` — do not manually read/write `localStorage`.
-
----
-
-## Accessibility (a11y)
-
-Rules are enforced by `eslint-plugin-vuejs-accessibility`. Key points:
-
-- `<a>` elements must have text content (`vuejs-accessibility/anchor-has-content: error`).
-- Avoid `autofocus` (`vuejs-accessibility/no-autofocus: warn`).
-- For **single input** → use `<label for="id">` or nesting.
-- For **compound UI** (e.g., slider + number input sharing a label) → use `aria-labelledby` or `<fieldset>` + `<legend>`:
-
-  ```vue
-  <!-- Compound: aria-labelledby -->
-  <p id="volume-label">Volume</p>
-  <input type="range" v-model="volume" aria-labelledby="volume-label" />
-  <input type="number" v-model="volume" aria-labelledby="volume-label" />
-
-  <!-- Or: fieldset + legend -->
-  <fieldset>
-    <legend>Volume</legend>
-    <input type="range" v-model="volume" />
-    <input type="number" v-model="volume" />
-  </fieldset>
-  ```
-
-- `vuejs-accessibility/label-has-for` is set to `warn` for compound UI patterns. When disabling intentionally, add a description comment (required by `eslint-comments/require-description`):
-  ```vue
-  <!-- eslint-disable-next-line vuejs-accessibility/label-has-for -- compound slider+input UI -->
-  ```
-
----
-
-## ESLint Disable Policy
-
-`eslint-comments/require-description` is set to `error`. Every `eslint-disable` comment **must** include a reason:
-
-```ts
-// OK
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment -- third-party type gap, no @types available
-
-// NG
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-```
-
----
-
-## Testing
-
-### Unit tests (Vitest)
-
-- Test files: `src/**/__tests__/*.ts`
-- Follow **Arrange / Act / Assert** structure.
-- Mock external dependencies (API, DB, browser APIs) — tests must not make real network calls.
-- Coverage threshold: **80%** lines and functions (enforced in CI).
-
-### E2E tests (Playwright)
-
-- Test files: `e2e/**/*.{test,spec}.{js,ts}`
-- Test user-visible behavior, not implementation details.
-
----
-
-## Git & PR Rules
-
-- Commit messages follow **Conventional Commits**:
-  ```
-  feat(auth): add JWT refresh token rotation
-  fix(api): handle 429 rate limit with exponential backoff
-  docs: update README setup instructions
-  ```
-- PRs should be focused on a single purpose; aim for diffs under ~400 lines.
-- Minimum **1 approving review** required before merging to `master`.
-- PR description must include: what changed, how to test, and screenshots if UI is affected.
-
----
-
-## Environment Variables
-
-- All client-side env vars must be prefixed with `VITE_APP_`:
-  ```
-  VITE_APP_TITLE=My App
-  VITE_APP_API_BASE_URL=https://api.example.com
-  ```
-- Copy `.env.example` to `.env` before running the dev server.
-- Never commit `.env` — it is in `.gitignore`.
-- Access via `import.meta.env.VITE_APP_*` (typed in `env.d.ts`).
-
----
-
-## What NOT to Do
-
-- Do not use `any` — use `unknown` with type guards.
-- Do not use Options API (`defineComponent`, `data()`, `methods:`).
-- Do not use runtime `defineProps({ title: String })` declarations.
-- Do not write `../` relative imports that traverse parent directories (exception: `src/**/__tests__/` may use `../` to reach the component under test).
-- Do not use `<style>` without `scoped`.
-- Do not write bare `localStorage` / `sessionStorage` access — use `pinia-plugin-persistedstate`.
-- Do not add `eslint-disable` comments without a description.
-- Do not install packages with `npm` or `yarn` — use `pnpm` only.
+- Keep changes within the requested scope and do not revert unrelated existing changes.
+- Include a reason when disabling lint rules in comments.
+- Use `pnpm` for dependency operations. Only create commits or branches when requested.

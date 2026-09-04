@@ -1,8 +1,8 @@
+# Do not enforce minimum release age for dependencies.
+# Version selection is delegated to package.json constraints.
+minimumReleaseAge: 0
 allowBuilds:
   '@parcel/watcher': true
   core-js: true
   esbuild: true
   unrs-resolver: true
-minimumReleaseAgeExclude:
-  - '@vue/test-utils@2.5.0'
-  - vue-router@5.3.0

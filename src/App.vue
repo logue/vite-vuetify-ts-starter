@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup vapor>
 import { useConfigStore, useGlobalStore } from '@/store';
 import { computed, ref, type ComputedRef, type Ref, type WritableComputedRef } from 'vue';
 

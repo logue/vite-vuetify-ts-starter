@@ -1,51 +1,61 @@
+# Dependencies
+.claude/
+.pnp
+.pnp.js
+node_modules/
+
+# Build / Cache
+.cache
+.data
+.mf
+.nitro
+.nuxt
+.output
+
+# Test Report
+coverage/
+reports/
+test-results/
+
+# Production / Build output
+dist/
+
 # Logs
 logs
 *.log
-pnpm-debug.log*
-lerna-debug.log*
 
-node_modules
-.DS_Store
-Thumbs.db
-dist
-dist-ssr
-coverage
-*.local
-.claude
+# Runtime data
+.rstack
+.rspack-profile-*
+*.pid
+*.pid.lock
+*.seed
+pids
 
-# Env files
+# Environment
 .env
 .env.*
 !.env.example
 
-# Editor directories and files
+# Lockfiles
+*.lock
+# pnpm-lock.yaml # as you need to commit this file for reproducible builds
+# pnpm-workspace.yaml # as you need to commit this file for reproducible builds
+
+# IDE
+.idea
+*.iml
+*.sublime-project
+*.sublime-workspace
+*.swo
+*.swp
 .vscode/*
 !.vscode/extensions.json
-.idea
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+!.vscode/settings.json
 
-*.tsbuildinfo
-
-.eslintcache
-
-# Cypress
-/cypress/videos/
-/cypress/screenshots/
-
-# Vitest
-__screenshots__/
-
-# Vite
-*.timestamp-*-*.mjs
-
-test-results/
-playwright-report/
-.agents/
-
-*.bak
-*.backup
-
+# Local
+/local
+.DS_Store
+*.local
+*.log*
+Thumbs.db

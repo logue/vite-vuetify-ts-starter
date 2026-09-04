@@ -1,6 +1,4 @@
-.husky/
-.vscode/
-.yarn/
+.agents/
 coverage/
 dist/
 pnpm-lock.yaml

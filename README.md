@@ -2,17 +2,19 @@
 
 [日本語版](README.ja.md)
 
-[![GitHub stars](https://img.shields.io/github/stars/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter)
-[![GitHub license](https://img.shields.io/github/license/logue/vite-vuetify-ts-starter.svg)](https://github.com/logue/vite-vuetify-ts-starter/blob/master/LICENSE)
-[![Node.js Version](https://img.shields.io/badge/node-%3E%3D22.13.0-brightgreen.svg)](https://nodejs.org/)
-[![pnpm](https://img.shields.io/badge/pnpm-11-orange.svg)](https://pnpm.io/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-7-%230074c1.svg)](http://www.typescriptlang.org/)
+[![Node.js Version](https://img.shields.io/badge/node-%5E20.19.0%20%7C%7C%20%3E%3D22.12.0-brightgreen.svg)](https://nodejs.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-11-pink.svg)](https://pnpm.io/)
+[![Vite](https://img.shields.io/badge/vite-8-purple.svg)](https://vite.dev/)
+[![X Follow](https://img.shields.io/twitter/follow/logue256?style=plastic)](https://x.com/logue256)
+[![GitHub Sponsors](https://img.shields.io/github/sponsors/logue?label=Sponsor&logo=github&color=ea4aaa)](https://github.com/sponsors/logue)
 
 > [!NOTE]
 > Because eslint does not support TypeScript 7, the current implementation temporarily allows for the coexistence of both 6 and 7.
 
-This template helps you get started developing with Vue 3 and TypeScript in Vite. It uses Vue 3 `<script setup>` SFCs; check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This template helps you get started developing with Vue 3 and TypeScript in Vite. It uses Vue 3 `<script setup vapor>` SFCs; check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
 
-Includes [vue-router](https://router.vuejs.org/) and [Pinia](https://pinia.vuejs.org/) [^1].
+Includes [vue-router](https://router.vuejs.org/) and [Pinia](https://pinia.vuejs.org/).
 
 Additionally, [ESLint](https://eslint.org/), [Stylelint](https://stylelint.io/), and [Prettier](https://prettier.io/) are included and set to run automatically at runtime and on commit. (These settings are strict, so relax them as needed.)
 
@@ -22,32 +24,7 @@ First, define `VITE_APP_TITLE` in your `.env` file.
 
 ## AI Agent Guidance
 
-This repository includes [AGENT.md](AGENT.md), a guideline document for coding agents such as GitHub Copilot, Claude, and Cursor.
-
-If you use an AI coding agent in this project, make sure it follows [AGENT.md](AGENT.md) together with [.github/copilot-instructions.md](.github/copilot-instructions.md).
-
-## 🤖 AI-Driven Development (Optional)
-
-This template supports AI-driven development via [Agent Skills](https://www.skills.sh/).
-To prevent repository bloat and CI/CD overhead, `.agents/` is excluded from Git (`.gitignore`).
-
-This repository tracks `skills-lock.json` (skill definitions + hashes), while each developer keeps actual downloaded skill files in local `.agents/`.
-
-If you are using AI agents (e.g., Claude Code, GitHub Copilot), we highly recommend installing the following skills in your local environment:
-
-```bash
-# Initial install
-npx skills add https://github.com/hyf0/vue-skills --skill vue-best-practices
-npx skills add https://github.com/harlan-zw/vue-ecosystem-skills --skill vuetify-skilld
-
-# Refresh from lock file (recommended after pull)
-npx skills update
-```
-
-### Why not pre-installed? (Architecture Design)
-
-- Zero CI/CD Overhead: Prevents downloading megabytes of duplicate documentation during production builds on GitHub Actions or Vercel.
-- Safer Skill Lifecycle: Keeps skills decoupled from app source, while `skills-lock.json` preserves reproducibility across team members.
+This repository includes [AGENTS.md](AGENTS.md), a guideline document for coding agents such as GitHub Copilot, Claude, and Cursor.
 
 ## 🚀 Quick Start
 
@@ -108,8 +85,6 @@ Designed to be close to [create-vue](https://github.com/vuejs/create-vue-templat
 | Command         | Description                                        |
 | --------------- | -------------------------------------------------- |
 | `dev`           | Start development server                           |
-| `clean`         | Clear development server cache                     |
-| `type-check`    | Check Vue markup                                   |
 | `lint`          | Run all linters                                    |
 | `lint:oxlint`   | Run oxlint                                         |
 | `lint:eslint`   | Run ESLint                                         |
@@ -122,19 +97,14 @@ Designed to be close to [create-vue](https://github.com/vuejs/create-vue-templat
 | `build:analyze` | Execute Bundle Analyzer                            |
 | `build:clean`   | Clear production build files                       |
 | `build-only`    | Build for production without checking (for deploy) |
+| `clean`         | Clear artifacts                                    |
+| `clean:hard`    | Clear artifacts and development cache.             |
+| `type-check`    | Check Vue markup                                   |
 | `preview`       | Run the program generated by the production build  |
 
 ## 🔧 Type Support for `.vue` Imports in TS
 
 TypeScript cannot handle type information for `.vue` imports by default, so they are shimmed to be a generic Vue component type. In most cases, this is fine if you don't care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example, to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from the VSCode command palette.
-
-[^1]: [Pinia](https://pinia.vuejs.org/) is the recommended state management library to replace [Vuex](https://vuex.vuejs.org/) in Vue. See <https://github.com/vuejs/rfcs/discussions/270#discussioncomment-2066856>.
-
-## 🐛 Troubleshooting
-
-When adding or deleting files, an error may occur, and even if corrected, it may not be reflected in the dev server. In that case, stop the dev server and delete all files in the `node_modules/.vite` directory. You can also run it with the `clean` command.
-
-It will not work properly if you are using Node v21.0.0. Please upgrade to 21.1.0 or later.
 
 ## 📝 Checklist
 
@@ -143,28 +113,12 @@ When using this template, follow the checklist to update your info properly.
 - [ ] Change the author name in `LICENSE`
 - [ ] Change the favicon in `public`
 - [ ] Remove the `.github` folder which contains funding info
-- [ ] Review and adapt `AGENT.md` for your project conventions
+- [ ] Review and adapt `AGENTS.md` for your project conventions
 - [ ] Clean up the READMEs and remove routes
 
 ## 🔗 Related Projects
 
-- **For Vue 3**:
-  - [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter)
-  - [vite-vuetify-ts-starter](https://github.com/logue/vite-vuetify-ts-starter) - With Vuetify 3
-    - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - For cross-platform desktop application use.
-  - [vite-element-plus-ts-starter](https://github.com/logue/vite-element-plus-ts-starter) - With Element Plus
-  - [rsbuild-vue-starter](https://github.com/logue/rsbuild-vue-starter) - Built with Rsbuild stack instead of Vite
-  - vite-bootstrap-vue-ts-starter - Coming soon
-- **For Vue 2** (DEPRECATED):
-  - [vite-vue2-ts-starter](https://github.com/logue/vite-vue2-ts-starter) - Vite Vue2 starter
-  - [vite-vue2-vuetify-ts-starter](https://github.com/logue/vite-vue2-vuetify-ts-starter) - UI library using Vuetify2
-  - [laravel9-vite-vue2-starter](https://github.com/logue/laravel9-vite-vue2-starter) - Vue2 for Laravel9 + Breeze
-  - [vite-vue2-ts-ssr-starter](https://github.com/logue/vite-vue2-ts-ssr-starter) - SSR (Server Side Rendering) version
-
-## 🎨 Crafted for Developers
-
-This template is built with a focus on **UI/UX excellence** and **modern developer experience**. Maintaining it involves constant testing and updates to ensure everything works seamlessly.
-
-If you appreciate the attention to detail in this project, a small sponsorship would go a long way in supporting my work across the Vue.js and Metaverse ecosystems.
-
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/logue?label=Sponsor&logo=github&color=ea4aaa)](https://github.com/sponsors/logue)
+- [vite-vue3-ts-starter](https://github.com/logue/vite-vue3-ts-starter)
+- [vite-vuetify-ts-starter](https://github.com/logue/vite-vuetify-ts-starter) - With Vuetify 3
+  - [tauri-vuetify-starter](https://github.com/logue/tauri-vuetify-starter) - For cross-platform desktop application use.
+- [rsbuild-vue-starter](https://github.com/logue/rsbuild-vue-starter) - Built with Rsbuild stack instead of Vite

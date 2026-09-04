@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup vapor>
 import type { DrawerMenuItem } from '@/types/DrawerMenuItem';
 
 /** Drawer menu items */

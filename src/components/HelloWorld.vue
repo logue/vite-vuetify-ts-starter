@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup vapor>
 import { version } from 'vuetify';
 
 import { Meta } from '@/types/Meta';

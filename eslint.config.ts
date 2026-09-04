@@ -24,10 +24,10 @@ import type { Linter } from 'eslint';
 // 5) Prefer small, explicit overrides over broad global exceptions.
 const APP_FILES = ['**/*.{vue,ts,mts,tsx}'];
 const VUE_FILES = ['*.vue', '**/*.vue'];
-const MARKDOWN_FILES = ['.github/**/*.md'];
+const MARKDOWN_FILES = ['**/*.md'];
 const E2E_FILES = ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'];
 const UNIT_TEST_FILES = ['src/**/__tests__/*'];
-const GLOBAL_IGNORES = ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'];
+const GLOBAL_IGNORES = ['**/dist/**', '**/dist-ssr/**', '**/coverage/**', '.agents/**/*'];
 
 const scopeConfigsToFiles = (configs: Linter.Config[], files: string[]) =>
   configs.map(config => (config.files ? config : { ...config, files }));

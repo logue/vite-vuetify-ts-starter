@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup vapor>
 import { useConfigStore } from '@/store';
 
 /** Config Store */
