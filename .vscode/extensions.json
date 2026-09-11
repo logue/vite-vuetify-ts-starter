@@ -6,6 +6,6 @@
     "ms-playwright.playwright",
     "oxc.oxc-vscode",
     "vitest.explorer",
-    "Vue.volar",
+    "Vue.volar"
   ]
 }

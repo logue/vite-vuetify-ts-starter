@@ -1,6 +1,6 @@
 <script lang="ts" setup vapor>
 import { useConfigStore, useGlobalStore } from '@/store';
-import { computed, ref, type ComputedRef, type Ref, type WritableComputedRef } from 'vue';
+import { computed, shallowRef, type ComputedRef, type Ref, type WritableComputedRef } from 'vue';
 
 // Components
 import logo from '@/assets/logo.svg';
@@ -19,7 +19,7 @@ const configStore = useConfigStore();
 const title = import.meta.env.VITE_APP_TITLE ?? 'Vuetify3 Application';
 
 /** drawer visibility */
-const drawer: Ref<boolean> = ref(false);
+const drawer: Ref<boolean> = shallowRef(false);
 
 /** loading overlay visibility */
 const loading: WritableComputedRef<boolean> = computed({
@@ -31,7 +31,7 @@ const loading: WritableComputedRef<boolean> = computed({
 const progress: ComputedRef<number | null> = computed(() => globalStore.progress);
 
 /** Snackbar visibility */
-const { snackbarVisibility, snackbarText, onSnackbarChanged } = useGlobalSnackbar();
+const { snackbarVisibility, snackbarText } = useGlobalSnackbar();
 
 /** Toggle Dark mode */
 const isDark: ComputedRef<'dark' | 'light'> = computed(() =>
@@ -73,10 +73,10 @@ const { themeColor } = useAppHead(title, isDark);
       <v-progress-circular size="64" indeterminate />
     </v-overlay>
 
-    <v-snackbar v-model="snackbarVisibility" @update:model-value="onSnackbarChanged">
+    <v-snackbar v-model="snackbarVisibility">
       {{ snackbarText }}
       <template #actions>
-        <v-btn icon="mdi-close" @click="onSnackbarChanged" />
+        <v-btn icon="mdi-close" @click="snackbarVisibility = false" />
       </template>
     </v-snackbar>
 

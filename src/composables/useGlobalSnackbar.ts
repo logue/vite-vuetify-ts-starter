@@ -1,28 +1,22 @@
 import { useGlobalStore } from '@/store';
-import { computed, nextTick, ref, watch, type ComputedRef, type Ref } from 'vue';
+import { computed, type ComputedRef, type WritableComputedRef } from 'vue';
 
 /**
  * Centralize snackbar visibility and message clearing behavior.
  */
 export const useGlobalSnackbar = (): {
-  snackbarVisibility: Ref<boolean>;
+  snackbarVisibility: WritableComputedRef<boolean>;
   snackbarText: ComputedRef<string>;
-  onSnackbarChanged: () => Promise<void>;
 } => {
   const globalStore = useGlobalStore();
 
-  const snackbarVisibility: Ref<boolean> = ref(false);
-  const snackbarText: ComputedRef<string> = computed(() => globalStore.message);
+  const snackbarText = computed(() => globalStore.message);
+  const snackbarVisibility = computed({
+    get: () => globalStore.message !== '',
+    set: visible => {
+      if (!visible) globalStore.setMessage();
+    }
+  });
 
-  watch(
-    () => globalStore.message,
-    message => (snackbarVisibility.value = message !== '')
-  );
-
-  const onSnackbarChanged = async () => {
-    globalStore.setMessage();
-    await nextTick();
-  };
-
-  return { snackbarVisibility, snackbarText, onSnackbarChanged };
+  return { snackbarVisibility, snackbarText };
 };

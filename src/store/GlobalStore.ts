@@ -1,16 +1,16 @@
 import { defineStore } from 'pinia';
-import { ref, type Ref } from 'vue';
+import { shallowRef, type Ref } from 'vue';
 
 /** Global Store */
 export default defineStore('global', () => {
   // State
 
   /** Loading overlay */
-  const loading: Ref<boolean> = ref(true);
+  const loading: Ref<boolean> = shallowRef(true);
   /** ProgressBar Percentage */
-  const progress: Ref<number | null> = ref(null);
+  const progress: Ref<number | null> = shallowRef(null);
   /** SnackBar Text */
-  const message: Ref<string> = ref('');
+  const message: Ref<string> = shallowRef('');
 
   // Actions
 

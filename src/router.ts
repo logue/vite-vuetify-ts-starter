@@ -1,12 +1,5 @@
 import { useGlobalStore } from '@/store';
-import {
-  createRouter,
-  createWebHistory,
-  type Router,
-  type NavigationGuardNext,
-  type RouteLocationNormalized,
-  type RouteRecordRaw
-} from 'vue-router';
+import { createRouter, createWebHistory, type Router, type RouteRecordRaw } from 'vue-router';
 
 // Components
 import HomeView from '@/views/HomeView.vue';
@@ -58,22 +51,15 @@ const router: Router = createRouter({
 
 // Global before guards
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards}
-router.beforeEach(
-  async (
-    _to: RouteLocationNormalized,
-    _from: RouteLocationNormalized,
-    next: NavigationGuardNext
-  ) => {
-    const globalStore = useGlobalStore();
-    // Show Loading
-    // comment out for https://github.com/logue/vite-vuetify-ts-starter/issues/16
-    // globalStore.setLoading(true);
+router.beforeEach(() => {
+  const globalStore = useGlobalStore();
+  // Show Loading
+  // comment out for https://github.com/logue/vite-vuetify-ts-starter/issues/16
+  // globalStore.setLoading(true);
 
-    // Hide snack bar
-    globalStore.setMessage('');
-    next();
-  }
-);
+  // Hide snack bar
+  globalStore.setMessage();
+});
 
 // Global After Hooks
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-after-hooks}

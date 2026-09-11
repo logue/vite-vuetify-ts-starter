@@ -1,14 +1,14 @@
 import { defineStore } from 'pinia';
-import { ref, type Ref } from 'vue';
+import { shallowRef } from 'vue';
 
 /** Config Store */
 export default defineStore(
   'config',
   () => {
     /** Dark Theme mode */
-    const theme: Ref<boolean> = ref(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const theme = shallowRef(window.matchMedia('(prefers-color-scheme: dark)').matches);
 
-    const locale: Ref<string> = ref(window.navigator.languages[0] ?? window.navigator.language);
+    const locale = shallowRef(window.navigator.languages[0] ?? window.navigator.language);
 
     /** Toggle Dark/Light mode */
     const toggleTheme = () => (theme.value = !theme.value);
@@ -19,7 +19,7 @@ export default defineStore(
      */
     const setLocale = (l: string) => (locale.value = l);
 
-    return { theme, toggleTheme, setLocale };
+    return { theme, locale, toggleTheme, setLocale };
   },
   {
     // Data persistence destination
