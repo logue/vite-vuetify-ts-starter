@@ -18,18 +18,29 @@ withDefaults(defineProps<Props>(), {
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-center text-center fill-height">
-      <v-img :width="256" src="@/assets/logo.svg" alt="vuetify" class="logo mx-auto" />
+      <v-img
+        :width="256"
+        src="@/assets/logo.svg"
+        alt="vuetify"
+        class="logo mx-auto"
+      />
       <h1 class="text-h2 font-weight-bold mb-3">
         Welcome to the Vuetify
         <v-code tag="code">{{ 'v' + version }}</v-code>
       </h1>
       <p>{{ msg }}</p>
       <p class="text-medium-emphasis">
-        <a href="https://github.com/logue/vite-vuetify-ts-starter" target="_blank">
+        <a
+          href="https://github.com/logue/vite-vuetify-ts-starter"
+          target="_blank"
+        >
           vite-vuetify-ts-starter
         </a>
         &nbsp;/&nbsp;Build:
-        <time :datetime="Meta.date" v-text="new Date(Meta.date).toLocaleString()" />
+        <time
+          :datetime="Meta.date"
+          v-text="new Date(Meta.date).toLocaleString()"
+        />
       </p>
       <v-alert
         v-if="!title"

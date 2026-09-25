@@ -1,60 +1,24 @@
-# Project Guidelines
+# AI Project Instructions
 
-## Build and Test
+Follow the root `AGENTS.md` first. It covers commands, source conventions, and which configuration files are the source of truth.
 
-- Use pnpm for all tasks. Do not use npm or yarn in this workspace.
-- Use Node.js version `>=22.13.0`.
-- Install dependencies with `pnpm install`.
-- Common commands:
-  - `pnpm dev` for local development
-  - `pnpm type-check` for Vue + TypeScript checking
-  - `pnpm lint` for oxlint + eslint + prettier + stylelint
-  - `pnpm test:unit` for Vitest
-  - `pnpm test:e2e` for Playwright
-  - `pnpm build` for production build
-- When touching runtime behavior, run at least `pnpm type-check` and relevant tests.
+## Skills
 
-## Architecture
+Vue-specific rules and examples are provided as agent skills from [vuejs-ai/skills](https://github.com/vuejs-ai/skills) in `.agents/skills/` (tracked in `skills-lock.json`):
 
-- Entry points are `src/main.ts` and `src/App.vue`.
-- Route-level pages belong in `src/views`; reusable UI belongs in `src/components`.
-- Router configuration is centralized in `src/router.ts`.
-- Pinia stores are in `src/store`.
-- Import path alias `@` points to `src`.
-- UI framework is Vuetify 4; see `src/plugins/vuetify.ts` for setup and `vite.config.ts` for build chunking strategy.
+- `vue-best-practices`: Vue 3, Composition API, `<script setup>`, TypeScript
+- `vue-pinia-best-practices`: Pinia setup stores and state management
+- `vue-router-best-practices`: Vue Router navigation and routing patterns
+- `vue-testing-best-practices`: Vitest, Vue Test Utils, mocking, and Playwright E2E tests
+- `vue-debug-guides`: Runtime errors, warnings, async failures, and hydration issues
+- `create-adaptable-composable`: Reusable composables that accept `MaybeRef` / `MaybeRefOrGetter` inputs
+- `vuetify-skilld`: Vuetify docs, issues, and releases into version-aware references.
 
-## Conventions
+Before generating, modifying, or refactoring Vue code, read the relevant `SKILL.md` under `.agents/skills/`. Run `pnpm skills:update` to update them.
 
-- Prefer Vue 3 SFC with `<script setup lang="ts">`.
-- Keep TypeScript strictness intact; avoid weakening tsconfig rules unless explicitly requested.
-- Respect existing import grouping/order and let lint rules drive final ordering.
-- Keep changes minimal and scoped; avoid broad refactors in template-derived files unless requested.
+## Key points
 
-## Pitfalls
-
-- If file add/remove changes are not reflected by Vite, clear cache with `pnpm clean`.
-- Node v21.0.0 is known to be problematic in this project.
-- Build writes metadata to `src/Meta.ts`; do not hand-edit generated metadata content.
-
-## References
-
-- Setup, commands, and troubleshooting: `README.md`
-- Japanese documentation: `README.ja.md`
-- Lint rules and import ordering details: `eslint.config.ts`
-- Build behavior and chunking strategy: `vite.config.ts`
-
-## Agent Skills
-
-This project uses AI agent skills (`.agents/skills/`) to provide context-aware guidance:
-
-- **`vue-best-practices`** — Applied for Vue.js tasks. Enforces Composition API + `<script setup>` + TypeScript best practices. Covers Vue 3, SSR, Volar, vue-tsc, Vue Router, and Pinia workflows.
-- **`vuetify-skilld`** — Applied for Vuetify UI development. Provides Material Design 3 API reference, component best practices, and Vuetify 4-specific breaking changes.
-
-These skills are automatically loaded and applied by AI agents when working on Vue and Vuetify-related code. Manage skills via `npx skills` or `skills-lock.json`.
-
-## Related Customizations
-
-- Frontend file-specific instruction: `.github/instructions/frontend-vue.instructions.md`
-- Reusable execution prompt: `.github/prompts/run-safe-change.prompt.md`
-- PR quality gate prompt: `.github/prompts/pre-pr-quality-gate.prompt.md`
-- Release readiness prompt: `.github/prompts/pre-release-readiness.prompt.md`
+- Use `<script lang="ts" setup vapor>` for Vue SFCs.
+- Lint with Oxlint and format with Oxfmt (`pnpm lint`). ESLint, Prettier, and Stylelint are not used; do not add them back.
+- Add lint rules to `.oxlintrc.json` and formatting or import-sorting options to `.oxfmtrc.json`.
+- Use `pnpm` only.

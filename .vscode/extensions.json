@@ -1,11 +1,13 @@
 {
   "recommendations": [
-    "dbaeumer.vscode-eslint",
     "EditorConfig.EditorConfig",
-    "esbenp.prettier-vscode",
     "ms-playwright.playwright",
     "oxc.oxc-vscode",
     "vitest.explorer",
     "Vue.volar"
+  ],
+  "unwantedRecommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode"
   ]
 }

@@ -1,0 +1,54 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "bracketSameLine": false,
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "sortPackageJson": true,
+  "sortImports": {
+    "newlinesBetween": true,
+    "internalPattern": ["@/", "~/"],
+    "customGroups": [
+      {
+        "groupName": "framework",
+        "elementNamePattern": [
+          "vue",
+          "vue-router",
+          "vue-i18n",
+          "pinia",
+          "pinia-*",
+          "@vue/**",
+          "vite",
+          "vitest",
+          "vitest/**",
+          "@vitejs/**"
+        ]
+      }
+    ],
+    "groups": [
+      "side_effect_style",
+      "builtin",
+      "framework",
+      "external",
+      "internal",
+      ["parent", "sibling", "index"],
+      "type",
+      "unknown"
+    ]
+  },
+  "ignorePatterns": [
+    ".agents/",
+    "coverage/",
+    "dist/",
+    "pnpm-lock.yaml",
+    "public/assets/",
+    "playwright-report/",
+    "test-results/"
+  ]
+}

@@ -1,3 +1,5 @@
+import '@mdi/font/css/materialdesignicons.css';
+
 /**
  * Vuetify3 Plugin
  */
@@ -6,12 +8,10 @@ import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';
 // import { aliases, mdi } from 'vuetify/iconsets/mdi-svg';
 import * as labsComponents from 'vuetify/labs/components';
-// Translations provided by Vuetify
-import { en } from 'vuetify/locale';
-
 // Styles
 import 'vuetify/styles';
-import '@mdi/font/css/materialdesignicons.css';
+// Translations provided by Vuetify
+import { en } from 'vuetify/locale';
 
 /**
  * Vuetify Components

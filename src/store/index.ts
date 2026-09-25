@@ -1,5 +1,4 @@
 import { createPinia, type Pinia } from 'pinia';
-
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 
 // Pinia Stores

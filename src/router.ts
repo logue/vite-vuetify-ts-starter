@@ -1,6 +1,12 @@
-import { useGlobalStore } from '@/store';
-import { createRouter, createWebHistory, type Router, type RouteRecordRaw } from 'vue-router';
+import {
+  createRouter,
+  createWebHistory,
+  type Router,
+  type RouteRecordRaw
+} from 'vue-router';
 
+import { useGlobalSnackbar } from '@/composables/useGlobalSnackbar';
+import { useGlobalStore } from '@/store';
 // Components
 import HomeView from '@/views/HomeView.vue';
 
@@ -52,13 +58,14 @@ const router: Router = createRouter({
 // Global before guards
 // https://router.vuejs.org/guide/advanced/navigation-guards.html#global-before-guards}
 router.beforeEach(() => {
-  const globalStore = useGlobalStore();
+  const { hideSnackbar } = useGlobalSnackbar();
+
   // Show Loading
   // comment out for https://github.com/logue/vite-vuetify-ts-starter/issues/16
-  // globalStore.setLoading(true);
+  // useGlobalStore().setLoading(true);
 
   // Hide snack bar
-  globalStore.setMessage();
+  hideSnackbar();
 });
 
 // Global After Hooks

@@ -3,8 +3,8 @@
 [English](README.md)
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-7-%230074c1.svg)](http://www.typescriptlang.org/)
-[![Node.js Version](https://img.shields.io/badge/node-%5E20.19.0%20%7C%7C%20%3E%3D22.12.0-brightgreen.svg)](https://nodejs.org/)
-[![pnpm](https://img.shields.io/badge/pnpm-11-pink.svg)](https://pnpm.io/)
+[![Node.js Version](https://img.shields.io/badge/node-%5E22.18.0%20%7C%7C%20%3E%3D24.12.0-brightgreen.svg)](https://nodejs.org/)
+[![pnpm](https://img.shields.io/badge/pnpm-12-pink.svg)](https://pnpm.io/)
 [![Vite](https://img.shields.io/badge/vite-8-purple.svg)](https://vite.dev/)
 [![X Follow](https://img.shields.io/twitter/follow/logue256?style=plastic)](https://x.com/logue256)
 [![GitHub Sponsors](https://img.shields.io/github/sponsors/logue?label=Sponsor&logo=github&color=ea4aaa)](https://github.com/sponsors/logue)
@@ -13,7 +13,7 @@
 
 [vue-router](https://router.vuejs.org/) と [Pinia](https://pinia.vuejs.org/) [^1] が含まれています。
 
-さらに、[ESLint](https://eslint.org/)、[Stylelint](https://stylelint.io/)、[Prettier](https://prettier.io/) が含まれており、実行時とコミット時に自動で実行されるように設定されています。（これらの設定は厳しく設定されているので、必要に応じて緩和してください。）
+コード品質チェックには [Oxlint](https://oxc.rs/docs/guide/usage/linter) と [Oxfmt](https://oxc.rs/docs/guide/usage/formatter) を使用しています。`pnpm lint` で実行できます。
 
 開発サーバーの実行時には、[vite-plugin-checker](https://github.com/fi3ework/vite-plugin-checker) によってリアルタイムでチェックされます。
 
@@ -56,7 +56,7 @@ pnpm test:e2e
 
 - **Vue 3** + **TypeScript** + **Vite** の組み合わせ
 - **vue-router** と **Pinia** によるルーティングと状態管理
-- **ESLint**、**Stylelint**、**Prettier** によるコード品質管理
+- **Oxlint** と **Oxfmt** によるコード品質管理
 - **Vitest** によるユニットテスト
 - **Playwright** による E2E テスト
 - **vite-plugin-checker** によるリアルタイム型チェック
@@ -82,22 +82,18 @@ pnpm test:e2e
 | コマンド        | 説明                                     |
 | --------------- | ---------------------------------------- |
 | `dev`           | 開発サーバーを起動                       |
-| `clean`         |                                          |
-| `lint`          | すべてのリンターを実行                   |
+| `lint`          | Oxlint と Oxfmt を実行                   |
 | `lint:oxlint`   | oxlint を実行                            |
-| `lint:eslint`   | ESLint を実行                            |
-| `lint:style`    | Stylelint を実行                         |
-| `test`          | Vitest を実行                            |
 | `test:unit`     | ユニットテストを実行                     |
 | `test:coverage` | カバレッジレポートを出力                 |
 | `test:e2e`      | E2E テストを実行                         |
 | `build`         | 本番用ビルド                             |
 | `build:analyze` | Bundle Analyzer を実行                   |
-| `build:clean`   | 本番ビルドファイルをクリア               |
 | `build-only`    | チェックなしで本番ビルド（デプロイ用）   |
 | `clean`         | 成果物をクリア                           |
 | `clean:hard`    | 成果物と開発サーバーのキャッシュをクリア |
 | `type-check`    | Vue マークアップをチェック               |
+| `skills:update` | インストール済みエージェントスキルを更新 |
 | `preview`       | 本番ビルドで生成されたプログラムを実行   |
 
 ## 🔧 TypeScript での `.vue` インポートサポート
@@ -110,7 +106,7 @@ TypeScript はデフォルトで `.vue` インポートの型情報を扱えな�
 
 ファイルを追加または削除するとエラーが発生し、修正しても開発サーバーに反映されない場合があります。その場合は、開発サーバーを停止し、`node_modules/.vite` ディレクトリ内のすべてのファイルを削除してください。`clean` コマンドでも実行できます。
 
-Node v21.0.0 を使用している場合、正しく動作しません。21.1.0 以降にアップグレードしてください。
+Node.js は `^22.18.0` または `>=24.12.0` を使用してください。対応するバージョンは `package.json` の `engines` に定義されています。
 
 ## 📝 チェックリスト
 

@@ -1,11 +1,7 @@
 <script lang="ts" setup vapor>
-import { useGlobalStore } from '@/store';
+import { useGlobalSnackbar } from '@/composables/useGlobalSnackbar';
 
-/** Global Store */
-const globalStore = useGlobalStore();
-
-/** Display snackbar */
-const showSnackbar = (message: string) => globalStore.setMessage(message);
+const { showSnackbar } = useGlobalSnackbar();
 </script>
 
 <template>

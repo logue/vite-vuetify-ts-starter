@@ -6,9 +6,13 @@ export default defineStore(
   'config',
   () => {
     /** Dark Theme mode */
-    const theme = shallowRef(window.matchMedia('(prefers-color-scheme: dark)').matches);
+    const theme = shallowRef(
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    );
 
-    const locale = shallowRef(window.navigator.languages[0] ?? window.navigator.language);
+    const locale = shallowRef(
+      window.navigator.languages[0] ?? window.navigator.language
+    );
 
     /** Toggle Dark/Light mode */
     const toggleTheme = () => (theme.value = !theme.value);

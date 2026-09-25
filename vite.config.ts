@@ -72,14 +72,17 @@ export default defineConfig(({ command, mode }): UserConfig => {
       target: 'esnext',
       // Minify option
       // https://vitejs.dev/config/build-options.html#build-minify
-      minify: 'esbuild',
+      minify: 'oxc',
       // Rollup Options
       // https://vitejs.dev/config/build-options.html#build-rollupoptions
       rollupOptions: {
         output: {
           manualChunks: (id: string) => {
             // Split external library from transpiled code.
-            if (id.includes('/node_modules/vuetify') || id.includes('/node_modules/@mdi')) {
+            if (
+              id.includes('/node_modules/vuetify') ||
+              id.includes('/node_modules/@mdi')
+            ) {
               // Split Vuetify before vue.
               return 'vuetify';
             }
@@ -108,11 +111,17 @@ export default defineConfig(({ command, mode }): UserConfig => {
               : undefined
           ]
         }
+      },
+      rolldownOptions: {
+        output: {
+          minify: {
+            compress: {
+              // Drop console when production build.
+              dropConsole: command === 'serve'
+            }
+          }
+        }
       }
-    },
-    esbuild: {
-      // Drop console when production build.
-      drop: command === 'serve' ? [] : ['console']
     }
   };
 

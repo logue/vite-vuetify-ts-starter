@@ -1,10 +1,268 @@
 {
   "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["eslint", "typescript", "unicorn", "oxc", "vue", "vitest"],
-  "env": {
-    "browser": true
-  },
+  "plugins": [
+    "eslint",
+    "typescript",
+    "unicorn",
+    "oxc",
+    "import",
+    "vue",
+    "vitest"
+  ],
+  "jsPlugins": [
+    "@eslint-community/eslint-plugin-eslint-comments",
+    "eslint-plugin-security",
+    "eslint-plugin-playwright",
+    "eslint-plugin-vuetify"
+  ],
   "categories": {
     "correctness": "error"
-  }
+  },
+  "options": {
+    "typeAware": true
+  },
+  "env": {
+    "builtin": true,
+    "browser": true
+  },
+  "ignorePatterns": [
+    "**/dist/**",
+    "**/dist-ssr/**",
+    "**/coverage/**",
+    ".agents/**/*"
+  ],
+  "rules": {
+    // typescript-eslint recommended
+    "no-array-constructor": "error",
+    "no-unused-expressions": "error",
+    "typescript/no-duplicate-enum-values": "error",
+    "typescript/no-empty-object-type": "error",
+    "typescript/no-explicit-any": "error",
+    "typescript/no-extra-non-null-assertion": "error",
+    "typescript/no-misused-new": "error",
+    "typescript/no-namespace": "error",
+    "typescript/no-non-null-asserted-optional-chain": "error",
+    "typescript/no-require-imports": "error",
+    "typescript/no-this-alias": "error",
+    "typescript/no-unnecessary-type-constraint": "error",
+    "typescript/no-unsafe-declaration-merging": "error",
+    "typescript/no-unsafe-function-type": "error",
+    "typescript/no-wrapper-object-types": "error",
+    "typescript/prefer-as-const": "error",
+    "typescript/prefer-namespace-keyword": "error",
+    // eslint-comments recommended
+    "@eslint-community/eslint-comments/disable-enable-pair": "error",
+    "@eslint-community/eslint-comments/no-aggregating-enable": "error",
+    "@eslint-community/eslint-comments/no-duplicate-disable": "error",
+    "@eslint-community/eslint-comments/no-unlimited-disable": "error",
+    "@eslint-community/eslint-comments/no-unused-enable": "error"
+  },
+  "overrides": [
+    {
+      // Type checking already covers these core rules in TypeScript files.
+      "files": ["**/*.ts", "**/*.tsx", "**/*.mts", "**/*.cts", "**/*.vue"],
+      "rules": {
+        "constructor-super": "off",
+        "getter-return": "off",
+        "no-class-assign": "off",
+        "no-const-assign": "off",
+        "no-dupe-class-members": "off",
+        "no-dupe-keys": "off",
+        "no-func-assign": "off",
+        "no-import-assign": "off",
+        "no-new-native-nonconstructor": "off",
+        "no-obj-calls": "off",
+        "no-redeclare": "off",
+        "no-setter-return": "off",
+        "no-this-before-super": "off",
+        "no-unreachable": "off",
+        "no-unsafe-negation": "off",
+        "no-with": "off",
+        "no-var": "error",
+        "prefer-const": "error",
+        "prefer-rest-params": "error",
+        "prefer-spread": "error"
+      }
+    },
+    {
+      "files": ["**/*.{vue,ts,mts,tsx}"],
+      "rules": {
+        "@eslint-community/eslint-comments/require-description": "error",
+        // const lines: string[] = []; style
+        "typescript/array-type": [
+          "error",
+          {
+            "default": "array"
+          }
+        ],
+        // Enable @ts-ignore etc.
+        "typescript/ban-ts-comment": "off",
+        // Left-hand side style
+        "typescript/consistent-generic-constructors": [
+          "error",
+          "type-annotation"
+        ],
+        // Fix for pinia
+        "typescript/explicit-function-return-type": "off",
+        // Fix for vite import.meta.env
+        "typescript/strict-boolean-expressions": "off",
+        // Fix for vite env.d.ts.
+        "typescript/triple-slash-reference": "off",
+        // Exclude variables with leading underscores
+        "no-unused-vars": [
+          "error",
+          {
+            "args": "all",
+            "argsIgnorePattern": "^_",
+            "caughtErrors": "all",
+            "caughtErrorsIgnorePattern": "^_",
+            "destructuredArrayIgnorePattern": "^_",
+            "varsIgnorePattern": "^_",
+            "ignoreRestSiblings": true
+          }
+        ],
+        // Fix for Vue setup style
+        "import/default": "off",
+        // Fix for vite
+        "import/namespace": "off",
+        "import/no-default-export": "off",
+        "import/no-named-as-default": "off",
+        "import/no-named-as-default-member": "off",
+        "import/no-duplicates": "warn",
+        // Using `../` to navigate back to parent directories is completely prohibited (using `./foo` at the same level is OK).
+        // Alias imports like `@/` are not relative paths, so they are not reported.
+        // Import order is handled by oxfmt `sortImports` (see .oxfmtrc.json).
+        "import/no-relative-parent-imports": "error",
+        // eslint-plugin-security recommended
+        "security/detect-buffer-noassert": "warn",
+        "security/detect-child-process": "warn",
+        "security/detect-disable-mustache-escape": "warn",
+        "security/detect-eval-with-expression": "warn",
+        "security/detect-new-buffer": "warn",
+        "security/detect-no-csrf-before-method-override": "warn",
+        "security/detect-non-literal-fs-filename": "warn",
+        "security/detect-non-literal-regexp": "warn",
+        "security/detect-non-literal-require": "warn",
+        "security/detect-object-injection": "warn",
+        "security/detect-possible-timing-attacks": "warn",
+        "security/detect-pseudoRandomBytes": "warn",
+        "security/detect-unsafe-regex": "warn",
+        "security/detect-bidi-characters": "warn"
+      }
+    },
+    {
+      "files": ["*.vue", "**/*.vue"],
+      "rules": {
+        "vue/no-arrow-functions-in-watch": "error",
+        "vue/no-async-in-computed-properties": "error",
+        "vue/no-computed-properties-in-data": "error",
+        "vue/no-deprecated-data-object-declaration": "error",
+        "vue/no-deprecated-delete-set": "error",
+        "vue/no-deprecated-destroyed-lifecycle": "error",
+        "vue/no-deprecated-events-api": "error",
+        "vue/no-deprecated-model-definition": "error",
+        "vue/no-deprecated-props-default-this": "error",
+        "vue/no-deprecated-vue-config-keycodes": "error",
+        "vue/no-dupe-keys": "error",
+        "vue/no-export-in-script-setup": "error",
+        "vue/no-expose-after-await": "error",
+        "vue/no-lifecycle-after-await": "error",
+        "vue/no-reserved-component-names": "error",
+        "vue/no-reserved-keys": "error",
+        "vue/no-reserved-props": "error",
+        "vue/no-shared-component-data": "error",
+        "vue/no-side-effects-in-computed-properties": "error",
+        "vue/no-watch-after-await": "error",
+        "vue/prefer-import-from-vue": "error",
+        "vue/require-prop-type-constructor": "error",
+        "vue/require-render-return": "error",
+        "vue/require-slots-as-functions": "error",
+        "vue/return-in-computed-property": "error",
+        "vue/return-in-emits-validator": "error",
+        "vue/valid-define-emits": "error",
+        "vue/valid-define-options": "error",
+        "vue/valid-define-props": "error",
+        "vue/valid-next-tick": "error",
+        "vue/component-definition-name-casing": "warn",
+        "vue/prop-name-casing": "warn",
+        "vue/require-default-prop": "warn",
+        "vue/require-prop-types": "warn",
+        "vue/no-multiple-slot-args": "warn",
+        "vue/no-required-prop-with-default": "warn",
+        // defineProps / defineEmits only support type-based declarations (Prohibit runtime declaration style)
+        "vue/define-props-declaration": ["error", "type-based"],
+        "vue/define-emits-declaration": ["error", "type-based"]
+      }
+    },
+    {
+      "files": ["e2e/**/*.{test,spec}.{js,ts,jsx,tsx}"],
+      "env": {
+        "shared-node-browser": true
+      },
+      "rules": {
+        "no-empty-pattern": "off",
+        "playwright/consistent-spacing-between-blocks": "warn",
+        "playwright/expect-expect": "warn",
+        "playwright/max-nested-describe": "warn",
+        "playwright/missing-playwright-await": "error",
+        "playwright/no-conditional-expect": "warn",
+        "playwright/no-conditional-in-test": "warn",
+        "playwright/no-duplicate-hooks": "warn",
+        "playwright/no-duplicate-slow": "warn",
+        "playwright/no-element-handle": "warn",
+        "playwright/no-eval": "warn",
+        "playwright/no-focused-test": "error",
+        "playwright/no-force-option": "warn",
+        "playwright/no-identical-title": "warn",
+        "playwright/no-nested-step": "warn",
+        "playwright/no-networkidle": "error",
+        "playwright/no-page-pause": "warn",
+        "playwright/no-skipped-test": "warn",
+        "playwright/no-standalone-expect": "error",
+        "playwright/no-unnecessary-assertions": "error",
+        "playwright/no-unsafe-references": "error",
+        "playwright/no-unused-locators": "error",
+        "playwright/no-useless-await": "warn",
+        "playwright/no-useless-not": "warn",
+        "playwright/no-wait-for-navigation": "error",
+        "playwright/no-wait-for-selector": "warn",
+        "playwright/no-wait-for-timeout": "warn",
+        "playwright/prefer-hooks-in-order": "warn",
+        "playwright/prefer-hooks-on-top": "warn",
+        "playwright/prefer-locator": "warn",
+        "playwright/prefer-to-have-count": "warn",
+        "playwright/prefer-to-have-length": "warn",
+        "playwright/prefer-web-first-assertions": "error",
+        "playwright/valid-describe-callback": "error",
+        "playwright/valid-expect": "error",
+        "playwright/valid-expect-in-promise": "error",
+        "playwright/valid-test-tags": "error",
+        "playwright/valid-title": "error"
+      }
+    },
+    {
+      "files": ["src/**/__tests__/*"],
+      "rules": {
+        "vitest/expect-expect": "error",
+        "vitest/no-commented-out-tests": "error",
+        "vitest/no-conditional-expect": "error",
+        "vitest/no-disabled-tests": "warn",
+        "vitest/no-focused-tests": "error",
+        "vitest/no-identical-title": "error",
+        "vitest/no-import-node-test": "error",
+        "vitest/no-interpolation-in-snapshots": "error",
+        "vitest/no-mocks-import": "error",
+        "vitest/no-standalone-expect": "error",
+        "vitest/no-unneeded-async-expect-function": "error",
+        "vitest/prefer-called-exactly-once-with": "error",
+        "vitest/require-local-test-context-for-concurrent-snapshots": "error",
+        "vitest/valid-describe-callback": "error",
+        "vitest/valid-expect": "error",
+        "vitest/valid-expect-in-promise": "error",
+        "vitest/valid-title": "error",
+        // Test files intentionally import from parent directories (the component under test).
+        "import/no-relative-parent-imports": "off"
+      }
+    }
+  ]
 }
