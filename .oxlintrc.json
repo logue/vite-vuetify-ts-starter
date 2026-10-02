@@ -2,18 +2,19 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
   "plugins": [
     "eslint",
+    "import",
+    "jsdoc",
+    "oxc",
+    "promise",
     "typescript",
     "unicorn",
-    "oxc",
-    "import",
-    "vue",
-    "vitest"
+    "vitest",
+    "vue"
   ],
   "jsPlugins": [
     "@eslint-community/eslint-plugin-eslint-comments",
     "eslint-plugin-security",
-    "eslint-plugin-playwright",
-    "eslint-plugin-vuetify"
+    "eslint-plugin-playwright"
   ],
   "categories": {
     "correctness": "error"
@@ -26,10 +27,30 @@
     "browser": true
   },
   "ignorePatterns": [
-    "**/dist/**",
-    "**/dist-ssr/**",
+    // AI agents skill docs.
+    "**/.agents/**",
+    // Build intermediate artifacts.
+    "**/.cache/**",
+    "**/.data/**",
+    "**/.mf/**",
+    "**/.nitro/**",
+    "**/.nuxt/**",
+    "**/.output/**",
+    "**/.rstack/**",
+    // Test coverage reports.
     "**/coverage/**",
-    ".agents/**/*"
+    "**/reports",
+    "**/test-results",
+    // Build artifacts.
+    "**/demo/**",
+    "**/dist-ssr/**",
+    "**/dist/**",
+    "**/docs/**",
+    "**/storybook-static/**",
+    // Grit (Biome Rules) source artifacts.
+    "**/grit/**",
+    // Node modules.
+    "**/node_modules/**"
   ],
   "rules": {
     // typescript-eslint recommended
@@ -77,8 +98,8 @@
         "no-this-before-super": "off",
         "no-unreachable": "off",
         "no-unsafe-negation": "off",
-        "no-with": "off",
         "no-var": "error",
+        "no-with": "off",
         "prefer-const": "error",
         "prefer-rest-params": "error",
         "prefer-spread": "error"
@@ -126,14 +147,15 @@
         // Fix for vite
         "import/namespace": "off",
         "import/no-default-export": "off",
-        "import/no-named-as-default": "off",
-        "import/no-named-as-default-member": "off",
         "import/no-duplicates": "warn",
+        "import/no-named-as-default-member": "off",
+        "import/no-named-as-default": "off",
         // Using `../` to navigate back to parent directories is completely prohibited (using `./foo` at the same level is OK).
         // Alias imports like `@/` are not relative paths, so they are not reported.
         // Import order is handled by oxfmt `sortImports` (see .oxfmtrc.json).
         "import/no-relative-parent-imports": "error",
         // eslint-plugin-security recommended
+        "security/detect-bidi-characters": "warn",
         "security/detect-buffer-noassert": "warn",
         "security/detect-child-process": "warn",
         "security/detect-disable-mustache-escape": "warn",
@@ -146,13 +168,13 @@
         "security/detect-object-injection": "warn",
         "security/detect-possible-timing-attacks": "warn",
         "security/detect-pseudoRandomBytes": "warn",
-        "security/detect-unsafe-regex": "warn",
-        "security/detect-bidi-characters": "warn"
+        "security/detect-unsafe-regex": "warn"
       }
     },
     {
       "files": ["*.vue", "**/*.vue"],
       "rules": {
+        "vue/component-definition-name-casing": "warn",
         "vue/no-arrow-functions-in-watch": "error",
         "vue/no-async-in-computed-properties": "error",
         "vue/no-computed-properties-in-data": "error",
@@ -167,6 +189,8 @@
         "vue/no-export-in-script-setup": "error",
         "vue/no-expose-after-await": "error",
         "vue/no-lifecycle-after-await": "error",
+        "vue/no-multiple-slot-args": "warn",
+        "vue/no-required-prop-with-default": "warn",
         "vue/no-reserved-component-names": "error",
         "vue/no-reserved-keys": "error",
         "vue/no-reserved-props": "error",
@@ -174,7 +198,10 @@
         "vue/no-side-effects-in-computed-properties": "error",
         "vue/no-watch-after-await": "error",
         "vue/prefer-import-from-vue": "error",
+        "vue/prop-name-casing": "warn",
+        "vue/require-default-prop": "warn",
         "vue/require-prop-type-constructor": "error",
+        "vue/require-prop-types": "warn",
         "vue/require-render-return": "error",
         "vue/require-slots-as-functions": "error",
         "vue/return-in-computed-property": "error",
@@ -183,15 +210,9 @@
         "vue/valid-define-options": "error",
         "vue/valid-define-props": "error",
         "vue/valid-next-tick": "error",
-        "vue/component-definition-name-casing": "warn",
-        "vue/prop-name-casing": "warn",
-        "vue/require-default-prop": "warn",
-        "vue/require-prop-types": "warn",
-        "vue/no-multiple-slot-args": "warn",
-        "vue/no-required-prop-with-default": "warn",
         // defineProps / defineEmits only support type-based declarations (Prohibit runtime declaration style)
-        "vue/define-props-declaration": ["error", "type-based"],
-        "vue/define-emits-declaration": ["error", "type-based"]
+        "vue/define-emits-declaration": ["error", "type-based"],
+        "vue/define-props-declaration": ["error", "type-based"]
       }
     },
     {
@@ -234,8 +255,8 @@
         "playwright/prefer-to-have-length": "warn",
         "playwright/prefer-web-first-assertions": "error",
         "playwright/valid-describe-callback": "error",
-        "playwright/valid-expect": "error",
         "playwright/valid-expect-in-promise": "error",
+        "playwright/valid-expect": "error",
         "playwright/valid-test-tags": "error",
         "playwright/valid-title": "error"
       }
@@ -257,8 +278,8 @@
         "vitest/prefer-called-exactly-once-with": "error",
         "vitest/require-local-test-context-for-concurrent-snapshots": "error",
         "vitest/valid-describe-callback": "error",
-        "vitest/valid-expect": "error",
         "vitest/valid-expect-in-promise": "error",
+        "vitest/valid-expect": "error",
         "vitest/valid-title": "error",
         // Test files intentionally import from parent directories (the component under test).
         "import/no-relative-parent-imports": "off"

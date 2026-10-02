@@ -18,15 +18,22 @@ reports/
 test-results/
 
 # Production / Build output
+target/
 dist/
+docs/
+demo/
+storybook-static/
 
 # Logs
 logs
 *.log
 
 # Runtime data
+.cargo/config.toml
+.pnpm/crates/
 .rstack
 .rspack-profile-*
+.rsdoctor
 *.pid
 *.pid.lock
 *.seed
@@ -39,6 +46,7 @@ pids
 
 # Lockfiles
 *.lock
+!Cargo.lock
 # pnpm-lock.yaml # as you need to commit this file for reproducible builds
 # pnpm-workspace.yaml # as you need to commit this file for reproducible builds
 
@@ -51,6 +59,7 @@ pids
 *.swp
 .vscode/*
 !.vscode/extensions.json
+!.vscode/mcp.json
 !.vscode/settings.json
 
 # Local
