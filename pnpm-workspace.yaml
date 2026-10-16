@@ -9,7 +9,32 @@ minimumReleaseAge: 0
 # ESLint is not used. Oxlint JS plugins only reference `eslint` for types,
 # so skip the auto-installed peer dependency.
 overrides:
-  eslint: '-'
+  vite@*: 'catalog:'
+  vitest@*: 'catalog:'
+catalog:
+  vite: npm:@voidzero-dev/vite-plus-core@1.3.0
+  vitest: 5.0.5
+  vite-plus: 1.3.0
+  '@vitest/coverage-v8': 5.0.5
+peerDependencyRules:
+  allowAny:
+    - vite
+    - vitest
+  allowedVersions:
+    vite: '*'
+    vitest: '*'
+minimumReleaseAgeExclude:
+  - vite-plus
+  - '@voidzero-dev/*'
+  - oxlint
+  - '@oxlint/*'
+  - oxlint-tsgolint
+  - '@oxlint-tsgolint/*'
+  - oxfmt
+  - '@oxfmt/*'
+  - vitest
+  - '@vitest/*'
+
 # If you use rust, comment out bellow:
 # cargo:
 #  enabled: true

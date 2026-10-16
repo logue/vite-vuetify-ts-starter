@@ -1,43 +1,35 @@
-# Dependencies
+# AI Agent local directories (DO NOT COMMIT)
+.agent/
+.agents/
 .claude/
-.pnp
-.pnp.js
+.cursor/
+.windsurf/
+
+# Dependencies
 node_modules/
 
 # Build / Cache
-.cache
-.data
-.mf
-.nitro
-.nuxt
-.output
+.cache/
+.cargo/config.toml
+.data/
+.mf/
+.nitro/
+.nuxt/
+.output/
+.pnpm/crates/
+.rstack/
+!.rstack/hooks/
+.vitest/
 
 # Test Report
 coverage/
+playwright-report/
 reports/
 test-results/
 
 # Production / Build output
 target/
 dist/
-docs/
-demo/
-storybook-static/
-
-# Logs
-logs
-*.log
-
-# Runtime data
-.cargo/config.toml
-.pnpm/crates/
-.rstack
-.rspack-profile-*
-.rsdoctor
-*.pid
-*.pid.lock
-*.seed
-pids
 
 # Environment
 .env
@@ -51,13 +43,7 @@ pids
 # pnpm-workspace.yaml # as you need to commit this file for reproducible builds
 
 # IDE
-.idea
-*.iml
-*.sublime-project
-*.sublime-workspace
-*.swo
-*.swp
-.vscode/*
+.vscode/
 !.vscode/extensions.json
 !.vscode/mcp.json
 !.vscode/settings.json
@@ -67,4 +53,5 @@ pids
 .DS_Store
 *.local
 *.log*
+*.seed
 Thumbs.db

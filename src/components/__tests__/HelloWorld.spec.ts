@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils';
-import { describe, expect, it } from 'vitest';
 
 import ResizeObserver from 'resize-observer-polyfill';
+import { describe, expect, it } from 'vite-plus/test';
 import { createVuetify } from 'vuetify';
 import * as components from 'vuetify/components';
 import * as directives from 'vuetify/directives';

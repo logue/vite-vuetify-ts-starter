@@ -4,7 +4,8 @@
     "ms-playwright.playwright",
     "oxc.oxc-vscode",
     "vitest.explorer",
-    "Vue.volar"
+    "Vue.volar",
+    "VoidZero.vite-plus-extension-pack"
   ],
   "unwantedRecommendations": [
     "dbaeumer.vscode-eslint",

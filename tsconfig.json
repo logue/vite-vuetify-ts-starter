@@ -1,12 +1,15 @@
 {
   "files": [],
   "references": [
+    // For bundler use.
     {
       "path": "./tsconfig.node.json"
     },
+    // For application use.
     {
       "path": "./tsconfig.app.json"
     },
+    // For test use.
     {
       "path": "./tsconfig.vitest.json"
     }
