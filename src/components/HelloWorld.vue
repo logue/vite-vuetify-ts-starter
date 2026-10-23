@@ -4,6 +4,7 @@ import { version } from 'vuetify';
 import { Meta } from '@/types/Meta';
 
 const title = import.meta.env.VITE_APP_TITLE;
+const date = new Date(Meta.date).toLocaleString();
 
 interface Props {
   msg?: string;
@@ -32,15 +33,15 @@ withDefaults(defineProps<Props>(), {
       <p class="text-medium-emphasis">
         <a
           href="https://github.com/logue/vite-vuetify-ts-starter"
+          rel="noopener noreferrer"
           target="_blank"
         >
           vite-vuetify-ts-starter
         </a>
         &nbsp;/&nbsp;Build:
-        <time
-          :datetime="Meta.date"
-          v-text="new Date(Meta.date).toLocaleString()"
-        />
+        <time :datetime="Meta.date">
+          {{ date }}
+        </time>
       </p>
       <v-alert
         v-if="!title"

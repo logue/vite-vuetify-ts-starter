@@ -1,0 +1,8 @@
+{
+  "schema": "vuetify.mcp.install-state/v1",
+  "scope": "local",
+  "mode": "remote",
+  "ide": "claude",
+  "serverId": "vuetify-mcp",
+  "updatedAt": "2026-10-23T10:23:51.861Z"
+}

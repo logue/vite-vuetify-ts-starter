@@ -1,6 +1,6 @@
 {
   "name": "vite-vuetify-ts-starter",
-  "version": "2.4.1",
+  "version": "3.0.1",
   "private": true,
   "description": "Vue3 Vuetify TypeScript Starter project for Vite.",
   "homepage": "https://github.com/logue/vite-vuetify-ts-starter",
@@ -21,6 +21,7 @@
   "scripts": {
     "dev": "vp dev",
     "lint": "run-s lint:*",
+    "lint:check": "vize lint --type-aware",
     "lint:oxlint": "vp lint --fix",
     "lint:oxfmt": "vp fmt",
     "build": "run-p type-check \"build-only {@}\" --",
@@ -33,19 +34,19 @@
     "clean": "rimraf dist",
     "clean:hard": "rimraf dist node_modules/.tmp node_modules/.vite node_modules/.vite-tmp",
     "build-only": "vp build",
-    "type-check": "vue-tsc --build",
+    "type-check": "vize check --tsconfig tsconfig.app.json",
     "skills:update": "npx skills update",
     "prepare": "vp config && (npx --no-install skills --version >/dev/null 2>&1 && npx skills experimental_install --yes || echo '⚠️ skills CLI not available, skipping sync')"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
-    "core-js": "^3.50.0",
+    "core-js": "^3.51.0",
     "pinia": "^4.1.0",
     "pinia-plugin-persistedstate": "^4.7.1",
     "resize-observer-polyfill": "^1.5.1",
     "vue": "^3.5.44",
     "vue-router": "^5.4.0",
-    "vuetify": "^4.2.6"
+    "vuetify": "^4.3.0"
   },
   "devDependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.8.1",
@@ -53,34 +54,32 @@
     "@tsconfig/node-lts": "^24.0.1",
     "@types/jsdom": "^30.0.0",
     "@types/node": "^26.6.5",
-    "@typescript/native": "npm:typescript@^7.0.2",
     "@vitejs/plugin-vue": "^6.0.10",
     "@vitest/coverage-v8": "catalog:",
     "@vue/test-utils": "^2.5.1",
     "@vue/tsconfig": "^0.9.1",
-    "esbuild": "^0.28.2",
     "eslint-config-vuetify": "^4.7.2",
     "eslint-plugin-playwright": "^2.12.1",
     "eslint-plugin-security": "^4.2.0",
     "eslint-plugin-vuetify": "^2.7.3",
     "jsdom": "^30.1.3",
-    "npm-run-all2": "^9.0.3",
+    "npm-run-all2": "^9.0.4",
     "rimraf": "^6.1.3",
     "rollup-plugin-visualizer": "^7.1.1",
-    "sass-embedded": "^1.105.2",
-    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "sass-embedded": "^1.106.1",
+    "typescript": "^7.0.2",
     "vite": "catalog:",
     "vite-plugin-checker": "^0.14.5",
     "vite-plugin-vue-devtools": "^8.2.1",
     "vite-plugin-vuetify": "^2.1.3",
     "vite-plus": "catalog:",
     "vitest": "catalog:",
-    "vue-tsc": "^3.3.13"
+    "vize": "^0.545.0"
   },
   "engines": {
     "node": "^22.18.0 || >=24.12.0"
   },
-  "packageManager": "pnpm@12.14.0",
+  "packageManager": "pnpm@12.15.0",
   "stackblitz": {
     "startCommand": "pnpm run test:unit"
   }
