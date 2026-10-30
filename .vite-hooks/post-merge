@@ -4,6 +4,11 @@ if [ "$3" != "1" ]; then
   exit 0
 fi
 
+# skip when .agents directory exists.
+if [ -d ".agents" ]; then
+  exit 0
+fi
+
 echo "🔄 Vite+ Hooks: Checking AI Agent Skills environment..."
 
 if ! npx --no-install skills --version >/dev/null 2>&1 && ! command -v skills >/dev/null 2>&1; then

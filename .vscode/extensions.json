@@ -5,10 +5,8 @@
     "oxc.oxc-vscode",
     "vitest.explorer",
     "Vue.volar",
+    "vuetifyjs.vuetify",
     "VoidZero.vite-plus-extension-pack"
   ],
-  "unwantedRecommendations": [
-    "dbaeumer.vscode-eslint",
-    "esbenp.prettier-vscode"
-  ]
+  "unwantedRecommendations": ["biomejs.biome", "dbaeumer.vscode-eslint"]
 }
