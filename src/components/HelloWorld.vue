@@ -19,12 +19,7 @@ withDefaults(defineProps<Props>(), {
 <template>
   <v-container class="fill-height">
     <v-responsive class="align-center text-center fill-height">
-      <v-img
-        :width="256"
-        src="@/assets/logo.svg"
-        alt="vuetify"
-        class="logo mx-auto"
-      />
+      <v-img class="logo mx-auto" alt="vuetify" src="@/assets/logo.svg" :width="256" />
       <h1 class="text-h2 font-weight-bold mb-3">
         Welcome to the Vuetify
         <v-code tag="code">{{ 'v' + version }}</v-code>
@@ -46,8 +41,8 @@ withDefaults(defineProps<Props>(), {
       <v-alert
         v-if="!title"
         class="my-3 w-75 mx-auto"
-        density="compact"
         type="warning"
+        density="compact"
         variant="tonal"
       >
         Please define
@@ -73,8 +68,8 @@ withDefaults(defineProps<Props>(), {
 
         <v-col cols="auto">
           <v-btn
-            color="primary"
             href="https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides"
+            color="primary"
             min-width="228"
             rel="noopener noreferrer"
             size="x-large"
@@ -105,7 +100,7 @@ withDefaults(defineProps<Props>(), {
 
 <style scoped>
 .logo:hover {
-  will-change: filter;
   filter: drop-shadow(0 0 1em #2196f3aa);
+  will-change: filter;
 }
 </style>

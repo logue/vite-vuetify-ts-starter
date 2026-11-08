@@ -7,12 +7,7 @@ const { snackbarVisibility, snackbarText, hideSnackbar } = useGlobalSnackbar();
 </script>
 
 <template>
-  <v-overlay
-    v-model="isLoading"
-    class="justify-center align-center"
-    app
-    persistent
-  >
+  <v-overlay v-model="isLoading" class="justify-center align-center" app persistent>
     <v-progress-circular size="64" indeterminate />
   </v-overlay>
 

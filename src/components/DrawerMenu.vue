@@ -32,29 +32,25 @@ const items: DrawerMenuItem[] = [
         <!-- Menu Item -->
         <v-list-item
           v-if="!item.items"
+          :title="item.title"
           :disabled="!item.to"
           :prepend-icon="item.icon"
-          :title="item.title"
           :to="item.to"
           link
         />
         <!-- Sub menu -->
         <v-list-group v-else-if="item.items" v-model="item.active">
           <template #activator="{ props }">
-            <v-list-item
-              v-bind="props"
-              :prepend-icon="item.icon"
-              :title="item.title"
-            />
+            <v-list-item v-bind="props" :title="item.title" :prepend-icon="item.icon" />
           </template>
           <!-- Sub menu item -->
           <template v-for="subItem in item.items" :key="subItem.title">
             <v-divider v-if="subItem.title === '-'" />
             <v-list-item
               v-else
+              :title="subItem.title"
               :disabled="!subItem.to"
               :prepend-icon="subItem.icon"
-              :title="subItem.title"
               :to="subItem.to"
               link
             />

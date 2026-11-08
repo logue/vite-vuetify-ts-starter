@@ -48,8 +48,8 @@ const { themeColor } = useAppHead(title, isDark);
   </v-app>
 
   <teleport to="head">
-    <meta :content="themeColor" name="theme-color" />
-    <link :href="logo" rel="icon" type="image/svg+xml" />
+    <meta name="theme-color" :content="themeColor" />
+    <link type="image/svg+xml" :href="logo" rel="icon" />
   </teleport>
 </template>
 
@@ -59,9 +59,8 @@ const { themeColor } = useAppHead(title, isDark);
 
 html {
   overflow-y: auto;
+  scrollbar-color: map.get(settings.$grey, 'lighten-2') map.get(settings.$grey, 'base');
   scrollbar-width: thin;
-  scrollbar-color: map.get(settings.$grey, 'lighten-2')
-    map.get(settings.$grey, 'base');
 }
 
 ::-webkit-scrollbar {
@@ -70,8 +69,8 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.1);
   background-color: map.get(settings.$grey, 'lighten-2');
+  box-shadow: inset 0 0 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 ::-webkit-scrollbar-thumb {

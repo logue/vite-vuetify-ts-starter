@@ -2,7 +2,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath, URL } from 'node:url';
 
 import vue from '@vitejs/plugin-vue';
-import { defineConfig, type UserConfig } from 'vite-plus';
+import { defineConfig, type UserConfig, configDefaults } from 'vite-plus';
 
 import { visualizer } from 'rollup-plugin-visualizer';
 import { checker } from 'vite-plugin-checker';
@@ -107,10 +107,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
         output: {
           manualChunks: (id: string) => {
             // Split external library from transpiled code.
-            if (
-              id.includes('/node_modules/vuetify') ||
-              id.includes('/node_modules/@mdi')
-            ) {
+            if (id.includes('/node_modules/vuetify') || id.includes('/node_modules/@mdi')) {
               // Split Vuetify before vue.
               return 'vuetify';
             }
@@ -150,13 +147,25 @@ export default defineConfig(({ command, mode }): UserConfig => {
           }
         }
       }
-    }
+    },
+    // Vitest config
+    test: {
+      environment: 'jsdom',
+      exclude: [...configDefaults.exclude, 'e2e/**'],
+      root: fileURLToPath(new URL('./', import.meta.url)),
+      server: {
+        deps: {
+          inline: ['vuetify']
+        }
+      }
+    },
+    staged: { '*': 'vp check --fix' }
   };
 
   return {
     fmt: {
       ignorePatterns: IGNORE_PATTERNS,
-      printWidth: 80,
+      printWidth: 100,
       tabWidth: 2,
       useTabs: false,
       semi: true,
@@ -201,16 +210,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
       }
     },
     lint: {
-      plugins: [
-        'eslint',
-        'import',
-        'oxc',
-        'promise',
-        'typescript',
-        'unicorn',
-        'vitest',
-        'vue'
-      ],
+      plugins: ['eslint', 'import', 'oxc', 'promise', 'typescript', 'unicorn', 'vitest', 'vue'],
       jsPlugins: [
         '@eslint-community/eslint-plugin-eslint-comments',
         'eslint-plugin-security',
@@ -294,10 +294,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
               }
             ],
             'typescript/ban-ts-comment': 'off',
-            'typescript/consistent-generic-constructors': [
-              'error',
-              'type-annotation'
-            ],
+            'typescript/consistent-generic-constructors': ['error', 'type-annotation'],
             'typescript/explicit-function-return-type': 'off',
             'typescript/strict-boolean-expressions': 'off',
             'typescript/triple-slash-reference': 'off',
@@ -440,8 +437,7 @@ export default defineConfig(({ command, mode }): UserConfig => {
             'vitest/no-standalone-expect': 'error',
             'vitest/no-unneeded-async-expect-function': 'error',
             'vitest/prefer-called-exactly-once-with': 'error',
-            'vitest/require-local-test-context-for-concurrent-snapshots':
-              'error',
+            'vitest/require-local-test-context-for-concurrent-snapshots': 'error',
             'vitest/valid-describe-callback': 'error',
             'vitest/valid-expect-in-promise': 'error',
             'vitest/valid-expect': 'error',

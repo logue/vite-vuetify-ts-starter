@@ -1,9 +1,4 @@
-import {
-  createRouter,
-  createWebHistory,
-  type Router,
-  type RouteRecordRaw
-} from 'vue-router';
+import { createRouter, createWebHistory, type Router, type RouteRecordRaw } from 'vue-router';
 
 import { useGlobalSnackbar } from '@/composables/useGlobalSnackbar';
 import { useGlobalStore } from '@/store';
