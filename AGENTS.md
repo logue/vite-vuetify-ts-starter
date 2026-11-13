@@ -2,20 +2,21 @@
 
 This is a Vue 3 + TypeScript starter project using Vite+. Repository configuration is the source of truth; this file summarizes the project-specific conventions and workflows.
 
-## Overview
+## Setup & Overview
 
 - **Framework**: Vue 3 (Vapor mode SFCs), Vue Router 5, Pinia (setup stores)
 - **Toolchain**: Vite+ (`vp`), including Vite, Rolldown, Vitest, Oxlint, Oxfmt, and Vite Task
-- **Type checking**: `vue-tsc`
+- **Type checking**: `vize` (`vize check`); type-aware linting via `vize lint --type-aware`
 - **Package manager**: pnpm, selected by the `packageManager` field in `package.json`
 
 Check `package.json` for exact tool versions. Vite+ documentation is available in `node_modules/vite-plus/docs` or at <https://viteplus.dev/guide/>.
 
-### TypeScript versions
+**Last updated**: 2026-11-14
 
-- `typescript` is aliased to TypeScript 6 (`@typescript/typescript6`) and is used by `vue-tsc`.
-- TypeScript 7 is installed alongside as `@typescript/native`.
-- Do not replace the `typescript` alias without confirming `vue-tsc` and `vite-plugin-checker` work with it.
+### TypeScript
+
+- `typescript` is TypeScript 7 (native). `vue-tsc` is not used; type checking runs through `vize` (`pnpm type-check`), and `vite-plugin-checker` uses the installed `typescript` package during `vp dev`.
+- Do not downgrade `typescript` or reintroduce `vue-tsc` without confirming `vize` and `vite-plugin-checker` still work.
 
 ## Vite+ commands
 
@@ -26,18 +27,19 @@ vp install       # Install dependencies using the package manager configured in 
 vp dev           # Start the development server
 vp check         # Run the configured checks
 pnpm build       # Run type-check and production build (project script)
-pnpm lint        # Run Oxlint and Oxfmt (project script)
-vp test run      # Run unit tests once
+pnpm lint        # Run vize lint, Oxlint, and Oxfmt (project script)
+vp test run      # Run unit tests once (project script: pnpm test:run)
 pnpm test:e2e    # Run Playwright end-to-end tests
-pnpm type-check  # Run vue-tsc
+pnpm type-check  # Run vize check (tsconfig.app.json)
 ```
 
 Use `vp toolchain` to inspect tool versions and relationships, or `vp toolchain <tool>` for a specific tool. Use `vp why <package>` to inspect why a package is installed. Run `vp <command> --help` for command-specific options.
 
 ## Linting, formatting, and testing
 
-- Oxlint and Oxfmt are provided through Vite+. `pnpm lint` runs the configured lint and format scripts; `vp lint` and `vp fmt` can be run separately.
+- Oxlint and Oxfmt are provided through Vite+. `pnpm lint` runs the configured lint and format scripts (`vize lint --type-aware`, `vp lint --fix`, `vp fmt`); `vp lint` and `vp fmt` can be run separately.
 - ESLint, Prettier, and Stylelint are not used. Do not add them back.
+- Git hooks live in `.vite-hooks/` (dispatcher installed by `vp config` via the `prepare` script). `pre-commit` runs `vp staged`, configured by the `staged` block in `vite.config.ts`.
 - Lint rules, formatting options, and import sorting are configured in `vite.config.ts`.
 - Mock external APIs, browser APIs, databases, and similar dependencies in tests; unit tests must not make real network requests.
 - Run relevant tests when changing runtime behavior. `vp check` and `vp test` are the general Vite+ checks; use `vp run <script>` for project scripts that are not built-ins.
@@ -59,8 +61,9 @@ Do not duplicate detailed configuration here. Check and update the relevant sour
 - Vite+ scripts and dependency versions: `package.json`
 - Lint rules, formatting, import sorting, Vite aliases (`@` → `src`, `~` → `node_modules`), build configuration, and Vite tasks: `vite.config.ts`
 - TypeScript: `tsconfig*.json`
-- Vitest: `vitest.config.ts`
+- Vitest: the `test` block in `vite.config.ts` (there is no separate `vitest.config.ts`)
 - Playwright: `playwright.config.ts`
+- Dependency updates (taze): `taze.config.ts`
 - pnpm settings (`minimumReleaseAge`, overrides): `pnpm-workspace.yaml`
 - Editor settings and recommended extensions: `.vscode/settings.json`, `.vscode/extensions.json`
 - Shared Copilot instructions: `.github/copilot-instructions.md`

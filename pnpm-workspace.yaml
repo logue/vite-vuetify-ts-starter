@@ -1,19 +1,23 @@
+# Do not enforce minimum release age for dependencies.
+# Version selection is delegated to package.json constraints.
+minimumReleaseAge: 0
+
 allowBuilds:
   '@parcel/watcher': true
   core-js: true
   esbuild: true
   unrs-resolver: true
-# Do not enforce minimum release age for dependencies.
-# Version selection is delegated to package.json constraints.
-minimumReleaseAge: 0
 
 overrides:
+  glob: '>=14.0.6'
+  minimatch: '>=11.0.8'
+  # vite plus
   vite@*: 'catalog:'
   vitest@*: 'catalog:'
 catalog:
-  vite: npm:@voidzero-dev/vite-plus-core@1.5.0
+  vite: npm:@voidzero-dev/vite-plus-core@1.6.0
   vitest: 5.1.0
-  vite-plus: 1.5.0
+  vite-plus: 1.6.0
   '@vitest/coverage-v8': 5.1.0
 peerDependencyRules:
   allowAny:

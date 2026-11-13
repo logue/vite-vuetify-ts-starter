@@ -1,11 +1,11 @@
 {
-  "name": "vite-vuetify-ts-starter",
-  "version": "3.0.3",
+  "name": "vite-vuetify-starter",
+  "version": "3.1.1",
   "private": true,
   "description": "Vue3 Vuetify TypeScript Starter project for Vite.",
-  "homepage": "https://github.com/logue/vite-vuetify-ts-starter",
+  "homepage": "https://github.com/logue/vite-vuetify-starter",
   "bugs": {
-    "url": "https://github.com/logue/vite-vuetify-ts-starter/issues"
+    "url": "https://github.com/logue/vite-vuetify-starter/issues"
   },
   "license": "MIT",
   "author": {
@@ -15,11 +15,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:logue/vite-vuetify-ts-starter.git"
+    "url": "git@github.com:logue/vite-vuetify-starter.git"
   },
   "type": "module",
   "scripts": {
-    "dev": "vp dev",
+    "dev": "vp dev --open",
     "lint": "run-s lint:*",
     "lint:check": "vize lint --type-aware",
     "lint:oxlint": "vp lint --fix",
@@ -29,7 +29,7 @@
     "build:clean": "rimraf dist",
     "preview": "vp preview",
     "test": "vp test",
-    "test:run": "vp test watch",
+    "test:run": "vp test run",
     "test:coverage": "vp test run --coverage",
     "test:e2e": "playwright test",
     "clean": "rimraf dist",
@@ -38,7 +38,7 @@
     "type-check": "vize check --tsconfig tsconfig.app.json",
     "skills:install": "npx --no-install skills --version >/dev/null 2>&1 && npx skills experimental_install --yes || echo '\\033[1;33m⚠️  [Warning] skills command not found. Skipped auto-installation of agent skills.\\033[0m'",
     "skills:update": "npx skills update",
-    "prepare": "vp config"
+    "prepare": "vp config && pnpm run skills:install"
   },
   "dependencies": {
     "@mdi/font": "^7.4.47",
@@ -47,16 +47,16 @@
     "pinia-plugin-persistedstate": "^4.7.1",
     "resize-observer-polyfill": "^1.5.1",
     "vue": "^3.5.45",
-    "vue-router": "^5.4.0",
-    "vuetify": "^4.3.2"
+    "vue-router": "^5.5.1",
+    "vuetify": "^4.3.3"
   },
   "devDependencies": {
     "@eslint-community/eslint-plugin-eslint-comments": "^4.8.1",
-    "@playwright/test": "^1.65.0",
-    "@tsconfig/node-lts": "^24.0.1",
+    "@playwright/test": "^1.65.1",
+    "@tsconfig/node-lts": "^26.0.1",
     "@types/jsdom": "^30.0.0",
     "@types/node": "^26.6.6",
-    "@vitejs/plugin-vue": "^6.0.10",
+    "@vitejs/plugin-vue": "^6.0.11",
     "@vitest/coverage-v8": "catalog:",
     "@vue/test-utils": "^2.5.1",
     "@vue/tsconfig": "^0.9.1",
@@ -64,26 +64,23 @@
     "eslint-plugin-playwright": "^2.12.2",
     "eslint-plugin-security": "^4.2.1",
     "eslint-plugin-vuetify": "^2.7.3",
-    "jsdom": "^31.0.0",
+    "jsdom": "^31.0.1",
     "npm-run-all2": "^9.0.4",
     "rimraf": "^6.1.4",
-    "rollup-plugin-visualizer": "^7.1.2",
-    "sass-embedded": "^1.108.1",
+    "rollup-plugin-visualizer": "^7.1.3",
+    "sass-embedded": "^1.108.2",
     "taze": "^21.3.0",
     "typescript": "^7.0.2",
     "vite": "catalog:",
-    "vite-plugin-checker": "^0.14.5",
+    "vite-plugin-checker": "^1.0.0",
     "vite-plugin-vue-devtools": "^8.2.1",
     "vite-plugin-vuetify": "^2.1.3",
     "vite-plus": "catalog:",
     "vitest": "catalog:",
-    "vize": "^0.715.0"
-  },
-  "engines": {
-    "node": "^22.18.0 || >=24.12.0"
+    "vize": "^0.751.0"
   },
   "packageManager": "pnpm@12.18.0",
   "stackblitz": {
-    "startCommand": "pnpm run test:unit"
+    "startCommand": "pnpm run test:run"
   }
 }

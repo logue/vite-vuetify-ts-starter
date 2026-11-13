@@ -1,11 +1,8 @@
 #!/bin/sh
 
-if [ "$3" != "1" ]; then
-  exit 0
-fi
-
-# skip when .agents directory exists.
-if [ -d ".agents" ]; then
+# post-merge receives a single argument: 1 when the merge was a squash merge.
+# Sync AI Agent skills only when the merge changed skills-lock.json.
+if ! git diff-tree -r --name-only --no-commit-id ORIG_HEAD HEAD 2>/dev/null | grep -qx 'skills-lock.json'; then
   exit 0
 fi
 

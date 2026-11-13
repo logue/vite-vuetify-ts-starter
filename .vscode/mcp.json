@@ -1,7 +1,7 @@
 {
   "servers": {
     "vuetify-mcp": {
-      "type": "remote",
+      "type": "http",
       "url": "https://mcp.vuetifyjs.com/mcp"
     }
   }
